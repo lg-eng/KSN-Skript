@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Leitungstheorie &#8212; KSN</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="3. Bibliography" href="Bibliography.html" />
+    <link rel="prev" title="1.4. Bodediagramme von Filter" href="Bodeplot.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">KSN</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Willkommen zum Skriptum für das Fach Kommunikationssystem und Netze
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Hochfrequenztechnik
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Signaldarstellung.html">
+   1. Darstellung von Signalen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bodeplot.html">
+     1.4. Bodediagramme von Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Leitungstheorie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Bibliography.html">
+   3. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Leitungstheorie.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lg-eng/KSN-Skript"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lg-eng/KSN-Skript/issues/new?title=Issue%20on%20page%20%2FLeitungstheorie.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lg-eng/KSN-Skript/master?urlpath=tree/Leitungstheorie.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#begriffe-und-definitionen">
+   2.1. Begriffe und Definitionen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leitungswiderstand">
+     2.1.1. Leitungswiderstand
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reflexionsfaktor">
+     2.1.2. Reflexionsfaktor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#leitungsabschlusse">
+   2.2. Leitungsabschlüsse
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beliebiger-abschluss">
+     2.2.1. Beliebiger Abschluss
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1">#Plotgröße anpassen</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.usetex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">18</span><span class="p">}</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span><span class="o">=</span><span class="s1">&#39;mathjax&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="n">Rs</span><span class="p">,</span><span class="n">Ls</span><span class="p">,</span><span class="n">Cs</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">Z_L</span><span class="p">,</span><span class="n">Gs</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R´,L´,C´,\omega,Z_L,G´&#39;</span><span class="p">,</span><span class="n">real</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">I</span>
+<span class="n">Ur</span><span class="p">,</span><span class="n">Uh</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\underline</span><span class="si">{U}</span><span class="s1">_r,\underline</span><span class="si">{U}</span><span class="s1">_h&#39;</span><span class="p">,</span><span class="n">real</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="leitungstheorie">
+<h1><span class="section-number">2. </span>Leitungstheorie<a class="headerlink" href="#leitungstheorie" title="Link zu dieser Überschrift">¶</a></h1>
+<p><span id="id1">[<a class="reference internal" href="Bibliography.html#id7">Mei92</a>]</span></p>
+<p>In der Leitungstheorie ist der Begin der Leitung Links. Also vom Verbraucher zum Generator hin. Strom und Spannung werden in Anhängigkeit der Position auf der Leitung <span class="math notranslate nohighlight">\(l\)</span> angegeben.</p>
+<div class="figure align-default" id="leitung">
+<a class="reference internal image-reference" href="_images/Leitung.jpg"><img alt="_images/Leitung.jpg" src="_images/Leitung.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 2.1 </span><span class="caption-text">Strom und Spannung auf einer Leitung</span><a class="headerlink" href="#leitung" title="Link zu diesem Bild">¶</a></p>
+</div>
+<p>Die Leitung kann in kleine Leitungsteile zerlegt werden.</p>
+<div class="figure align-default" id="leitungssegment">
+<a class="reference internal image-reference" href="_images/Leitungssegment.jpg"><img alt="_images/Leitungssegment.jpg" src="_images/Leitungssegment.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 2.2 </span><span class="caption-text">Leitungssegment</span><a class="headerlink" href="#leitungssegment" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="section" id="begriffe-und-definitionen">
+<h2><span class="section-number">2.1. </span>Begriffe und Definitionen<a class="headerlink" href="#begriffe-und-definitionen" title="Link zu dieser Überschrift">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="text-align:right head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(l\)</span></p></td>
+<td class="text-align:right"><p>Position auf der Leitung</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\underline{U}(l)\)</span></p></td>
+<td class="text-align:right"><p>Spannung an der Position <span class="math notranslate nohighlight">\(l\)</span> auf der Leitung</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\underline{I}(l)\)</span></p></td>
+<td class="text-align:right"><p>Strom an der Position <span class="math notranslate nohighlight">\(l\)</span> auf der Leitung</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\underline{U}_h(l,t)\)</span></p></td>
+<td class="text-align:right"><p>Spannung an der Position <span class="math notranslate nohighlight">\(l\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span> vom Generator zum Verbraucher laufend, <span class="math notranslate nohighlight">\(h\)</span> für hin</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\underline{I}_h(l,t)\)</span></p></td>
+<td class="text-align:right"><p>Strom an der Position <span class="math notranslate nohighlight">\(l\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span> vom Generator zum Verbraucher laufend, <span class="math notranslate nohighlight">\(h\)</span> für hin</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\underline{U}_r(l,t)\)</span></p></td>
+<td class="text-align:right"><p>Spannung an der Position <span class="math notranslate nohighlight">\(l\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span> vom Generator zum Verbraucher laufend, <span class="math notranslate nohighlight">\(r\)</span> für rück</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\underline{I}_r(l,t)\)</span></p></td>
+<td class="text-align:right"><p>Strom an der Position <span class="math notranslate nohighlight">\(l\)</span> zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span> vom Generator zum Verbraucher laufend, <span class="math notranslate nohighlight">\(r\)</span> für rück</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(U_1\)</span></p></td>
+<td class="text-align:right"><p>Spannung am Leitungseingang</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(U_2\)</span></p></td>
+<td class="text-align:right"><p>Spannung am Leiungsausgang <span class="math notranslate nohighlight">\(U_2 = U(l=0)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(R'\)</span></p></td>
+<td class="text-align:right"><p>Widerstandsbelag in <span class="math notranslate nohighlight">\(\frac{\Omega}{m}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(L'\)</span></p></td>
+<td class="text-align:right"><p>Induktionsbelag in <span class="math notranslate nohighlight">\(\frac{H}{m}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(G'\)</span></p></td>
+<td class="text-align:right"><p>Ableitungsbelag in <span class="math notranslate nohighlight">\(\frac{S}{m}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C'\)</span></p></td>
+<td class="text-align:right"><p>Kapazitätsbelag in <span class="math notranslate nohighlight">\(\frac{F}{m}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(Z_L\)</span></p></td>
+<td class="text-align:right"><p>Leitungswiderstand</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(Z_2\)</span></p></td>
+<td class="text-align:right"><p>Lastwiderstand</p></td>
+</tr>
+</tbody>
+</table>
+<p>Die Werte der Leitungsbeläge müssen durch Messung bestimmt werden.</p>
+<div class="section" id="leitungswiderstand">
+<h3><span class="section-number">2.1.1. </span>Leitungswiderstand<a class="headerlink" href="#leitungswiderstand" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">Z_L</span><span class="p">,</span><span class="n">sqrt</span><span class="p">((</span><span class="n">Rs</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">Ls</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Gs</span><span class="o">+</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">Cs</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Z_{L} = \sqrt{\frac{i L´ \omega + R´}{i C´ \omega + G´}}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="reflexionsfaktor">
+<h3><span class="section-number">2.1.2. </span>Reflexionsfaktor<a class="headerlink" href="#reflexionsfaktor" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">),</span><span class="n">Ur</span><span class="o">/</span><span class="n">Uh</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle r = \frac{\underline{U}_r}{\underline{U}_h}\]</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="leitungsabschlusse">
+<h2><span class="section-number">2.2. </span>Leitungsabschlüsse<a class="headerlink" href="#leitungsabschlusse" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="beliebiger-abschluss">
+<h3><span class="section-number">2.2.1. </span>Beliebiger Abschluss<a class="headerlink" href="#beliebiger-abschluss" title="Link zu dieser Überschrift">¶</a></h3>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Bodeplot.html" title="zurück Seite">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">zurück</p>
+                <p class="prevnext-title"><span class="section-number">1.4. </span>Bodediagramme von Filter</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Bibliography.html" title="weiter Seite">
+            <div class="prevnext-info">
+                <p class="prevnext-label">weiter</p>
+                <p class="prevnext-title"><span class="section-number">3. </span>Bibliography</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Durch Leopold Götsch<br/>
+        
+            &copy; Urheberrechte © 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

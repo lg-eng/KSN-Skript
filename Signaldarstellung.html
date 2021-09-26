@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Darstellung von Signalen &#8212; KSN</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="1.4. Bodediagramme von Filter" href="Bodeplot.html" />
+    <link rel="prev" title="Willkommen zum Skriptum für das Fach Kommunikationssystem und Netze" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">KSN</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Willkommen zum Skriptum für das Fach Kommunikationssystem und Netze
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Hochfrequenztechnik
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   1. Darstellung von Signalen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bodeplot.html">
+     1.4. Bodediagramme von Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Leitungstheorie.html">
+   2. Leitungstheorie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Bibliography.html">
+   3. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Signaldarstellung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lg-eng/KSN-Skript"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lg-eng/KSN-Skript/issues/new?title=Issue%20on%20page%20%2FSignaldarstellung.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lg-eng/KSN-Skript/master?urlpath=tree/Signaldarstellung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sinussignale">
+   1.1. Sinussignale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darstellung-im-zeitbereich">
+     1.1.1. Darstellung im Zeitbereich
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darstellung-auf-der-komplexen-zahlenebene">
+     1.1.2. Darstellung auf der komplexen Zahlenebene
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#komponentendarstellung">
+       1.1.2.1. Komponentendarstellung
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exponentialform">
+       1.1.2.2. Exponentialform
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#grafische-darstellung">
+       1.1.2.3. Grafische Darstellung
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#darstellung-im-frequenzbereich">
+   1.2. Darstellung im Frequenzbereich
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematische-schaltungsbeschreibung">
+     1.2.1. Mathematische Schaltungsbeschreibung
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#impedanz">
+       1.2.1.1. Impedanz
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#strom">
+         1.2.1.1.1. Strom
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#berechnung-des-frequenzverlaufes">
+       1.2.1.2. Berechnung des Frequenzverlaufes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nyquist-plot">
+   1.3. Nyquist Plot
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1">#Plotgröße anpassen</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.usetex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span> <span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span> <span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span>   <span class="p">:</span> <span class="mi">18</span><span class="p">}</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span><span class="o">=</span><span class="s1">&#39;mathjax&#39;</span><span class="p">)</span>
+<span class="c1">#from scipy import signal</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="n">R</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R,L,C,\omega&#39;</span><span class="p">,</span><span class="n">real</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+<span class="n">Ic</span><span class="p">,</span><span class="n">U</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;Ic,U&#39;</span><span class="p">)</span>
+<span class="n">A</span><span class="p">,</span><span class="n">phi</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;A,varphi&quot;</span><span class="p">,</span><span class="n">real</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="darstellung-von-signalen">
+<h1><span class="section-number">1. </span>Darstellung von Signalen<a class="headerlink" href="#darstellung-von-signalen" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="sinussignale">
+<h2><span class="section-number">1.1. </span>Sinussignale<a class="headerlink" href="#sinussignale" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Mittels Python wird ein Sinussignal erstellt. Die Anzahl der Perioden, die Amplitude und die Freuqnez können dabei frei gewählt werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fN</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#Frequenz in Hz</span>
+<span class="n">nN</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#Anzahl der Perioden</span>
+<span class="n">AN</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#Amplitude</span>
+<span class="n">phiN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="c1">#Phasenverschiebung in radiant</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="darstellung-im-zeitbereich">
+<h3><span class="section-number">1.1.1. </span>Darstellung im Zeitbereich<a class="headerlink" href="#darstellung-im-zeitbereich" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Bei der Darstellung im Zeitbereich ist auf der horizontalen Achse die Zeit aufgetragen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TN</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">fN</span> <span class="c1">#Periodendauer</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">fN</span> <span class="c1">#Kreisfrequenz</span>
+
+<span class="c1">#Zeit array</span>
+<span class="n">tN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nN</span><span class="o">*</span><span class="n">TN</span><span class="p">,</span><span class="n">TN</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">yN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">tN</span><span class="o">+</span><span class="n">phiN</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tN</span><span class="p">,</span><span class="n">yN</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;time in s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Signaldarstellung_7_0.png" src="_images/Signaldarstellung_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="darstellung-auf-der-komplexen-zahlenebene">
+<h3><span class="section-number">1.1.2. </span>Darstellung auf der komplexen Zahlenebene<a class="headerlink" href="#darstellung-auf-der-komplexen-zahlenebene" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Unter der Vorraussetzung einer reinen Sinusschwingung und einer konstanten Frequenz kann ein Signal auch auf der komplexen Zahlenebene dargestellt werden.</p>
+<div class="section" id="komponentendarstellung">
+<h4><span class="section-number">1.1.2.1. </span>Komponentendarstellung<a class="headerlink" href="#komponentendarstellung" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="o">=</span><span class="n">A</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">+</span><span class="n">A</span><span class="o">*</span><span class="n">I</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">),</span><span class="n">U</span><span class="p">)</span> <span class="c1"># Symbolischer Ausdruck</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle U = i A \sin{\left(\varphi \right)} + A \cos{\left(\varphi \right)}\]</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">),</span><span class="n">U</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">A</span><span class="p">:</span><span class="n">AN</span><span class="p">,</span><span class="n">phi</span><span class="p">:</span><span class="n">phiN</span><span class="p">})))</span> <span class="c1"># Mit Zahlenwerten Ausdruck</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle U = 0.707106781186548 + 0.707106781186547 i\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="exponentialform">
+<h4><span class="section-number">1.1.2.2. </span>Exponentialform<a class="headerlink" href="#exponentialform" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">),</span><span class="n">U</span><span class="p">))</span> <span class="c1"># Symbolischer Ausdruck</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle U = A e^{i \varphi}\]</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">),</span><span class="n">U</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">A</span><span class="p">:</span><span class="n">AN</span><span class="p">,</span><span class="n">phi</span><span class="p">:</span><span class="n">phiN</span><span class="p">}))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span> <span class="c1"># Mit Zahlenwerten Ausdruck</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle U = e^{0.785398163397448 i}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="grafische-darstellung">
+<h4><span class="section-number">1.1.2.3. </span>Grafische Darstellung<a class="headerlink" href="#grafische-darstellung" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="s1">&#39;polar&#39;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">phiN</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">AN</span><span class="p">],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">)</span>
+<span class="c1">#ax.set_rticks([0.5, 1, 1.5, 2])  # Less radial ticks</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_rlabel_position</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># Move radial labels away from plotted line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;reale Achse&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;imaginäre Achse&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Darstellung auf der komplexen Zahlenebene&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Signaldarstellung_17_0.png" src="_images/Signaldarstellung_17_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="darstellung-im-frequenzbereich">
+<h2><span class="section-number">1.2. </span>Darstellung im Frequenzbereich<a class="headerlink" href="#darstellung-im-frequenzbereich" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Ändert sich ein Signal nicht mit der Zeit sondern mit der Frequenz so ist eine Darstellung von Vorteil bei der die Frequenz auf der horizontalen Achse aufgetragen wird.</p>
+<p>Am Beispiel eines Serienschwingkreises soll dieser Zusammenhang verdeutlicht werden.</p>
+<div class="figure align-default" id="rcl">
+<a class="reference internal image-reference" href="_images/RCL.jpg"><img alt="_images/RCL.jpg" src="_images/RCL.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 1.1 </span><span class="caption-text">RCL Schwingkreis</span><a class="headerlink" href="#rcl" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="section" id="mathematische-schaltungsbeschreibung">
+<h3><span class="section-number">1.2.1. </span>Mathematische Schaltungsbeschreibung<a class="headerlink" href="#mathematische-schaltungsbeschreibung" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LN</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#H</span>
+<span class="n">RN</span><span class="o">=</span><span class="mi">1000</span> <span class="c1">#Ohm</span>
+<span class="n">CN</span><span class="o">=</span><span class="mi">10</span><span class="o">**-</span><span class="mi">6</span> <span class="c1">#F</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="impedanz">
+<h4><span class="section-number">1.2.1.1. </span>Impedanz<a class="headerlink" href="#impedanz" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span><span class="o">=</span><span class="n">R</span><span class="o">+</span><span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">),</span><span class="n">Z</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Z = i L \omega + R - \frac{i}{C \omega}\]</div>
+</div>
+</div>
+<p>Betrag der Impedanz</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Zb</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">re</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">im</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Z_b&#39;</span><span class="p">),</span><span class="n">Zb</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Z_{b} = \sqrt{R^{2} + \left(L \omega - \frac{1}{C \omega}\right)^{2}}\]</div>
+</div>
+</div>
+<p>Phase der Impedanz</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phiZ</span> <span class="o">=</span> <span class="n">arg</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;varphi&#39;</span><span class="p">),</span><span class="n">phiZ</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \varphi = \arg{\left(i L \omega + R - \frac{i}{C \omega} \right)}\]</div>
+</div>
+</div>
+<div class="section" id="strom">
+<h5><span class="section-number">1.2.1.1.1. </span>Strom<a class="headerlink" href="#strom" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ic</span> <span class="o">=</span> <span class="n">U</span><span class="o">/</span><span class="n">Z</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;I_c&#39;</span><span class="p">),</span><span class="n">Ic</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle I_{c} = \frac{A e^{1.0 i \varphi}}{i L \omega + R - \frac{i}{C \omega}}\]</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="berechnung-des-frequenzverlaufes">
+<h4><span class="section-number">1.2.1.2. </span>Berechnung des Frequenzverlaufes<a class="headerlink" href="#berechnung-des-frequenzverlaufes" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega_start_exponent</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Exponent zur Basis 10 --&gt; omega_start = 10^omega_start_exponent</span>
+<span class="n">omega_end_exponent</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Exponent zur Basis 10 --&gt; --&gt; omega_end = 10^omega_end_exponent</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Berechnung des Betrags und  Phase</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ZbN</span><span class="o">=</span><span class="n">Zb</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">A</span><span class="p">:</span><span class="n">AN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+<span class="n">phiZN</span><span class="o">=</span><span class="n">phiZ</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">A</span><span class="p">:</span><span class="n">AN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+<span class="c1">#p1 = plot(180*phiZN/np.pi,(w, omega_start,omega_end),axis_center = [omega_start,0],xscale=&#39;log&#39;,xlabel = &#39;$\omega$&#39;,ylim=[-90,90],ylabel=&#39;Phase in °&#39;,show=false)</span>
+<span class="c1">#p2 = plot(ZbN,(w, omega_start,omega_end),xscale=&#39;log&#39;,yscale=&#39;log&#39;,ylabel=&#39;Betrag&#39;,xlabel = &#39;$\omega$&#39;,show=false)</span>
+<span class="c1">#p1.show()</span>
+<span class="c1">#p2.show()</span>
+
+<span class="n">w_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">omega_start_exponent</span><span class="p">,</span><span class="n">omega_end_exponent</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="c1">#generate omega array</span>
+
+<span class="n">fZbN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">ZbN</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">fphiZN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">180</span><span class="o">*</span><span class="n">phiZN</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Darstellung über die Frequenz&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="n">fZbN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Betrag&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="n">fphiZN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Phase in °&#39;</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">90</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Signaldarstellung_35_0.png" src="_images/Signaldarstellung_35_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nyquist-plot">
+<h2><span class="section-number">1.3. </span>Nyquist Plot<a class="headerlink" href="#nyquist-plot" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Ist eine Darstellung des Realteiles und des Imaginärteiles auf der komplexen Zahlenebene in Abhängigkeit der Frequenz.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ReZ</span> <span class="o">=</span> <span class="n">re</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="c1"># Realteil von Z</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Re(Z)&#39;</span><span class="p">),</span><span class="n">ReZ</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+<span class="n">ImZ</span> <span class="o">=</span> <span class="n">im</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="c1"># Imaginärteil von Z</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Im(Z)&#39;</span><span class="p">),</span><span class="n">ImZ</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{Re}{\left(Z \right)} = R\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{Im}{\left(Z \right)} = L \omega - \frac{1}{C \omega}\]</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ReZ_N</span><span class="o">=</span><span class="n">ReZ</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">A</span><span class="p">:</span><span class="n">AN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span> <span class="c1">#Einsetzen der Zahlenwerte</span>
+<span class="n">ImZ_N</span><span class="o">=</span><span class="n">ImZ</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">A</span><span class="p">:</span><span class="n">AN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span> <span class="c1">#Einsetzen der Zahlenwerte</span>
+
+<span class="n">f_ReZ_N</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">ReZ_N</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#Zahlenreihe aus Gleichung erstellen sympy to numpy</span>
+
+<span class="n">f_ImZ_N</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">ImZ_N</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#Zahlenreihe aus Gleichung erstellen sympy to numpy</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Nyquist Darstellung&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span><span class="o">*</span><span class="n">f_ReZ_N</span><span class="p">(</span><span class="n">w_array</span><span class="p">),</span><span class="n">f_ImZ_N</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;reale Achse&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;imaginäre Achse&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Signaldarstellung_39_0.png" src="_images/Signaldarstellung_39_0.png" />
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="intro.html" title="zurück Seite">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">zurück</p>
+                <p class="prevnext-title">Willkommen zum Skriptum für das Fach Kommunikationssystem und Netze</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Bodeplot.html" title="weiter Seite">
+            <div class="prevnext-info">
+                <p class="prevnext-label">weiter</p>
+                <p class="prevnext-title"><span class="section-number">1.4. </span>Bodediagramme von Filter</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Durch Leopold Götsch<br/>
+        
+            &copy; Urheberrechte © 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
