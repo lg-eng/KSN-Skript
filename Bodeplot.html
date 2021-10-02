@@ -233,15 +233,44 @@
   <a class="reference internal nav-link" href="#tiefpasses-erster-ordnung">
    1.4.1. Tiefpasses erster Ordnung
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequenzverlauf-bodediagramm">
-   1.4.2. Frequenzverlauf - Bodediagramm
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequenzverlauf-bodediagramm">
+     1.4.1.1. Frequenzverlauf - Bodediagramm
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tiefpasses-zweiter-ordnung">
-   1.4.3. Tiefpasses zweiter Ordnung
+   1.4.2. Tiefpasses zweiter Ordnung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hochpass-erster-ordnung">
+   1.4.3. Hochpass erster Ordnung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.4.3.1. Frequenzverlauf - Bodediagramm
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   1.4.4. Tiefpasses zweiter Ordnung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandpass">
+   1.4.5. Bandpass
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandsperre">
+   1.4.6. Bandsperre
   </a>
  </li>
 </ul>
@@ -271,7 +300,7 @@
 <span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span><span class="o">=</span><span class="s1">&#39;mathjax&#39;</span><span class="p">)</span>
 <span class="c1">#from scipy import signal</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">Latex</span><span class="p">,</span> <span class="n">Math</span>
-
+<span class="n">j</span> <span class="o">=</span> <span class="n">I</span>
 <span class="n">R</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R,L,C,\omega&#39;</span><span class="p">,</span><span class="n">real</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Ic</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_2</span><span class="p">,</span><span class="n">I_1</span><span class="p">,</span><span class="n">I_2</span><span class="p">,</span><span class="n">Z_L</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;Ic,U,U_1,U_2,I_1,I_2,Z_L&#39;</span><span class="p">)</span>
 <span class="n">phi</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;\phi&quot;</span><span class="p">,</span><span class="n">real</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
@@ -357,9 +386,8 @@
 \[\displaystyle \frac{U_{2}}{U_{1}} = - \frac{i}{C R \omega - i}\]</div>
 </div>
 </div>
-</div>
 <div class="section" id="frequenzverlauf-bodediagramm">
-<h2><span class="section-number">1.4.2. </span>Frequenzverlauf - Bodediagramm<a class="headerlink" href="#frequenzverlauf-bodediagramm" title="Link zu dieser Überschrift">¶</a></h2>
+<h3><span class="section-number">1.4.1.1. </span>Frequenzverlauf - Bodediagramm<a class="headerlink" href="#frequenzverlauf-bodediagramm" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Betrag der Übertragungsfunktion</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -400,7 +428,7 @@
 \[\displaystyle \omega_{g} = \frac{1}{C R}\]</div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LN</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#H</span>
 <span class="n">RN</span><span class="o">=</span><span class="mi">1000</span><span class="c1">#Ohm</span>
@@ -409,7 +437,13 @@
 
 <span class="n">omega_start_exponent</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Exponent zur Basis 10 --&gt; omega_start = 10^omega_start_exponent</span>
 <span class="n">omega_end_exponent</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Exponent zur Basis 10 --&gt; --&gt; omega_end = 10^omega_end_exponent</span>
-<span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">convert_to</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">})</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">convert_to</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">})</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
 <span class="n">eq2</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$ &#39;</span> <span class="o">+</span> <span class="n">latex</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; \ </span><span class="se">\\</span><span class="s1">frac</span><span class="si">{1}</span><span class="s1">{</span><span class="se">\\</span><span class="s1">text</span><span class="si">{s}</span><span class="s1">} $&#39;</span><span class="p">))</span>
 </pre></div>
@@ -447,13 +481,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Bodeplot_20_0.png" src="_images/Bodeplot_20_0.png" />
+<img alt="_images/Bodeplot_21_0.png" src="_images/Bodeplot_21_0.png" />
 </div>
 </div>
-<p>Es ist zu erkennen, dass bei einem Tiefpass erster Ordnung der Betrag der Übertragungsfunktion mit <span class="math notranslate nohighlight">\(-20 \ \text{dB}\)</span> pro Dekade abfällt. Weiter dreht die Phase von <span class="math notranslate nohighlight">\(0 \ °\)</span> auf <span class="math notranslate nohighlight">\(-90 \ °\)</span>. Bei der Grenzfrequenz <span class="math notranslate nohighlight">\(\omega_g\)</span> ist der Betrg der Übertragungsfunktion um <span class="math notranslate nohighlight">\(-3 \ dB\)</span> abgedfallen. Gleichzeitig ist die Phase um <span class="math notranslate nohighlight">\(-45 \ °\)</span> gedreht.</p>
+<p>Es ist zu erkennen, dass bei einem Tiefpass erster Ordnung der Betrag der Übertragungsfunktion mit <span class="math notranslate nohighlight">\(-20 \ \text{dB}\)</span> pro Dekade abfällt. Weiter dreht die Phase von <span class="math notranslate nohighlight">\(0 \ °\)</span> auf <span class="math notranslate nohighlight">\(-90 \ °\)</span>. Bei der Grenzfrequenz <span class="math notranslate nohighlight">\(\omega_g\)</span> ist der Betrag der Übertragungsfunktion um <span class="math notranslate nohighlight">\(-3 \ dB\)</span> abgedfallen. Gleichzeitig ist die Phase um <span class="math notranslate nohighlight">\(-45 \ °\)</span> gedreht.</p>
+</div>
 </div>
 <div class="section" id="tiefpasses-zweiter-ordnung">
-<h2><span class="section-number">1.4.3. </span>Tiefpasses zweiter Ordnung<a class="headerlink" href="#tiefpasses-zweiter-ordnung" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">1.4.2. </span>Tiefpasses zweiter Ordnung<a class="headerlink" href="#tiefpasses-zweiter-ordnung" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="figure align-default" id="tp-2ord">
 <a class="reference internal image-reference" href="_images/TP_2ord.jpg"><img alt="_images/TP_2ord.jpg" src="_images/TP_2ord.jpg" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 1.3 </span><span class="caption-text">Tiefpass zweiter Ordnung</span><a class="headerlink" href="#tp-2ord" title="Link zu diesem Bild">¶</a></p>
@@ -488,7 +523,7 @@
 \[\displaystyle Gp = \arg{\left(- \frac{i}{C \omega \left(i L \omega + R\right) - i} \right)}\]</div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LN</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#H</span>
 <span class="n">RN</span><span class="o">=</span><span class="mi">100</span><span class="c1">#Ohm</span>
@@ -497,8 +532,13 @@
 
 <span class="n">omega_start_exponent</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Exponent zur Basis 10 --&gt; omega_start = 10^omega_start_exponent</span>
 <span class="n">omega_end_exponent</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Exponent zur Basis 10 --&gt; --&gt; omega_end = 10^omega_end_exponent</span>
-
-<span class="n">eq1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;omega_r&#39;</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">L</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;omega_r&#39;</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">L</span><span class="p">)))</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Resonanzfrequenz ergibt sich aus folgender Formel.&#39;</span><span class="p">))</span>
 <span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
 <span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">convert_to</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
@@ -534,10 +574,419 @@
 \[\displaystyle \omega_{r} = \frac{1}{\sqrt{C L}}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[ \omega_{r} = 3162.27766016838 \ \frac{1}{\text{s}} \]</div>
-<img alt="_images/Bodeplot_25_3.png" src="_images/Bodeplot_25_3.png" />
+<img alt="_images/Bodeplot_27_3.png" src="_images/Bodeplot_27_3.png" />
 </div>
 </div>
 <p>Es ist zu erkennen, dass bei einem Tiefpass zweiter Ordnung der Betrag der Übertragungsfunktion mit <span class="math notranslate nohighlight">\(-40 \ \text{dB}\)</span> pro Dekade abfällt. Weiter dreht die Phase von <span class="math notranslate nohighlight">\(0 \ °\)</span> auf <span class="math notranslate nohighlight">\(-180 \ °\)</span>. Durch diese Drehung um <span class="math notranslate nohighlight">\(180 °\)</span> ist das System potentiell schwingfähig. Bei der Resonanzfrequenz ist die Phase um <span class="math notranslate nohighlight">\(-90 \ °\)</span>  gedreht.</p>
+</div>
+<div class="section" id="hochpass-erster-ordnung">
+<h2><span class="section-number">1.4.3. </span>Hochpass erster Ordnung<a class="headerlink" href="#hochpass-erster-ordnung" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="figure align-default" id="hp-1ord">
+<a class="reference internal image-reference" href="_images/HP_1ord.jpg"><img alt="_images/HP_1ord.jpg" src="_images/HP_1ord.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 1.4 </span><span class="caption-text">Hochpass erster Ordnung</span><a class="headerlink" href="#hp-1ord" title="Link zu diesem Bild">¶</a></p>
+</div>
+<p>Die Übertragungsgleichung sich aus dem Spannungsteiler Ansatz.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_C</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">X_C</span> <span class="o">+</span> <span class="n">R</span>
+<span class="n">eq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">U_2</span><span class="o">/</span><span class="n">U_1</span><span class="p">,</span><span class="n">simplify</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="n">Z</span><span class="p">))</span>
+<span class="n">eq2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{U_{2}}{U_{1}} = \frac{C R \omega}{C R \omega - i}\]</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">1.4.3.1. </span>Frequenzverlauf - Bodediagramm<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Betrag der Übertragungsfunktion</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq3</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gb&#39;</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">eq3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gb = \frac{\left|{C R \omega}\right|}{\sqrt{C^{2} R^{2} \omega^{2} + 1}}\]</div>
+</div>
+</div>
+<p>Phase der Übertragungsfunktion</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq4</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gp&#39;</span><span class="p">),</span><span class="n">arg</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">eq4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gp = \arg{\left(\frac{C R \omega}{C R \omega - i} \right)}\]</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Grezfrequenz ergibt sich aus folgender Formel.&#39;</span><span class="p">))</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;omega_g&#39;</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">C</span><span class="p">)))</span>
+<span class="n">eq1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Die Grezfrequenz ergibt sich aus folgender Formel.</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \omega_{g} = \frac{1}{C R}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LN</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#H</span>
+<span class="n">RN</span><span class="o">=</span><span class="mi">1000</span><span class="c1">#Ohm</span>
+<span class="n">CN</span><span class="o">=</span><span class="mi">10</span><span class="o">**-</span><span class="mi">6</span> <span class="c1">#C</span>
+<span class="n">ZLN</span><span class="o">=</span><span class="mi">1000</span> <span class="c1">#Ohm</span>
+
+<span class="n">omega_start_exponent</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Exponent zur Basis 10 --&gt; omega_start = 10^omega_start_exponent</span>
+<span class="n">omega_end_exponent</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Exponent zur Basis 10 --&gt; --&gt; omega_end = 10^omega_end_exponent</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">convert_to</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">})</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
+<span class="n">eq2</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$ &#39;</span> <span class="o">+</span> <span class="n">latex</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; \ </span><span class="se">\\</span><span class="s1">frac</span><span class="si">{1}</span><span class="s1">{</span><span class="se">\\</span><span class="s1">text</span><span class="si">{s}</span><span class="s1">} $&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[ \omega_{g} = 1000.0 \ \frac{1}{\text{s}} \]</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magnitude</span><span class="o">=</span><span class="n">eq3</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+<span class="n">phase</span><span class="o">=</span><span class="n">eq4</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+
+<span class="n">w_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">omega_start_exponent</span><span class="p">,</span><span class="n">omega_end_exponent</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="c1">#generate omega array</span>
+
+<span class="n">magnitudeN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">magnitude</span> <span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">phaseN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">180</span><span class="o">*</span><span class="n">phase</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Darstellung über die Frequenz&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">magnitudeN</span><span class="p">(</span><span class="n">w_array</span><span class="p">)))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Betrag in dB&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="n">phaseN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Phase in °&#39;</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Bodeplot_41_0.png" src="_images/Bodeplot_41_0.png" />
+</div>
+</div>
+<p>Es ist zu erkennen, dass bei einem Hochpass erster Ordnung der Betrag der Übertragungsfunktion mit <span class="math notranslate nohighlight">\(20 \ \text{dB}\)</span> pro Dekade ansteigt. Weiter dreht die Phase von <span class="math notranslate nohighlight">\(90 \ °\)</span> auf <span class="math notranslate nohighlight">\(0 \ °\)</span>. Bei der Grenzfrequenz <span class="math notranslate nohighlight">\(\omega_g\)</span> ist der Betrag der Übertragungsfunktion um <span class="math notranslate nohighlight">\(-3 \ dB\)</span> abgedfallen. Gleichzeitig ist die Phase um <span class="math notranslate nohighlight">\(45 \ °\)</span> gedreht.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">1.4.4. </span>Tiefpasses zweiter Ordnung<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="figure align-default" id="hp-2ord">
+<a class="reference internal image-reference" href="_images/HP_2ord.jpg"><img alt="_images/HP_2ord.jpg" src="_images/HP_2ord.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 1.5 </span><span class="caption-text">Hochpass zweiter Ordnung</span><a class="headerlink" href="#hp-2ord" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_C</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+<span class="n">X_L</span> <span class="o">=</span> <span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">L</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">R</span> <span class="o">+</span> <span class="n">X_C</span> <span class="o">+</span> <span class="n">X_L</span>
+<span class="c1">#display(Z_p)</span>
+<span class="c1">#display(Z)</span>
+<span class="n">eq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">U_2</span><span class="o">/</span><span class="n">U_1</span><span class="p">,</span><span class="n">simplify</span><span class="p">(</span><span class="n">X_L</span><span class="o">/</span><span class="n">Z</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Übertragungsfunktion&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span>
+<span class="n">eq3</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gb&#39;</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Der Betrag&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">((</span><span class="n">eq3</span><span class="p">))</span>
+<span class="n">eq4</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gp&#39;</span><span class="p">),</span><span class="n">arg</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Phase&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Die Übertragungsfunktion</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{U_{2}}{U_{1}} = \frac{i C L \omega^{2}}{C \omega \left(i L \omega + R\right) - i}\]</div>
+<p>Der Betrag</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gb = \frac{\omega^{2} \left|{C L}\right|}{\sqrt{C^{2} L^{2} \omega^{4} + C^{2} R^{2} \omega^{2} - 2 C L \omega^{2} + 1}}\]</div>
+<p>Die Phase</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gp = \arg{\left(\frac{i C L \omega^{2}}{C \omega \left(i L \omega + R\right) - i} \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LN</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#H</span>
+<span class="n">RN</span><span class="o">=</span><span class="mi">100</span><span class="c1">#Ohm</span>
+<span class="n">CN</span><span class="o">=</span><span class="mi">10</span><span class="o">**-</span><span class="mi">6</span> <span class="c1">#C</span>
+<span class="n">ZLN</span><span class="o">=</span><span class="mi">1000</span> <span class="c1">#Ohm</span>
+
+<span class="n">omega_start_exponent</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Exponent zur Basis 10 --&gt; omega_start = 10^omega_start_exponent</span>
+<span class="n">omega_end_exponent</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Exponent zur Basis 10 --&gt; --&gt; omega_end = 10^omega_end_exponent</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;omega_r&#39;</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">L</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Resonanzfrequenz ergibt sich aus folgender Formel.&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+<span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">convert_to</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$ &#39;</span> <span class="o">+</span> <span class="n">latex</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; \ </span><span class="se">\\</span><span class="s1">frac</span><span class="si">{1}</span><span class="s1">{</span><span class="se">\\</span><span class="s1">text</span><span class="si">{s}</span><span class="s1">} $&#39;</span><span class="p">))</span>
+
+<span class="n">magnitude</span><span class="o">=</span><span class="n">eq3</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+<span class="n">phase</span><span class="o">=</span><span class="n">eq4</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+
+<span class="n">w_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">omega_start_exponent</span><span class="p">,</span><span class="n">omega_end_exponent</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#generate omega array</span>
+
+<span class="n">magnitudeN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">magnitude</span> <span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">phaseN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">180</span><span class="o">*</span><span class="n">phase</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Darstellung über die Frequenz&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">magnitudeN</span><span class="p">(</span><span class="n">w_array</span><span class="p">)))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Betrag in dB&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">magnitudeN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))),</span><span class="o">-</span><span class="mi">40</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="n">phaseN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Phase in °&#39;</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Die Resonanzfrequenz ergibt sich aus folgender Formel.</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \omega_{r} = \frac{1}{\sqrt{C L}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[ \omega_{r} = 3162.27766016838 \ \frac{1}{\text{s}} \]</div>
+<img alt="_images/Bodeplot_47_3.png" src="_images/Bodeplot_47_3.png" />
+</div>
+</div>
+<p>Es ist zu erkennen, dass bei einem Tiefpass zweiter Ordnung der Betrag der Übertragungsfunktion mit <span class="math notranslate nohighlight">\(40 \ \text{dB}\)</span> pro Dekade ansteigt. Weiter dreht die Phase von <span class="math notranslate nohighlight">\(180 \ °\)</span> auf <span class="math notranslate nohighlight">\(0 \ °\)</span>. Durch diese Drehung um <span class="math notranslate nohighlight">\(180 °\)</span> ist das System potentiell schwingfähig. Bei der Resonanzfrequenz ist die Phase um <span class="math notranslate nohighlight">\(90 \ °\)</span>  gedreht.</p>
+</div>
+<div class="section" id="bandpass">
+<h2><span class="section-number">1.4.5. </span>Bandpass<a class="headerlink" href="#bandpass" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Ein Bandpass benötigt mindestens zwei energiespeichernde Bauteile. Daher ist er immer mindestens zweiter Ordnung.</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="_images/Bandpass.jpg"><img alt="_images/Bandpass.jpg" src="_images/Bandpass.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 1.6 </span><span class="caption-text">Bandpass</span><a class="headerlink" href="#id3" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_C</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+<span class="n">X_L</span> <span class="o">=</span> <span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">L</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">R</span> <span class="o">+</span> <span class="n">X_C</span> <span class="o">+</span> <span class="n">X_L</span>
+<span class="c1">#display(Z_p)</span>
+<span class="c1">#display(Z)</span>
+<span class="n">eq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">U_2</span><span class="o">/</span><span class="n">U_1</span><span class="p">,</span><span class="n">simplify</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="n">Z</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Übertragungsfunktion&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span>
+<span class="n">eq3</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gb&#39;</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Der Betrag&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">((</span><span class="n">eq3</span><span class="p">))</span>
+<span class="n">eq4</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gp&#39;</span><span class="p">),</span><span class="n">arg</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Phase&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Die Übertragungsfunktion</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{U_{2}}{U_{1}} = \frac{C R \omega}{C \omega \left(i L \omega + R\right) - i}\]</div>
+<p>Der Betrag</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gb = \frac{\left|{C R \omega}\right|}{\sqrt{C^{2} L^{2} \omega^{4} + C^{2} R^{2} \omega^{2} - 2 C L \omega^{2} + 1}}\]</div>
+<p>Die Phase</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gp = \arg{\left(\frac{C R \omega}{C \omega \left(i L \omega + R\right) - i} \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LN</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#H</span>
+<span class="n">RN</span><span class="o">=</span><span class="mi">1000</span><span class="c1">#Ohm</span>
+<span class="n">CN</span><span class="o">=</span><span class="mi">10</span><span class="o">**-</span><span class="mi">6</span> <span class="c1">#C</span>
+<span class="n">ZLN</span><span class="o">=</span><span class="mi">1000</span> <span class="c1">#Ohm</span>
+
+<span class="n">omega_start_exponent</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Exponent zur Basis 10 --&gt; omega_start = 10^omega_start_exponent</span>
+<span class="n">omega_end_exponent</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Exponent zur Basis 10 --&gt; --&gt; omega_end = 10^omega_end_exponent</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;omega_r&#39;</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">L</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Resonanzfrequenz ergibt sich aus folgender Formel.&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+<span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">convert_to</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$ &#39;</span> <span class="o">+</span> <span class="n">latex</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; \ </span><span class="se">\\</span><span class="s1">frac</span><span class="si">{1}</span><span class="s1">{</span><span class="se">\\</span><span class="s1">text</span><span class="si">{s}</span><span class="s1">} $&#39;</span><span class="p">))</span>
+
+<span class="n">magnitude</span><span class="o">=</span><span class="n">eq3</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+<span class="n">phase</span><span class="o">=</span><span class="n">eq4</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+
+<span class="n">w_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">omega_start_exponent</span><span class="p">,</span><span class="n">omega_end_exponent</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#generate omega array</span>
+
+<span class="n">magnitudeN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">magnitude</span> <span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">phaseN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">180</span><span class="o">*</span><span class="n">phase</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Darstellung über die Frequenz&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">magnitudeN</span><span class="p">(</span><span class="n">w_array</span><span class="p">)))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Betrag in dB&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">magnitudeN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))),</span><span class="o">-</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="n">phaseN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Phase in °&#39;</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Die Resonanzfrequenz ergibt sich aus folgender Formel.</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \omega_{r} = \frac{1}{\sqrt{C L}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[ \omega_{r} = 3162.27766016838 \ \frac{1}{\text{s}} \]</div>
+<img alt="_images/Bodeplot_53_3.png" src="_images/Bodeplot_53_3.png" />
+</div>
+</div>
+<p>Es ist zu erkennen, dass bei einem Bandpass Betrag der Übertragungsfunktion zunächst mit  <span class="math notranslate nohighlight">\(20 \ \text{dB}\)</span> ansteigt. Bei der Resonanzfrequenz hängt der Verlauf stark vom Wiederstandswert ab (Dämpfung). Nach der Resonanzfrequenz fällt die Dämpfung mit  <span class="math notranslate nohighlight">\(-20 \ \text{dB}\)</span>. Die zweite Ordnung des Systems ist auch hier an der Phasendrehung von  <span class="math notranslate nohighlight">\(180 °\)</span> zu sehen, welche das System potentiell Schwingfähig macht.</p>
+</div>
+<div class="section" id="bandsperre">
+<h2><span class="section-number">1.4.6. </span>Bandsperre<a class="headerlink" href="#bandsperre" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Eine Bandsperre benötigt mindestens zwei energiespeichernde Bauteile. Daher ist sie immer mindestens zweiter Ordnung.</p>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="_images/Bandsperre.jpg"><img alt="_images/Bandsperre.jpg" src="_images/Bandsperre.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 1.7 </span><span class="caption-text">Bandsperre</span><a class="headerlink" href="#id4" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_C</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+<span class="n">X_L</span> <span class="o">=</span> <span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">L</span>
+<span class="n">Z_p</span><span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">X_C</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">X_L</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">R</span> <span class="o">+</span> <span class="n">Z_p</span>
+<span class="c1">#display(Z_p)</span>
+<span class="c1">#display(Z)</span>
+<span class="n">eq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">U_2</span><span class="o">/</span><span class="n">U_1</span><span class="p">,</span><span class="n">simplify</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="n">Z</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Übertragungsfunktion&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span>
+<span class="n">eq3</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gb&#39;</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Der Betrag&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">((</span><span class="n">eq3</span><span class="p">))</span>
+<span class="n">eq4</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;Gp&#39;</span><span class="p">),</span><span class="n">arg</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Phase&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Die Übertragungsfunktion</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{U_{2}}{U_{1}} = \frac{R}{R + \frac{1}{i C \omega - \frac{i}{L \omega}}}\]</div>
+<p>Der Betrag</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gb = \frac{\left|{R}\right|}{\sqrt{R^{2} - \frac{1}{\left(i C \omega - \frac{i}{L \omega}\right)^{2}}}}\]</div>
+<p>Die Phase</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Gp = \arg{\left(\frac{R}{R - \frac{i}{C \omega - \frac{1}{L \omega}}} \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LN</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#H</span>
+<span class="n">RN</span><span class="o">=</span><span class="mi">1</span><span class="c1">#Ohm</span>
+<span class="n">CN</span><span class="o">=</span><span class="mi">10</span><span class="o">**-</span><span class="mi">6</span> <span class="c1">#C</span>
+<span class="n">ZLN</span><span class="o">=</span><span class="mi">1000</span> <span class="c1">#Ohm</span>
+
+<span class="n">omega_start_exponent</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Exponent zur Basis 10 --&gt; omega_start = 10^omega_start_exponent</span>
+<span class="n">omega_end_exponent</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#Exponent zur Basis 10 --&gt; --&gt; omega_end = 10^omega_end_exponent</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq1</span> <span class="o">=</span> <span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="s1">&#39;omega_r&#39;</span><span class="p">),</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">L</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;Die Resonanzfrequenz ergibt sich aus folgender Formel.&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+<span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">convert_to</span><span class="p">(</span><span class="n">eq1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39;$ &#39;</span> <span class="o">+</span> <span class="n">latex</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; \ </span><span class="se">\\</span><span class="s1">frac</span><span class="si">{1}</span><span class="s1">{</span><span class="se">\\</span><span class="s1">text</span><span class="si">{s}</span><span class="s1">} $&#39;</span><span class="p">))</span>
+
+<span class="n">magnitude</span><span class="o">=</span><span class="n">eq3</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+<span class="n">phase</span><span class="o">=</span><span class="n">eq4</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">Z_L</span><span class="p">:</span><span class="n">ZLN</span><span class="p">,</span><span class="n">R</span><span class="p">:</span><span class="n">RN</span><span class="p">,</span><span class="n">C</span><span class="p">:</span><span class="n">CN</span><span class="p">,</span><span class="n">L</span><span class="p">:</span><span class="n">LN</span><span class="p">})</span>
+
+<span class="n">w_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">omega_start_exponent</span><span class="p">,</span><span class="n">omega_end_exponent</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#generate omega array</span>
+
+<span class="n">magnitudeN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">magnitude</span> <span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">phaseN</span><span class="o">=</span><span class="n">lambdify</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">180</span><span class="o">*</span><span class="n">phase</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1">#convert sympy to numpy</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Darstellung über die Frequenz&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">magnitudeN</span><span class="p">(</span><span class="n">w_array</span><span class="p">)))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Betrag in dB&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w_array</span><span class="p">,</span><span class="n">phaseN</span><span class="p">(</span><span class="n">w_array</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span><span class="n">xscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Phase in °&#39;</span><span class="p">,</span><span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Die Resonanzfrequenz ergibt sich aus folgender Formel.</p>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \omega_{r} = \frac{1}{\sqrt{C L}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[ \omega_{r} = 3162.27766016838 \ \frac{1}{\text{s}} \]</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/leo/anaconda3/envs/myenv/lib/python3.9/site-packages/numpy/core/_asarray.py:102: ComplexWarning: Casting complex values to real discards the imaginary part
+  return array(a, dtype, copy=False, order=order)
+</pre></div>
+</div>
+<img alt="_images/Bodeplot_59_4.png" src="_images/Bodeplot_59_4.png" />
+</div>
+</div>
+<p>Es ist zu erkennen, dass bei einem Bandpass Betrag der Übertragungsfunktion zunächst mit  <span class="math notranslate nohighlight">\(-20 \ \text{dB}\)</span> fällt. Bei der Resonanzfrequenz ist eine starke Resonanzüberhöhung zu erkennen. Nach der Resonanzfrequenz steigt die Dämpfung mit  <span class="math notranslate nohighlight">\(20 \ \text{dB}\)</span>. Die zweite Ordnung des Systems ist auch hier an der Phasendrehung von  <span class="math notranslate nohighlight">\(180 °\)</span> zu sehen, welche das System potentiell Schwingfähig macht.
+Weiters ist bei dieser ausführung des Bandpassen ein Phasensprung bei der Resonanzfrequenz zu sehen.</p>
 </div>
 </div>
 
