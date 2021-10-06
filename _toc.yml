@@ -1,0 +1,21 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Hochfrequenztechnik
+    numbered: True
+    chapters:
+    - file: Signaldarstellung
+      sections:
+      - file: Bodeplot
+    - file: Leitungstheorie
+    - file: Bibliography
+#  - caption: Netzwerktechnik
+    #numbered: True
+#    chapters:
+#    - file: path/to/part2/chapter1
+#    - file: path/to/part2/chapter2
+#      sections:
+#      - file: path/to/part2/chapter2/section1

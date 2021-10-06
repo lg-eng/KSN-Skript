@@ -1,0 +1,34 @@
+display(Latex('Allgemein wird die rücklaufende Welle wie folgt beschrieben.'))
+display(UrcltEq)
+display(Latex('Die hinlaufende Welle am Kabelende, Verbraucherseitig, ergibt sich durch einsetzen von $l=0$'))
+Uhc0tEq=Eq(Uhc0t,UhcltEq.rhs.subs({l:0}))
+display(Uhc0tEq)
+
+display(Latex('Die Spannung am Kabelende kann aus der Summe der hinlaufenden und der rücklaufenden Welle berechnet werden.'))
+U2cEq = Eq(U2c,Uhc0+Urc0)
+display(U2cEq)
+
+display(Latex('Aus dem Reflexionsfaktor kann die rücklaufende Welle am Kabelende berechnet werden.'))
+display(rc0Eq)
+display(rc0Eq1)
+rc0Eq2 = rc0Eq.subs({rc0Eq1.lhs:rc0Eq1.rhs})
+display(rc0Eq2)
+Urc0Eq = Eq(Urc0,solve(rc0Eq2,Urc0)[0])
+display(Urc0Eq)
+
+display(Latex('Die Spannung der rücklaufenden Welle am Kabelende kann nun in die Gleichung für die Spannung am Kabelende eingesetzt werden.'))
+U2cEq1 = U2cEq.subs({Urc0:Urc0Eq.rhs})
+display(U2cEq1)
+
+display(Latex('Die Spannung am Kabeleingang wird eingesetzt.'))
+U2cEq2 = U2cEq1.subs({Uhc0:Uhc0tEq.rhs})
+display(U2cEq2)
+
+display(Latex('Die so erhaltene Gleichung für die Spannung am Kabelende kann nun in die Gleichung für die rücklaufende Welle eingesetzt werden. Damit sind alle Größen der Gleichung bekannt und Zahlenwerte können berechnet werden.'))
+UrcltEq1 = UrclEq.subs({U2c:U2cEq2.rhs})
+display(UrcltEq1)
+
+display(Latex('Die reale rücklaufende Welle ergibt sich aus dem Realteil der komplexen rücklaufenden Welle.'))
+UrltEq=Eq(Urlt,re(UrcltEq.rhs))
+UrltEq1=Eq(Urlt,re(UrcltEq1.rhs))
+display(UrltEq)
