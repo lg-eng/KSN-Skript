@@ -143,6 +143,8 @@ def plot_over_time(l_array,UhltNnpA):
 
 # # Leitungstheorie
 #  {cite}`meinke2`
+#  {cite}`Vid1Obermann`
+#  {cite}`Vid2Obermann`
 #  In der Leitungstheorie ist der Begin der Leitung Links. Also vom Verbraucher zum Generator hin. Strom und Spannung werden in Anhängigkeit der Position auf der Leitung $l$ angegeben.
 # ```{figure} ./images/Leitung.jpg
 # :name: Leitung
@@ -459,9 +461,9 @@ display(Uhc0tEq)
 display(Markdown('Wird auch diese Gleichung noch eingesetzt so erhält man die endgültige From die nun grafisch dargestellt werden kann.'))
 UcltEq2 = Eq(Uclt,UclEq3.rhs.subs({Uhc0:Uhc0tEq.rhs}))
 display(UcltEq2)
-display(Markdown('Der für die grafische darstellung benötigte Realteil.'))
+display(Markdown('Für die grafische Darstellung wird der Realteil benötigt.'))
 UltEq = Eq(Ult,re(UcltEq2.rhs))
-display(UltEq)
+#display(UltEq)
 
 
 # Die **rücklaufende** Welle lässt sich wie folgt berechnen.
@@ -483,6 +485,7 @@ display(UrltEq)
 
 # #### Grafische Darstellung
 # Für die grafische Darstellung wird der Realteil benötigt.
+# **Alle Werte sind in den SI Einheiten OHNE Einheitenvorsatz angegeben**
 
 # In[10]:
 
