@@ -323,13 +323,13 @@ sym_legend = assign_legend_entry(sym_legend,l,'Position auf der Leitung')
 sym_legend = assign_legend_entry(sym_legend,L,'Länge der Leitung')
 
 Z1,Z2=symbols(r'Z_1,Z_2')
-sym_legend = assign_legend_entry(sym_legend,I1ct,'Widerstand am Leitungsanfang $l=L$')
-sym_legend = assign_legend_entry(sym_legend,I2ct,'Widerstand am Leitungsende $l=0$')
+sym_legend = assign_legend_entry(sym_legend,Z1,'Widerstand am Leitungsanfang $l=L$')
+sym_legend = assign_legend_entry(sym_legend,Z2,'Widerstand am Leitungsende $l=0$')
 
 j=I
 
 for key in sym_legend:
-    display(Latex(' ' + latex(key) + '  ...  \\text{' + sym_legend[key] + '}' ) )
+    display(Latex(' ' + latex(key) + '  ...  \\textrm{' + sym_legend[key] + '}' ) )
     #display(Latex('$ ' + latex(key) + '$  ...  ' + sym_legend[key] + '' ) )
 
 
