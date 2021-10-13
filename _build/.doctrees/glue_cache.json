@@ -1,0 +1,17 @@
+{
+  "Leitungstheorie": {
+    "Z1cEq": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "Z1cEq",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "                                 \u239b \\underline{Z}\u2082        \u239b2\u22c5\u03c0\u22c5l\u239e\u239e\n                 \\underline{Z}_L\u22c5\u239c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 + \u2148\u22c5tan\u239c\u2500\u2500\u2500\u2500\u2500\u239f\u239f\n                                 \u239d\\underline{Z}_L        \u239d  \u03bb  \u23a0\u23a0\n\\underline{Z}\u2081 = \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                             \u239b2\u22c5\u03c0\u22c5l\u239e             \n                         \u2148\u22c5\\underline{Z}\u2082\u22c5tan\u239c\u2500\u2500\u2500\u2500\u2500\u239f             \n                                             \u239d  \u03bb  \u23a0             \n                         \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 + 1         \n                               \\underline{Z}_L                   ",
+        "application/papermill.record/text/latex": "$\\displaystyle \\underline{Z}_1 = \\frac{\\underline{Z}_L \\left(\\frac{\\underline{Z}_2}{\\underline{Z}_L} + i \\tan{\\left(\\frac{2 \\pi l}{\\lambda} \\right)}\\right)}{\\frac{i \\underline{Z}_2 \\tan{\\left(\\frac{2 \\pi l}{\\lambda} \\right)}}{\\underline{Z}_L} + 1}$"
+      }
+    }
+  }
+}
