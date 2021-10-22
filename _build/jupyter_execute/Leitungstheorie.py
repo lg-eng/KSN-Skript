@@ -6,11 +6,15 @@
 
 import warnings
 warnings.filterwarnings('ignore')
+
 from fractions import Fraction
 import numpy as np
+
 #np.seterr(all="ignore")
 from myst_nb import glue
+
 from itertools import cycle
+
 import matplotlib.pyplot as plt
 from matplotlib import animation
 plt.rcParams['figure.figsize'] = [10, 5] #Plotgröße anpassen
@@ -331,7 +335,7 @@ Ult = symbols(r'U(l\,t)',real=false)
 sym_legend = assign_legend_entry(sym_legend,Ult,'Realteil der Spannungswelle in Abhängigkeit der Zeit')
 
 Ucltabs = symbols(r'|\underline{U}(l\,t)|',real=true)
-sym_legend = assign_legend_entry(sym_legend,Ucltabs,'Absolutwert der Spannungswelle in Abhängigkeit der Zeit')
+sym_legend = assign_legend_entry(sym_legend,Ucltabs,'Betrag der Spannungswelle in Abhängigkeit der Zeit')
 
 Ilt = symbols(r'I(l\,t)',real=false)
 sym_legend = assign_legend_entry(sym_legend,Ilt,'Realteil der Stromwelle in Abhängigkeit der Zeit')
@@ -552,7 +556,7 @@ display(UrclEq1)
 display(Markdown('Werden nun die umgeformenten Gleichungen in die allgemeine Gleichung für die Spannung eingesetzt, erhält man eine Gleichung die nicht mehr von $U_2$ abhängt.'))
 UclEq2 = Eq(Ucl,UclEq1.subs({Uhcl:UhclEq1.rhs,Urcl:UrclEq1.rhs}))
 display(UclEq2)
-display(Markdown(r'Wird nun noch \$U_h(0)$ heraus gehoben, dann kann der Term $\frac{U_r(0)}{U_h(0)} $ durch den Reflexionsfaktor ersetzt werden.'))
+display(Markdown(r'Wird nun noch $U_h(0)$ heraus gehoben, dann kann der Term $\frac{U_r(0)}{U_h(0)} $ durch den Reflexionsfaktor ersetzt werden.'))
 UclEq2=Eq(Ucl,Uhc0*(exp(gam*l)+Urc0/Uhc0*exp(-gam*l)))
 display(UclEq2)
 display(Markdown(r'In der abschließenden Form ergibt sich die Gleichung der Spannungswelle auf der Leitung wie folgt.'))
@@ -594,10 +598,10 @@ display(UrltEq)
 # Für die grafische Darstellung wird der Realteil benötigt.
 # **Alle Werte sind in den SI Einheiten OHNE Einheitenvorsatz angegeben. Winkel sind in Grad angegeben.**
 # ```{tip}
-# Durch anklicken der Rakete rechts oben und anschließendem öffnen des Notebooks in Binder wird das Notebook interaktiv! Verschiedene Ergebnisse für verscheidene Werte können damit betrachtet werden.
+# Durch anklicken der Rakete rechts oben und anschließendem öffnen des Notebooks in Binder wird das Notebook interaktiv! Verschiedene Ergebnisse für verschiedene Werte können damit betrachtet werden.
 # ```
 # 
-# Die Werte der Leitungsbeläge müssen durch Messung bestimmt werden. Typische Werte können aus der Tabelle entnommen werden. {cite}`Werteleitungsbeläge`  
+# Die Werte der Leitungsbeläge können aus dem Datenblatt oder durch Messung bestimmt werden. Typische Werte können aus der Tabelle entnommen werden. {cite}`Werteleitungsbeläge`  
 # ```{figure} ./images/TabelleLeitungsbelaege.png
 # :name: TabelleLeitungsbelaege
 # :width: 600px
@@ -876,9 +880,21 @@ display(Z1cEq)
 glue("Z1cEq", Z1cEq, display=False)
 
 
+# In[18]:
+
+
+#Numerical Test
+Z2cN= 100 + j*100  #Ohm
+vals = assign_Z2N(vals,Z2cN)
+Z2EqN = Eq(Z2c,Z2cN)
+display(Z2EqN)
+vals[l] = 0.15*vals[lam]
+display(Z1cEq.subs(vals).evalf())
+
+
 # ### Spezialfall Kurzschluss am Ausgang
 
-# In[18]:
+# In[19]:
 
 
 Z1cshortedEq=Eq(Z1c,limit(Z1cEq.rhs,Z2c,0))
@@ -887,7 +903,7 @@ display(Z1cshortedEq)
 
 # ### Spezialfall Leerlauf am Ausgang
 
-# In[19]:
+# In[20]:
 
 
 Z1copenEq=Eq(Z1c,limit(Z1cEq.rhs,Z2c,oo))
@@ -903,7 +919,7 @@ display(Z1copenEq)
 # EMI-Schleife
 # ```
 
-# In[20]:
+# In[21]:
 
 
 Z1clam4Eq=Eq(Z1c,limit(Z1cEq.rhs,l,lam/4))
@@ -914,7 +930,7 @@ display(Z1clam4Eq)
 # $\underline{Z}_2 = 0 \ \Omega$.   
 # $\underline{Z}_1$ geht gegen $\infty$. Das bedeutet, dass eine Quelle am Eingang quais im Leerlauf arbeitet.
 
-# In[21]:
+# In[22]:
 
 
 Z1clam4shortedEq=Eq(Z1c,limit(Z1clam4Eq.rhs,Z2c,0))
@@ -925,7 +941,7 @@ display(Z1clam4shortedEq)
 # $\underline{Z}_2 = \infty \ \Omega$.   
 # $\underline{Z}_1$ geht gegen $0$. Das bedeutet, dass eine Quelle am Eingang quasi Kurzgeschlossen wird.
 
-# In[22]:
+# In[23]:
 
 
 Z1clam4openEq=Eq(Z1c,limit(Z1clam4Eq.rhs,Z2c,oo))
@@ -934,7 +950,7 @@ display(Z1clam4openEq)
 
 # ### Spezialfall $\frac{\lambda}{2}$ Leiter
 
-# In[23]:
+# In[24]:
 
 
 Z1clam2Eq=Eq(Z1c,limit(Z1cEq.rhs,l,lam/2))
