@@ -172,6 +172,7 @@ def plot_over_time(*argv):
     l_array = generate_larray()
     show_numerical_value(vals,t)
     show_numerical_value(vals,ZLc)
+    show_numerical_value(vals,Z2c)
     show_numerical_value(vals,lam)
     show_numerical_value(vals,rc0abs)
     show_numerical_value(vals,rc0phase)
@@ -295,7 +296,7 @@ sym_legend = assign_legend_entry(sym_legend,Irl,'Realteil der rücklaufende Stro
 
 Uhlt,Urlt = symbols(r'U_h(l\,t),U_r(l\,t)',real=true)
 sym_legend = assign_legend_entry(sym_legend,Uhlt,'Realteil der hinlaufende Spannungswelle in Abhängigkeit der Zeit')
-sym_legend = assign_legend_entry(sym_legend,Urlt,'Realteil der  rücklaufende Spannungswelle in Abhängigkeit der Zeit')
+sym_legend = assign_legend_entry(sym_legend,Urlt,'Realteil der rücklaufenden Spannungswelle in Abhängigkeit der Zeit')
 
 Ihlt,Irlt = symbols(r'I_h(l\,t),I_r(l\,t)',real=true)
 sym_legend = assign_legend_entry(sym_legend,Ihlt,'Realteil der hinlaufende Stromwelle in Abhängigkeit der Zeit')
@@ -391,7 +392,7 @@ j=I
 #  {cite}`Vid1Obermann`
 #  {cite}`Vid2Obermann`
 #  {cite}`Vid3Obermann`
-#  In der Leitungstheorie ist der Begin der Leitung Links. Also vom Verbraucher zum Generator hin. Strom und Spannung werden in Anhängigkeit der Position auf der Leitung $l$ angegeben.
+#  In der Leitungstheorie ist der Begin der Leitung Links. Also vom Verbraucher zum Generator hin. Strom und Spannung werden in Anhängigkeit der Position auf der Leitung \$l$ angegeben.
 # ```{figure} ./images/Leitung.jpg
 # :name: Leitung
 # :width: 400px
@@ -491,7 +492,7 @@ display(PrPEq)
 
 
 # ## Spezialfall verlustlose Leitung
-# Diese Annahme ist für hohe Frequenzen $f > 1 \ \text{MHz}$ ausreichend genau.
+# Diese Annahme ist für hohe Frequenzen \$f > 1 \ \text{MHz}$ ausreichend genau.
 
 # In[6]:
 
@@ -523,7 +524,7 @@ display(betEq1)
 
 
 # ### Betrachtung der stehenden, hin- und rücklaufenden Welle
-# Die **hinlaufende** Welle ergibts sich aus der Spannung am Eingang der Leitung. Für die grafische Darstellung wird der Realteil berechnet. Um die Zeitabhängigkeit zu erhalten müssen die Gleichungen mit $e^{j\cdot \omega \cdot t}$ multipliziert werden.
+# Die **hinlaufende** Welle ergibts sich aus der Spannung am Eingang der Leitung. Für die grafische Darstellung wird der Realteil berechnet. Um die Zeitabhängigkeit zu erhalten müssen die Gleichungen mit \$e^{j\cdot \omega \cdot t}$ multipliziert werden.
 
 # In[8]:
 
@@ -590,7 +591,7 @@ display(Markdown(r'Die Gleichung für die stehende Welle und für die hinlaufend
 UrclEq2 = Eq(Urclt,(UrclEq1.rhs.subs({Ucl:UcltEq2.rhs,Uhcl:UhcltEq.rhs})).simplify())
 display(UrclEq2)
 display(Markdown('Der für die grafische darstellung benötigte Realteil.'))
-UrltEq = Eq(Ult,re(UrclEq2.rhs))
+UrltEq = Eq(Urlt,re(UrclEq2.rhs))
 display(UrltEq)
 
 
@@ -775,7 +776,7 @@ plt.close()
 HTML(anim.to_jshtml())
 
 
-# Wellen in abhägigkeit des Abschlusswidersandes $\underline{Z}_2$.
+# Wellen in abhägigkeit des Abschlusswidersandes \$\underline{Z}_2$.
 
 # In[16]:
 
@@ -824,6 +825,7 @@ leg = plt.legend(loc=8, ncol=1,  shadow=False, fancybox=False)
 text_template = '$|r(0)|$ = %.2f'
 text2 = ax1.text(l_array[-1], max(ys)*1.05, '')
 text2_template = r'$ \underline{Z}_2$ = %.2f'
+text3_template = '$arg(r(0))$ = %.2f'
 
 Z2cN_array = np.arange(0.0,10*float(vals[ZLc]),1/10*float(vals[ZLc]))
 Z2cN_array[0] = 0.01
@@ -858,7 +860,7 @@ def animate(i):
     line3.set_data(x, y3)
     #text.set_text(text_template % (float(vals[rc0])))
     #test2 = ('$ ' + latex(Z2c) + '  =  \\textrm{' +  str(vals[Z2c]) + '}$' )   
-    text2.set_text(text2_template % (float(vals[Z2c])) + ' ; ' + text_template % (float(vals[rc0abs])))
+    text2.set_text(text2_template % (float(vals[Z2c])) + ' ; ' + text_template % (float(vals[rc0abs])) + ' ; ' + text3_template % (float(vals[rc0phase])))
     
     return line1, line2, text
 
@@ -869,8 +871,9 @@ plt.close()
 HTML(anim.to_jshtml())
 
 
+# (Leitungstranformation)=
 # ## Leitungstranformation und Leitungsanpassung
-# Unter Transformation ist zu verstehen wie die Leitung und der Abschluss der Leitung sich auf den Leitungseingang auswirken. Die Betrachtung erfolgt analog zur Vierpoltheorie. Auf die Herleitung der Transformationsgleichung aus der $A$ Vierpolmatrix soll an dieser Stelle verzichtet werden. {cite}`Vid3Obermann`
+# Unter Transformation ist zu verstehen wie die Leitung und der Abschluss der Leitung sich auf den Leitungseingang auswirken. Die Betrachtung erfolgt analog zur Vierpoltheorie. Auf die Herleitung der Transformationsgleichung aus der \$A$ Vierpolmatrix soll an dieser Stelle verzichtet werden. {cite}`Vid3Obermann`
 
 # In[17]:
 
@@ -910,7 +913,7 @@ Z1copenEq=Eq(Z1c,limit(Z1cEq.rhs,Z2c,oo))
 display(Z1copenEq) 
 
 
-# ### Spezialfall $\frac{\lambda}{4}$ Leiter
+# ### Spezialfall \$\frac{\lambda}{4}$ Leiter
 # Anwendung als EMI-Schleife als Blitzschutz.
 # ```{figure} ./images/EMI-Schleife.png
 # :name: EMI-Schleife
@@ -926,9 +929,10 @@ Z1clam4Eq=Eq(Z1c,limit(Z1cEq.rhs,l,lam/4))
 display(Z1clam4Eq)
 
 
-# #### $\frac{\lambda}{4}$ Leiter Kurzgeschlossen
-# $\underline{Z}_2 = 0 \ \Omega$.   
-# $\underline{Z}_1$ geht gegen $\infty$. Das bedeutet, dass eine Quelle am Eingang quais im Leerlauf arbeitet.
+# #### \$\frac{\lambda}{4}\$ Leiter Kurzgeschlossen  
+# 
+# \$\underline{Z}_2 = 0 \ \Omega \$.   
+# \$\underline{Z}_1 \$ geht gegen \$\infty$. Das bedeutet, dass eine Quelle am Eingang quais im Leerlauf arbeitet.
 
 # In[22]:
 
@@ -937,9 +941,10 @@ Z1clam4shortedEq=Eq(Z1c,limit(Z1clam4Eq.rhs,Z2c,0))
 display(Z1clam4shortedEq)
 
 
-# #### $\frac{\lambda}{4}$ Leiter Leerlauf
-# $\underline{Z}_2 = \infty \ \Omega$.   
-# $\underline{Z}_1$ geht gegen $0$. Das bedeutet, dass eine Quelle am Eingang quasi Kurzgeschlossen wird.
+# #### \$\frac{\lambda}{4}$ Leiter Leerlauf  
+# 
+#  \$ \underline{Z}_2 = \infty \ \Omega \$.   
+# \$ \underline{Z}_1 \$ geht gegen \$0$. Das bedeutet, dass eine Quelle am Eingang quasi Kurzgeschlossen wird.
 
 # In[23]:
 
@@ -948,7 +953,7 @@ Z1clam4openEq=Eq(Z1c,limit(Z1clam4Eq.rhs,Z2c,oo))
 display(Z1clam4openEq)
 
 
-# ### Spezialfall $\frac{\lambda}{2}$ Leiter
+# ### Spezialfall \$\frac{\lambda}{2}$ Leiter
 
 # In[24]:
 
@@ -957,9 +962,10 @@ Z1clam2Eq=Eq(Z1c,limit(Z1cEq.rhs,l,lam/2))
 display(Z1clam2Eq)
 
 
-# ## Anpassung
-# Unter Anpassung in der Leitungstheorie versteht man, dass Elemente der Signalkette reflexionsfrei gekoppelt werden $|\underline{r}(0)| = 0$. Die Gleichung {glue:}`Z1cEq` kann dafür gelöst werden. Eine Alternative bietet das Smith Diagramm. Es geht also darum Lasten die eine Impedanz ungleich der Leitungsimpedanz haben Reflexionsfrei anzuschließen.  
-# Es ist zwischen der Leitungsanpassung und der Lei**s**tungsanpassung zu unterscheiden. Hier soll die Leitungsanpassung betrachtet werden. Leitungsanpassung liegt vor, wenn der Leitungswiderstand $\underline{Z}_L$ gleich dem Abschlusswiderstand $\underline{Z}_2$ ist. Leistungsanpassung dazu würde vorliegen, wenn $\underline{Z}_2$ gleich dem konjugiert-komplexen Leitungswiderstand $\underline{Z}_L^*$ entspricht.
+# ## Anpassung  
+# 
+# Unter Anpassung in der Leitungstheorie versteht man, dass Elemente der Signalkette reflexionsfrei gekoppelt werden \$ |\underline{r}(0)| = 0 \$. Die Gleichung aus dem Abschnitt [Leitungstranformation](Leitungstranformation) kann dafür gelöst werden. Eine Alternative bietet das Smith Diagramm. Es geht also darum Lasten die eine Impedanz ungleich der Leitungsimpedanz haben Reflexionsfrei anzuschließen.  
+# Es ist zwischen der Leitungsanpassung und der Lei**s**tungsanpassung zu unterscheiden. Hier soll die Leitungsanpassung betrachtet werden. Leitungsanpassung liegt vor, wenn der Leitungswiderstand \$\underline{Z}_L \$ gleich dem Abschlusswiderstand \$\underline{Z}_2$ ist. Leistungsanpassung dazu würde vorliegen, wenn \$ \underline{Z}_2 \$ gleich dem konjugiert-komplexen Leitungswiderstand \$ \underline{Z}_L^* \$ entspricht.
 
 # Die Fragestellung lautet, wie die Widerstände angepasst werden wenn diese nicht gleich groß sind.
 # ```{figure} ./images/Anpassung1.png
@@ -969,18 +975,18 @@ display(Z1clam2Eq)
 # Anpassungsproblem
 # ```
 # 
-# Wenn der Leitungswiderstand $\underline{Z}_L$ kleiner als der Lastwiderstand $\underline{Z}_2$ ist muss die folgende Kompensationsschaltung verwendet werden.
+# Wenn der Leitungswiderstand \$ \underline{Z}_L \$ kleiner als der Lastwiderstand \$ \underline{Z}_2 \$ ist muss die folgende Kompensationsschaltung verwendet werden.
 # ```{figure} ./images/AnpassungZLsmallerZ2.png
 # :name: AnpassungZLsmallerZ2
 # :width: 400px
 # 
-# Anpassung bei $\underline{Z}_L < $\underline{Z}_2$
+# Anpassung bei \$ \underline{Z}_L < \underline{Z}_2 \$
 # ```
 # 
-# Wenn der Leitungswiderstand $\underline{Z}_L$ größe als der Lastwiderstand $\underline{Z}_2$ ist muss die folgende Kompensationsschaltung verwendet werden.
+# Wenn der Leitungswiderstand \$ \underline{Z}_L \$ größe als der Lastwiderstand \$ \underline{Z}_2 \$ ist muss die folgende Kompensationsschaltung verwendet werden.
 # ```{figure} ./images/AnpassungZLbiggerZ2.png
 # :name: AnpassungZLbiggerZ2
 # :width: 400px
 # 
-# Anpassung bei $\underline{Z}_L > $\underline{Z}_2$
+# Anpassung bei \$ \underline{Z}_L > \underline{Z}_2 \$
 # ```
