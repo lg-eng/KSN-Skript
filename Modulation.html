@@ -1,0 +1,1075 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Modulation &#8212; KSN</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"]]}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="4. Bibliography" href="Bibliography.html" />
+    <link rel="prev" title="2. Leitungstheorie" href="Leitungstheorie.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">KSN</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Willkommen zum Skriptum für das Fach Kommunikationssysteme und Netze
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Hochfrequenztechnik
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Signaldarstellung.html">
+   1. Darstellung von Signalen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bodeplot.html">
+     1.4. Bodediagramme von Filtern
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Leitungstheorie.html">
+   2. Leitungstheorie
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Bibliography.html">
+   4. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Modulation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lg-eng/KSN-Skript"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lg-eng/KSN-Skript/issues/new?title=Issue%20on%20page%20%2FModulation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lg-eng/KSN-Skript/main?urlpath=tree/Modulation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#legende">
+   3.1. Legende
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequenzspektrum">
+   3.2. Frequenzspektrum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arten-von-modulation">
+   3.3. Arten von Modulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#am-modulation">
+   3.4. AM Modulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulationsgrad">
+     3.4.1. Modulationsgrad
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bandbreite">
+     3.4.2. Bandbreite
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leistungsbetrachtung">
+     3.4.3. Leistungsbetrachtung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulationstrapez">
+     3.4.4. Modulationstrapez
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jBook_tools</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1">#Plotgröße anpassen</span>
+
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span><span class="p">,</span><span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;agg.path.chunksize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">def</span> <span class="nf">find_nearest_idx</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">array</span> <span class="o">-</span> <span class="n">value</span><span class="p">))</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">idx</span>
+
+<span class="k">def</span> <span class="nf">generate_wave</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">phaseshift</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;phaseshift&#39;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">phaseshift</span> <span class="o">=</span> <span class="mi">0</span>   
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">amplitude</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">amplitude</span> <span class="o">=</span> <span class="mi">1</span>           
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span> <span class="o">*</span> <span class="n">sample_rate</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;form&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;cos&#39;</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">amplitude</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="o">*</span><span class="n">freq</span> <span class="o">+</span> <span class="n">phaseshift</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sin&#39;</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">amplitude</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="o">*</span><span class="n">freq</span> <span class="o">+</span> <span class="n">phaseshift</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: unsopported waveform. Using sinus.&#39;</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">amplitude</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="o">*</span><span class="n">freq</span> <span class="o">+</span> <span class="n">phaseshift</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">amplitude</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="o">*</span><span class="n">freq</span> <span class="o">+</span> <span class="n">phaseshift</span><span class="p">)</span>               
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">generate_AM_wave</span><span class="p">(</span><span class="n">freq_c</span><span class="p">,</span> <span class="n">amp_c</span><span class="p">,</span> <span class="n">freq_m</span><span class="p">,</span> <span class="n">amp_m</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span> <span class="o">*</span> <span class="n">sample_rate</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">amp_c</span><span class="o">+</span><span class="n">amp_m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">freq_m</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">freq_c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">generate_AM_wave2</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">freq_c</span><span class="p">,</span><span class="n">amp_c</span><span class="p">,</span><span class="n">modulator</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">time</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">amp_c</span><span class="o">+</span><span class="n">modulator</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">freq_c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+
+
+<span class="k">def</span> <span class="nf">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;show_time&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">idx1</span> <span class="o">=</span> <span class="n">find_nearest_idx</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;show_time&#39;</span><span class="p">])</span>
+        <span class="c1">#print(idx1)</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;show_time&#39;</span><span class="p">]</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="c1">#print(&quot;{0} = {1}&quot;.format(key, value))</span>
+        <span class="k">if</span> <span class="s1">&#39;idx1&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">idx1</span><span class="p">],</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">idx1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>        
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
+        
+        <span class="n">legend</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="c1">#plt.text(time[0],value[-1],&#39;$m = &#39; + str(max()))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">legend</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time in s&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">plot_fft</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;xlim&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlim&#39;</span><span class="p">])</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlim&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;ytype&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">ytype</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ytype&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ytype&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;yscale&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">yscale</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yscale&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yscale&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">yscale</span> <span class="o">=</span> <span class="s1">&#39;log&#39;</span>
+        
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+     <span class="c1">#sample_rate = 1/ time[1]-time[0]</span>
+    <span class="n">xf</span> <span class="o">=</span> <span class="n">fftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">yf</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">))</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">legend</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency in rad/s&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;xlim&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlim&#39;</span><span class="p">])</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlim&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;ytype&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">ytype</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ytype&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ytype&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;yscale&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">yscale</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yscale&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yscale&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">yscale</span> <span class="o">=</span> <span class="s1">&#39;log&#39;</span>
+            
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+     <span class="c1">#sample_rate = 1/ time[1]-time[0]</span>
+    <span class="n">xf</span> <span class="o">=</span> <span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">yf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;ytype&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">ytype</span> <span class="o">==</span> <span class="s1">&#39;pow&#39;</span><span class="p">:</span>
+                <span class="n">yf</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ytype</span> <span class="o">==</span> <span class="s1">&#39;rms&#39;</span><span class="p">:</span>
+                <span class="n">yf</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;rms&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ytype</span> <span class="o">==</span> <span class="s1">&#39;amp&#39;</span><span class="p">:</span>
+                <span class="n">yf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: unknown ytype. Using default amplitude.&#39;</span><span class="p">)</span>
+                <span class="n">yf_amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+                
+        <span class="k">else</span><span class="p">:</span>
+              <span class="n">yf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+              <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="n">yf</span><span class="p">)</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">legend</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency in rad/s&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="n">yscale</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">generate_wavelet</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span><span class="n">fmax</span><span class="p">,</span><span class="n">amp</span><span class="p">,</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span> <span class="o">*</span> <span class="n">sample_rate</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span> <span class="o">*</span> <span class="n">sample_rate</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">x_plot</span> <span class="o">=</span> <span class="p">(</span><span class="n">freq</span> <span class="o">*</span> <span class="n">dx</span> <span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>    <span class="c1"># Cumsum freq * change in x</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">amp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x_plot</span><span class="p">)</span>
+    <span class="c1">#plt.plot(x, y, label=&quot;sin(freq(x) * x)&quot;)</span>
+    <span class="c1">#plt.plot(x, freq, label=&quot;freq(x)&quot;)</span>
+    <span class="c1">#plt.legend()</span>
+    <span class="c1">#plt.show()</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">plt_mod_trap</span><span class="p">(</span><span class="n">signal_m</span><span class="p">,</span><span class="n">signal_AM</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal_m</span><span class="p">,</span><span class="n">signal_AM</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Modulator $u(t)_m$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Modulated Signal $u(t)_</span><span class="si">{AM}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ut</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">ut</span><span class="p">,</span><span class="s1">&#39;Spannung in abhängigkeit der Zeit&#39;</span><span class="p">)</span>
+
+<span class="n">utc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)_c&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utc</span><span class="p">,</span><span class="s1">&#39;Spannungsverlauf des Trägers&#39;</span><span class="p">)</span>
+
+<span class="n">utm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)_m&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utm</span><span class="p">,</span><span class="s1">&#39;Spannungsverlauf des Modulators&#39;</span><span class="p">)</span>
+
+<span class="n">utAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)_AM&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utAM</span><span class="p">,</span><span class="s1">&#39;AM Moduliertes Signal&#39;</span><span class="p">)</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="s1">&#39;Amplitude der Spannung&#39;</span><span class="p">)</span>
+
+<span class="n">Uc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_c&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Uc</span><span class="p">,</span><span class="s1">&#39;Amplitude des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
+
+<span class="n">Um</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_m&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Um</span><span class="p">,</span><span class="s1">&#39;Amplitude des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+
+<span class="n">UAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_AM&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAM</span><span class="p">,</span><span class="s1">&#39;Amplitude des AM moduliertes Signals&#39;</span><span class="p">)</span>
+
+<span class="n">Urms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_rms&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Urms</span><span class="p">,</span><span class="s1">&#39;Effektivwert der Spannung&#39;</span><span class="p">)</span>
+
+<span class="n">Ucrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_crms&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Ucrms</span><span class="p">,</span><span class="s1">&#39;Effektivwert des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
+
+<span class="n">Umrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_mrms&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Umrms</span><span class="p">,</span><span class="s1">&#39;Effektivwert des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+
+<span class="n">UAMrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_AMrms&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAMrms</span><span class="p">,</span><span class="s1">&#39;Effektivwert des AM moduliertes Signals&#39;</span><span class="p">)</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Kreisfrequenz des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
+
+<span class="n">wc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega_c&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Kreisfrequenz&#39;</span><span class="p">)</span>
+
+<span class="n">wm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega_m&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Kreisfrequenz&#39;</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Frequenz&#39;</span><span class="p">)</span>
+
+<span class="n">fc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_c&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Frequenz des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
+
+<span class="n">fm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_m&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Frequenz des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+
+<span class="n">fmmax</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_m_max&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;maximale Frequenz des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">varphi&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">phi</span><span class="p">,</span><span class="s1">&#39;Phasenlage&#39;</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="s1">&#39;Modulationsgrad&#39;</span><span class="p">)</span>
+
+<span class="n">BAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;B_AM&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">BAM</span><span class="p">,</span><span class="s1">&#39;Mindestbandbreite&#39;</span><span class="p">)</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="s1">&#39;Leistung&#39;</span><span class="p">)</span>
+
+<span class="n">PAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P_AM&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">PAM</span><span class="p">,</span><span class="s1">&#39;Leistung des AM moduliertes Signals &#39;</span><span class="p">)</span>
+
+<span class="n">Pc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P_c&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Pc</span><span class="p">,</span><span class="s1">&#39;Leistung des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
+
+<span class="n">Pm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P_m&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Pm</span><span class="p">,</span><span class="s1">&#39;Leistung des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+
+<span class="n">PUSB</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P_USB&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">PUSB</span><span class="p">,</span><span class="s1">&#39;Leistung des oberen Seitenbandes&#39;</span><span class="p">)</span>
+
+<span class="n">PLSB</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P_LSB&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">PLSB</span><span class="p">,</span><span class="s1">&#39;Leistung des unteren Seitenbandes&#39;</span><span class="p">)</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="s1">&#39;Widerstand&#39;</span><span class="p">)</span>
+
+<span class="c1">#add to glue</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">sym_legend</span><span class="p">:</span>
+    <span class="n">glue</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="section" id="modulation">
+<h1><span class="section-number">3. </span>Modulation<a class="headerlink" href="#modulation" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="legende">
+<h2><span class="section-number">3.1. </span>Legende<a class="headerlink" href="#legende" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="cell tag_hide-cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">sym_legend</span><span class="p">:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Latex</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">latex</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;  ...  </span><span class="se">\\</span><span class="s1">textrm{&#39;</span> <span class="o">+</span> <span class="n">sym_legend</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;}&#39;</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[u(t)  ...  \textrm{Spannung in abhängigkeit der Zeit}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[u(t)_{c}  ...  \textrm{Spannungsverlauf des Trägers}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[u(t)_{m}  ...  \textrm{Spannungsverlauf des Modulators}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[u(t)_{AM}  ...  \textrm{AM Moduliertes Signal}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U  ...  \textrm{Amplitude der Spannung}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U_{c}  ...  \textrm{Amplitude des Trägersignals (Carrier)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U_{m}  ...  \textrm{Amplitude des Modulationssignals (Modulator)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U_{AM}  ...  \textrm{Amplitude des AM moduliertes Signals}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U_{rms}  ...  \textrm{Effektivwert der Spannung}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U_{crms}  ...  \textrm{Effektivwert des Trägersignals (Carrier)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U_{mrms}  ...  \textrm{Effektivwert des Modulationssignals (Modulator)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[U_{AMrms}  ...  \textrm{Effektivwert des AM moduliertes Signals}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\omega  ...  \textrm{maximale Frequenz des Modulationssignals (Modulator)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[t  ...  \textrm{Zeit}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\varphi  ...  \textrm{Phasenlage}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[m  ...  \textrm{Modulationsgrad}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[B_{AM}  ...  \textrm{Mindestbandbreite}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[P  ...  \textrm{Leistung}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[P_{AM}  ...  \textrm{Leistung des AM moduliertes Signals }\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[P_{c}  ...  \textrm{Leistung des Trägersignals (Carrier)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[P_{m}  ...  \textrm{Leistung des Modulationssignals (Modulator)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[P_{USB}  ...  \textrm{Leistung des oberen Seitenbandes}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[P_{LSB}  ...  \textrm{Leistung des unteren Seitenbandes}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[R  ...  \textrm{Widerstand}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="frequenzspektrum">
+<h2><span class="section-number">3.2. </span>Frequenzspektrum<a class="headerlink" href="#frequenzspektrum" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Jedes Periodische Signal kann im Frequenzspektrum dargestellt werden. <span id="id1">[<a class="reference internal" href="Bibliography.html#id13">CH</a>]</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">44100</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">PHASE</span><span class="o">=-</span><span class="mi">45</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="p">,</span> <span class="n">signal1</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">phaseshift</span><span class="o">=</span><span class="n">PHASE</span><span class="p">)</span>
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">wave1</span><span class="o">=</span><span class="n">signal1</span><span class="p">,</span><span class="n">show_time</span><span class="o">=</span><span class="mi">2</span><span class="o">/</span><span class="n">FREQUENCY</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">wave1</span><span class="o">=</span><span class="n">signal1</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.2</span><span class="o">*</span><span class="n">FREQUENCY</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_7_0.png" src="_images/Modulation_7_0.png" />
+<img alt="_images/Modulation_7_1.png" src="_images/Modulation_7_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="arten-von-modulation">
+<h2><span class="section-number">3.3. </span>Arten von Modulation<a class="headerlink" href="#arten-von-modulation" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Wird ein periodisches Signal betrachtet können primär drei Parameter variert werden.<br />
+Wird die Amplitude verändert spricht man von der Amplitudenmodulation.<br />
+Wird die Frequenz verändert spricht man von der Frequenzmodulation.<br />
+Wird die Phase verändert spricht man von der Phasenmodulation.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">ut</span><span class="p">,</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle u(t) = \cos{\left(\varphi + \omega t \right)}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="am-modulation">
+<h2><span class="section-number">3.4. </span>AM Modulation<a class="headerlink" href="#am-modulation" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Amplitudenmodulation lässt sich mathematisch wie folgt anschreiben.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utAMeq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">utAM</span><span class="p">,(</span><span class="n">Uc</span><span class="o">+</span><span class="n">utm</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">wc</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">utAMeq1</span><span class="p">)</span>
+<span class="n">utAMeq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">utAM</span><span class="p">,(</span><span class="n">Uc</span><span class="o">+</span><span class="n">Um</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">wm</span><span class="o">*</span><span class="n">t</span><span class="p">))</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">wc</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="c1">#display(utAMeq2)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle u(t)_{AM} = \left(U_{c} + u(t)_{m}\right) \cos{\left(\omega_{c} t \right)}\]</div>
+</div>
+</div>
+<p>Durch Umformen erhält man eine Gleichung aus der direkt der Modulationsgrad ablesbar ist.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utAMeq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">utAM</span><span class="p">,</span><span class="n">Uc</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">Um</span><span class="o">/</span><span class="n">Uc</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">wm</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">))</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">wc</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">utAMeq2</span><span class="p">)</span>
+<span class="n">meq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">Um</span><span class="o">/</span><span class="n">Uc</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">meq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle u(t)_{AM} = U_{c} \left(1 + \frac{U_{m} \cos{\left(\varphi + \omega_{m} t \right)}}{U_{c}}\right) \cos{\left(\omega_{c} t \right)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m = \frac{U_{m}}{U_{c}}\]</div>
+</div>
+</div>
+<div class="section" id="modulationsgrad">
+<h3><span class="section-number">3.4.1. </span>Modulationsgrad<a class="headerlink" href="#modulationsgrad" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Der Modulationsgrad muss kleiner gleich 1 sein. An folgendem Beispiel kann der Einfluss des Modulationsgrade probiert werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Carrier</span>
+<span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">AMPLITUDE_C</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1">#Modulator</span>
+<span class="n">FREQUENCY_M</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">50</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="o">*</span><span class="mi">1000</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_c</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+
+<span class="c1">#Show Modulation factor</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="o">/</span><span class="n">AMPLITUDE_C</span><span class="p">))</span>
+
+<span class="c1">#Modulated Signal</span>
+<span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span> <span class="n">AMPLITUDE_C</span><span class="p">,</span> <span class="n">FREQUENCY_M</span><span class="p">,</span> <span class="n">AMPLITUDE_M</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
+
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">upperEnvelope</span><span class="o">=</span><span class="n">voltage_m</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="n">lowerEnvelope</span><span class="o">=-</span><span class="p">(</span><span class="n">voltage_m</span><span class="o">+</span><span class="mi">10</span><span class="p">),</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.2</span><span class="o">*</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="o">+</span><span class="n">FREQUENCY_M</span><span class="p">)],</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m = 0.8\]</div>
+<img alt="_images/Modulation_16_1.png" src="_images/Modulation_16_1.png" />
+<img alt="_images/Modulation_16_2.png" src="_images/Modulation_16_2.png" />
+<img alt="_images/Modulation_16_3.png" src="_images/Modulation_16_3.png" />
+</div>
+</div>
+<p>Die Trägerfrequenz und die Frequenz des Modulators ist gut zu erkenne. Das resultierende AM modulierte Signal besteht aus drei Frequenzen. Der Trägerfrequenz und die um die Frequenz des Modulators nach Links und Rechts der Trägerfrequenz verschobenen Teile. Diese werden als oberes und unteres Seitenband bezeichnet.</p>
+</div>
+<div class="section" id="bandbreite">
+<h3><span class="section-number">3.4.2. </span>Bandbreite<a class="headerlink" href="#bandbreite" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Bei der Übertragung wird nicht nur eine Frequenz übertragen sondern ein Frequenzspecktrum. Zum Beipiel Sprache zwischen 20 Hz und 20 kHz. Daraus ergibt sich eine mindestens benötigte Bandbreite. Also ein Mindestabstand zwischen der Frequenz des Trägers und der frequenz des Modulators.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BAMeq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">BAM</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fmmax</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">BAMeq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle B_{AM} = 2 f_{m max}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Carrier</span>
+<span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">AMPLITUDE_C</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1">#General Settings</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">50</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#carrier generation</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_c</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+
+<span class="c1">#Random modulator signal</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wavelet</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
+
+<span class="c1">#Modulated Signal</span>
+<span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave2</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">voltage_m</span><span class="p">)</span>
+
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_20_0.png" src="_images/Modulation_20_0.png" />
+<img alt="_images/Modulation_20_1.png" src="_images/Modulation_20_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="leistungsbetrachtung">
+<h3><span class="section-number">3.4.3. </span>Leistungsbetrachtung<a class="headerlink" href="#leistungsbetrachtung" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulator. Die Gesamtleistung des Modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. <span id="id2">[<a class="reference internal" href="Bibliography.html#id12">Tut</a>]</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PAMeq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">PAM</span><span class="p">,</span><span class="n">Pc</span><span class="o">+</span><span class="n">PUSB</span><span class="o">+</span><span class="n">PLSB</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">PAMeq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle P_{AM} = P_{LSB} + P_{USB} + P_{c}\]</div>
+</div>
+</div>
+<p>Die Leistung eines reinen Cosinus Signales kann einfach über den Effektivwert werden.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Peq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Urms</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Peq1</span><span class="p">)</span>
+<span class="n">Urmseq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">Urms</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">U</span><span class="p">)</span>
+<span class="c1">#display(Urmseq1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle P = \frac{U_{rms}^{2}}{R}\]</div>
+</div>
+</div>
+<p>$ U_{rms} = \frac{U}{\sqrt{2}} $<br />
+Für die einzelnen Leistungen ergeben sich unter Berücksichtigung des Modulationsfaktors folgende Gleichungen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">meq1</span><span class="p">)</span>
+<span class="n">Pceq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">Pc</span><span class="p">,(</span><span class="n">Uc</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Pceq1</span><span class="p">)</span>
+<span class="n">PUSBeq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">PUSB</span><span class="p">,(</span><span class="n">Uc</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">PUSBeq1</span><span class="p">)</span>
+<span class="n">PLSBeq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">PLSB</span><span class="p">,(</span><span class="n">Uc</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">PLSBeq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m = \frac{U_{m}}{U_{c}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle P_{c} = \frac{U_{c}^{2}}{2 R}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle P_{USB} = \frac{U_{c}^{2} m^{2}}{8 R}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle P_{LSB} = \frac{U_{c}^{2} m^{2}}{8 R}\]</div>
+</div>
+</div>
+<p>Werden diese Gleichungen nun Addiert ergibt sich die, von dem Modulationsgrad abhängige, Leistung des modulierten Signals.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PAMeq2</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">PAM</span><span class="p">,</span><span class="n">Pceq1</span><span class="o">.</span><span class="n">rhs</span><span class="o">+</span><span class="n">PUSBeq1</span><span class="o">.</span><span class="n">rhs</span><span class="o">+</span><span class="n">PLSBeq1</span><span class="o">.</span><span class="n">rhs</span><span class="p">)</span>
+<span class="c1">#display(PAMeq2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>$ P_{AM}=\frac{U_c^2}{2R} (1+\frac{m^2}{2}) = P_c (1+\frac{m^2}{2}) $<br />
+Für einen Modulationsgrad von $ m=1 $ ergibt sich die Gesamtleistung zu $ P_{AM} = 1,5 P_c $. Wird nun noch das Verhältnis von Trägersignalleistung und Informationssignal (Modulator) gebildet ergibt sich ein Verhältniss von $ P_c/P_{SB}=4 $. Das bedeutet, dass das Trägersignal, welches keine Information beinhaltet, vier mal so Leistungsstark ist als das Informationssignal, welches die information beinhaltet. Bezogen auf das Modulierte Signal bedeutet dies, dass nur ein 1/6 der Leistung für die Informationsübermittlung verwendet wird. Ist der Modulationsgrad kleiner als 1 wird das verhältnis noch nachteiliger.<br />
+Durch eliminieren des Trägers wird versucht diesen Nachteil zu unterdrücken.</p>
+<ul class="simple">
+<li><p>Amplitudenmodulation mit Träger (DSBFC) - wird hier besprochen.</p></li>
+<li><p>Amplitudenmodulation mit unterdrücktem Träger (Double side band suppressed carrier) DSBSC</p></li>
+<li><p>Amplitudenmodulation ohne Träger</p></li>
+</ul>
+<p>Weiters kann die AM optimiert werden indem nur ein Seitenband verwendet wird, da der informationsgehalt identisch ist, SSB (single side band).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Carrier</span>
+<span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">AMPLITUDE_C</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1">#Modulator</span>
+<span class="n">FREQUENCY_M</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">50</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="o">*</span><span class="mi">1000</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_c</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+
+<span class="c1">#Show Modulation factor</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="o">/</span><span class="n">AMPLITUDE_C</span><span class="p">))</span>
+
+<span class="c1">#Modulated Signal</span>
+<span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span> <span class="n">AMPLITUDE_C</span><span class="p">,</span> <span class="n">FREQUENCY_M</span><span class="p">,</span> <span class="n">AMPLITUDE_M</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
+
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="o">+</span><span class="n">FREQUENCY_M</span><span class="p">)],</span><span class="n">ytype</span><span class="o">=</span><span class="s1">&#39;pow&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m = 1.0\]</div>
+<img alt="_images/Modulation_31_1.png" src="_images/Modulation_31_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="modulationstrapez">
+<h3><span class="section-number">3.4.4. </span>Modulationstrapez<a class="headerlink" href="#modulationstrapez" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Carrier</span>
+<span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">AMPLITUDE_C</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1">#Modulator</span>
+<span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">FREQUENCY_M_min</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">FREQUENCY_M_max</span> <span class="o">=</span> <span class="mi">3000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Untermodulation $ m &lt; 1 $</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">50</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M_min</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">1</span>
+
+<span class="c1">#Random modulator signal</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wavelet</span><span class="p">(</span><span class="n">FREQUENCY_M_min</span><span class="p">,</span><span class="n">FREQUENCY_M_max</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
+
+<span class="c1">#Modulated Signal</span>
+<span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave2</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">voltage_m</span><span class="p">)</span>
+
+<span class="c1">## under modulation</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="o">/</span><span class="n">AMPLITUDE_C</span><span class="p">))</span>
+<span class="n">plt_mod_trap</span><span class="p">(</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">voltage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m = 0.8\]</div>
+<img alt="_images/Modulation_35_1.png" src="_images/Modulation_35_1.png" />
+</div>
+</div>
+<p>Ideale Modulation $ m = 1 $</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## perfect modulation</span>
+<span class="c1">#Modulator</span>
+<span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1">#Random modulator signal</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wavelet</span><span class="p">(</span><span class="n">FREQUENCY_M_min</span><span class="p">,</span><span class="n">FREQUENCY_M_max</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
+<span class="c1">#Modulated Signal</span>
+<span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave2</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">voltage_m</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="o">/</span><span class="n">AMPLITUDE_C</span><span class="p">))</span>
+<span class="n">plt_mod_trap</span><span class="p">(</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">voltage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m = 1.0\]</div>
+<img alt="_images/Modulation_37_1.png" src="_images/Modulation_37_1.png" />
+</div>
+</div>
+<p>Übermodulation $ m &gt;1 $</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## over modulation</span>
+<span class="c1">#Modulator</span>
+<span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="c1">#Random modulator signal</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wavelet</span><span class="p">(</span><span class="n">FREQUENCY_M_min</span><span class="p">,</span><span class="n">FREQUENCY_M_max</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
+<span class="c1">#Modulated Signal</span>
+<span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave2</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">voltage_m</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="o">/</span><span class="n">AMPLITUDE_C</span><span class="p">))</span>
+<span class="n">plt_mod_trap</span><span class="p">(</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">voltage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle m = 1.4\]</div>
+<img alt="_images/Modulation_39_1.png" src="_images/Modulation_39_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Leitungstheorie.html" title="zurück Seite">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">zurück</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Leitungstheorie</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Bibliography.html" title="weiter Seite">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Bibliography</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          Durch Leopold Götsch<br/>
+        
+            &copy; Urheberrechte © 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
