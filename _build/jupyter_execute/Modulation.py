@@ -416,7 +416,7 @@ plot_rfft_amp(time,carrier=voltage_c,modulator=voltage_m,AMsignal=voltage,xlim=[
 
 
 # ### Leistungsbetrachtung
-# Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulator. Die Gesamtleistung des Modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. {cite}`TPAM`
+# Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulator. Die Gesamtleistung des modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. {cite}`TPAM`
 
 # In[14]:
 
@@ -425,7 +425,7 @@ PAMeq1=Eq(PAM,Pc+PUSB+PLSB)
 display(PAMeq1)
 
 
-# Die Leistung eines reinen Cosinus Signales kann einfach über den Effektivwert werden.
+# Die Leistung eines reinen Cosinus Signales kann einfach über den Effektivwert berechnet werden.
 
 # In[15]:
 
