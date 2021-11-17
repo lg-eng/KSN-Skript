@@ -811,7 +811,7 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 </div>
 <div class="section" id="leistungsbetrachtung">
 <h3><span class="section-number">3.4.3. </span>Leistungsbetrachtung<a class="headerlink" href="#leistungsbetrachtung" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulator. Die Gesamtleistung des Modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. <span id="id2">[<a class="reference internal" href="Bibliography.html#id12">Tut</a>]</span></p>
+<p>Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulator. Die Gesamtleistung des modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. <span id="id2">[<a class="reference internal" href="Bibliography.html#id12">Tut</a>]</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PAMeq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">PAM</span><span class="p">,</span><span class="n">Pc</span><span class="o">+</span><span class="n">PUSB</span><span class="o">+</span><span class="n">PLSB</span><span class="p">)</span>
@@ -824,7 +824,7 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 \[\displaystyle P_{AM} = P_{LSB} + P_{USB} + P_{c}\]</div>
 </div>
 </div>
-<p>Die Leistung eines reinen Cosinus Signales kann einfach über den Effektivwert werden.</p>
+<p>Die Leistung eines reinen Cosinus Signales kann einfach über den Effektivwert berechnet werden.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Peq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Urms</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">R</span><span class="p">)</span>
