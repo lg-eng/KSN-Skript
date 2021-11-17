@@ -24,9 +24,9 @@ Ic,U,U_1,U_2,I_1,I_2,Z_L=symbols('Ic,U,U_1,U_2,I_1,I_2,Z_L')
 phi=symbols("\phi",real=true)
 
 
-# # Bodediagramme von Filter
+# # Bodediagramme von Filtern
 
-# ##  Tiefpasses erster Ordnung
+# ##  Tiefpass erster Ordnung
 
 # ```{figure} ./images/TP_1ord.jpg
 # :name: tp_1ord
@@ -158,9 +158,9 @@ ax2.set(xlabel='$\omega$',xscale='log',ylabel = 'Phase in °',yticks=[-90,-45,0]
 ax2.grid()
 
 
-# Es ist zu erkennen, dass bei einem Tiefpass erster Ordnung der Betrag der Übertragungsfunktion mit $-20 \ \text{dB}$ pro Dekade abfällt. Weiter dreht die Phase von $0 \ °$ auf $-90 \ °$. Bei der Grenzfrequenz $\omega_g$ ist der Betrag der Übertragungsfunktion um $-3 \ dB$ abgedfallen. Gleichzeitig ist die Phase um $-45 \ °$ gedreht.
+# Es ist zu erkennen, dass bei einem Tiefpass erster Ordnung der Betrag der Übertragungsfunktion mit $-20 \ \text{dB}$ pro Dekade abfällt. Weiter dreht die Phase von $0 \ °$ auf $-90 \ °$. Bei der Grenzfrequenz $\omega_g$ ist der Betrag der Übertragungsfunktion um $-3 \ dB$ abgefallen. Gleichzeitig ist die Phase um $-45 \ °$ gedreht.
 
-# ## Tiefpasses zweiter Ordnung
+# ## Tiefpass zweiter Ordnung
 
 # ```{figure} ./images/TP_2ord.jpg
 # :name: tp_2ord
@@ -329,7 +329,7 @@ ax2.grid()
 
 # Es ist zu erkennen, dass bei einem Hochpass erster Ordnung der Betrag der Übertragungsfunktion mit $20 \ \text{dB}$ pro Dekade ansteigt. Weiter dreht die Phase von $90 \ °$ auf $0 \ °$. Bei der Grenzfrequenz $\omega_g$ ist der Betrag der Übertragungsfunktion um $-3 \ dB$ abgedfallen. Gleichzeitig ist die Phase um $45 \ °$ gedreht.
 
-# ## Tiefpasses zweiter Ordnung
+# ## Hochpass zweiter Ordnung
 
 # ```{figure} ./images/HP_2ord.jpg
 # :name: hp_2ord
@@ -401,7 +401,7 @@ ax2.set(xlabel='$\omega$',xscale='log',ylabel = 'Phase in °',yticks=[180,130,90
 ax2.grid()
 
 
-# Es ist zu erkennen, dass bei einem Tiefpass zweiter Ordnung der Betrag der Übertragungsfunktion mit $40 \ \text{dB}$ pro Dekade ansteigt. Weiter dreht die Phase von $180 \ °$ auf $0 \ °$. Durch diese Drehung um $180 °$ ist das System potentiell schwingfähig. Bei der Resonanzfrequenz ist die Phase um $90 \ °$  gedreht.
+# Es ist zu erkennen, dass bei einem Hochpass zweiter Ordnung der Betrag der Übertragungsfunktion mit $40 \ \text{dB}$ pro Dekade ansteigt. Weiter dreht die Phase von $180 \ °$ auf $0 \ °$. Durch diese Drehung um $180 °$ ist das System potentiell schwingfähig. Bei der Resonanzfrequenz ist die Phase um $90 \ °$  gedreht.
 
 # ## Bandpass
 # Ein Bandpass benötigt mindestens zwei energiespeichernde Bauteile. Daher ist er immer mindestens zweiter Ordnung.
@@ -476,7 +476,7 @@ ax2.set(xlabel='$\omega$',xscale='log',ylabel = 'Phase in °',yticks=[90,45,0,-4
 ax2.grid()
 
 
-# Es ist zu erkennen, dass bei einem Bandpass Betrag der Übertragungsfunktion zunächst mit  $20 \ \text{dB}$ ansteigt. Bei der Resonanzfrequenz hängt der Verlauf stark vom Wiederstandswert ab (Dämpfung). Nach der Resonanzfrequenz fällt die Dämpfung mit  $-20 \ \text{dB}$. Die zweite Ordnung des Systems ist auch hier an der Phasendrehung von  $180 °$ zu sehen, welche das System potentiell Schwingfähig macht.
+# Es ist zu erkennen, dass bei einem Bandpass der Betrag der Übertragungsfunktion zunächst mit  $20 \ \text{dB}$ ansteigt. Bei der Resonanzfrequenz hängt der Verlauf stark vom Wiederstandswert ab (Dämpfung). Nach der Resonanzfrequenz fällt die Dämpfung mit  $-20 \ \text{dB}$. Die zweite Ordnung des Systems ist auch hier an der Phasendrehung von  $180 °$ zu sehen, welche das System potentiell Schwingfähig macht.
 
 # ## Bandsperre
 # Eine Bandsperre benötigt mindestens zwei energiespeichernde Bauteile. Daher ist sie immer mindestens zweiter Ordnung.
@@ -553,4 +553,4 @@ ax2.grid()
 
 
 # Es ist zu erkennen, dass bei einem Bandpass Betrag der Übertragungsfunktion zunächst mit  $-20 \ \text{dB}$ fällt. Bei der Resonanzfrequenz ist eine starke Resonanzüberhöhung zu erkennen. Nach der Resonanzfrequenz steigt die Dämpfung mit  $20 \ \text{dB}$. Die zweite Ordnung des Systems ist auch hier an der Phasendrehung von  $180 °$ zu sehen, welche das System potentiell Schwingfähig macht.
-# Weiters ist bei dieser ausführung des Bandpassen ein Phasensprung bei der Resonanzfrequenz zu sehen.
+# Weiters ist bei dieser ausführung des Bandpasses ein Phasensprung bei der Resonanzfrequenz zu sehen.

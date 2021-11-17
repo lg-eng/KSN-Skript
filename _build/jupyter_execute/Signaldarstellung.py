@@ -27,7 +27,7 @@ A,phi=symbols("A,varphi",real=true)
 
 # ## Sinussignale
 
-# Mittels Python wird ein Sinussignal erstellt. Die Anzahl der Perioden, die Amplitude und die Freuqnez können dabei frei gewählt werden.
+# Mittels Python wird ein Sinussignal erstellt. Die Anzahl der Perioden, die Amplitude und die Frequenz können dabei frei gewählt werden.
 
 # In[2]:
 
@@ -62,7 +62,7 @@ plt.show()
 
 # ### Darstellung auf der komplexen Zahlenebene
 
-# Unter der Vorraussetzung einer reinen Sinusschwingung und einer konstanten Frequenz kann ein Signal auch auf der komplexen Zahlenebene dargestellt werden.
+# Unter der Voraussetzung einer reinen Sinusschwingung und einer konstanten Frequenz kann ein Signal auch auf der komplexen Zahlenebene dargestellt werden.
 
 # #### Komponentendarstellung
 

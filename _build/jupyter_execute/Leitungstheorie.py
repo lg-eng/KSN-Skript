@@ -254,7 +254,7 @@ Iclt = symbols(r'\underline{I}(l\,t)',real=false)
 sym_legend = assign_legend_entry(sym_legend,Iclt,'Komplexe Stromwelle in Abhängigkeit der Position auf der Leitung und der Zeit')
 
 gam,ZLc = symbols(r'\gamma,\underline{Z}_L')
-sym_legend = assign_legend_entry(sym_legend,gam,'Komplexe Ausbreitungsmaß')
+sym_legend = assign_legend_entry(sym_legend,gam,'Komplexes Ausbreitungsmaß')
 sym_legend = assign_legend_entry(sym_legend,ZLc,'Komplexe Leitungsimpedanz')
 
 #Yet unknown
@@ -386,13 +386,13 @@ j=I
 # # Leitungstheorie
 # Die Leitungstheorie findet Anwendung, wenn folgende Voraussetzungen erfüllt sind:  
 # - Es sich um Stromleiter handelt
-# - Die Wellenlänge und die Leitungslänge sich in ähnlichen Größenordnungen befindet. 
+# - Die Wellenlänge und die Leitungslänge sich in ähnlichen Größenordnungen befinden. 
 # 
 #  {cite}`meinke2`
 #  {cite}`Vid1Obermann`
 #  {cite}`Vid2Obermann`
 #  {cite}`Vid3Obermann`
-#  In der Leitungstheorie ist der Begin der Leitung Links. Also vom Verbraucher zum Generator hin. Strom und Spannung werden in Anhängigkeit der Position auf der Leitung \$l$ angegeben.
+#  In der Leitungstheorie ist der Beginn der Leitung rechts. Also vom Verbraucher zum Generator hin. Strom und Spannung werden in Abhängigkeit der Position auf der Leitung \$l$ angegeben.
 # ```{figure} ./images/Leitung.jpg
 # :name: Leitung
 # :width: 400px
@@ -418,7 +418,7 @@ for key in sym_legend:
     #display(Latex('$ ' + latex(key) + '$  ...  ' + sym_legend[key] + '' ) )
 
 
-# ## Leitungsgleichungen für harmonsiche Signale
+# ## Leitungsgleichungen für harmonische Signale
 
 # In[4]:
 
@@ -492,7 +492,7 @@ display(PrPEq)
 
 
 # ## Spezialfall verlustlose Leitung
-# Diese Annahme ist für hohe Frequenzen \$f > 1 \ \text{MHz}$ ausreichend genau.
+# Diese Annahme ist für hohe Frequenzen \$f > 1 \ \text{MHz}\$ ausreichend genau.
 
 # In[6]:
 
@@ -545,19 +545,19 @@ display(Markdown('Allgemein wird die stehende Welle wie folgt beschrieben.'))
 display(UclEq1)
 display(Markdown('Die hinlaufende Welle ist definiert zu.'))
 display(UhclEq)
-display(Markdown('Durch aufteilung des Exponenten lässt sich die Gleichung umformen.'))
+display(Markdown('Durch Aufteilung des Exponenten lässt sich die Gleichung umformen.'))
 UhclEq1 = Eq(Uhcl,Uhc0*exp(gam*l))
 display(UhclEq1)
-display(Markdown('Die rückluafende Welle ist definiert zu.'))
+display(Markdown('Die rücklaufende Welle ist definiert zu.'))
 display(UrclEq)
-display(Markdown('Wieder lässt sich die Gleichung durch aufteilung des Exponenten umformen.'))
+display(Markdown('Wieder lässt sich die Gleichung durch Aufteilung des Exponenten umformen.'))
 UrclEq1 = Eq(Urcl,Urc0*exp(-gam*l))
 display(UrclEq1)
 
-display(Markdown('Werden nun die umgeformenten Gleichungen in die allgemeine Gleichung für die Spannung eingesetzt, erhält man eine Gleichung die nicht mehr von $U_2$ abhängt.'))
+display(Markdown('Werden nun die umgeformten Gleichungen in die allgemeine Gleichung für die Spannung eingesetzt, erhält man eine Gleichung die nicht mehr von $U_2$ abhängt.'))
 UclEq2 = Eq(Ucl,UclEq1.subs({Uhcl:UhclEq1.rhs,Urcl:UrclEq1.rhs}))
 display(UclEq2)
-display(Markdown(r'Wird nun noch $U_h(0)$ heraus gehoben, dann kann der Term $\frac{U_r(0)}{U_h(0)} $ durch den Reflexionsfaktor ersetzt werden.'))
+display(Markdown(r'Wird nun noch $U_h(0)$ herausgehoben, dann kann der Term $\frac{U_r(0)}{U_h(0)} $ durch den Reflexionsfaktor ersetzt werden.'))
 UclEq2=Eq(Ucl,Uhc0*(exp(gam*l)+Urc0/Uhc0*exp(-gam*l)))
 display(UclEq2)
 display(Markdown(r'In der abschließenden Form ergibt sich die Gleichung der Spannungswelle auf der Leitung wie folgt.'))
@@ -566,7 +566,7 @@ display(UclEq3)
 display(Markdown('Die hinlaufende Welle am Kabelende, Verbraucherseitig, ergibt sich durch einsetzen von $l=0$'))
 Uhc0tEq=Eq(Uhc0t,UhcltEq.rhs.subs({l:0}))
 display(Uhc0tEq)
-display(Markdown('Wird auch diese Gleichung noch eingesetzt so erhält man die endgültige From die nun grafisch dargestellt werden kann.'))
+display(Markdown('Wird auch diese Gleichung noch eingesetzt so erhält man die endgültige Form, die nun grafisch dargestellt werden kann.'))
 UcltEq2 = Eq(Uclt,UclEq3.rhs.subs({Uhc0:Uhc0tEq.rhs}))
 display(UcltEq2)
 #display(Markdown('Für die grafische Darstellung wird der Realteil benötigt.'))
@@ -680,7 +680,7 @@ vals = calculate_tN(vals,1/pi)
 plot_over_time(UhltEq,UrltEq,UcltabsEq)   
 
 
-# Zeitlicher verlauf der hin-, rück- und stehenden Welle.
+# Zeitlicher Verlauf der hin-, rück- und stehenden Welle.
 
 # In[15]:
 
@@ -776,7 +776,7 @@ plt.close()
 HTML(anim.to_jshtml())
 
 
-# Wellen in abhägigkeit des Abschlusswidersandes \$\underline{Z}_2$.
+# Wellen in Abhängigkeit des Abschlusswiderstandes \$\underline{Z}_2$.
 
 # In[16]:
 
@@ -932,7 +932,7 @@ display(Z1clam4Eq)
 # #### \$\frac{\lambda}{4}\$ Leiter Kurzgeschlossen  
 # 
 # \$\underline{Z}_2 = 0 \ \Omega \$.   
-# \$\underline{Z}_1 \$ geht gegen \$\infty$. Das bedeutet, dass eine Quelle am Eingang quais im Leerlauf arbeitet.
+# \$\underline{Z}_1 \$ geht gegen \$\infty$. Das bedeutet, dass eine Quelle am Eingang quasi im Leerlauf arbeitet.
 
 # In[22]:
 
@@ -964,7 +964,7 @@ display(Z1clam2Eq)
 
 # ## Anpassung  
 # 
-# Unter Anpassung in der Leitungstheorie versteht man, dass Elemente der Signalkette reflexionsfrei gekoppelt werden \$ |\underline{r}(0)| = 0 \$. Die Gleichung aus dem Abschnitt [Leitungstranformation](Leitungstranformation) kann dafür gelöst werden. Eine Alternative bietet das Smith Diagramm. Es geht also darum Lasten die eine Impedanz ungleich der Leitungsimpedanz haben Reflexionsfrei anzuschließen.  
+# Unter Anpassung in der Leitungstheorie versteht man, dass Elemente der Signalkette reflexionsfrei gekoppelt werden \$ |\underline{r}(0)| = 0 \$. Die Gleichung aus dem Abschnitt [Leitungstransformation](Leitungstranformation) kann dafür gelöst werden. Eine Alternative bietet das Smith Diagramm. Es geht also darum Lasten die eine Impedanz ungleich der Leitungsimpedanz haben Reflexionsfrei anzuschließen.  
 # Es ist zwischen der Leitungsanpassung und der Lei**s**tungsanpassung zu unterscheiden. Hier soll die Leitungsanpassung betrachtet werden. Leitungsanpassung liegt vor, wenn der Leitungswiderstand \$\underline{Z}_L \$ gleich dem Abschlusswiderstand \$\underline{Z}_2$ ist. Leistungsanpassung dazu würde vorliegen, wenn \$ \underline{Z}_2 \$ gleich dem konjugiert-komplexen Leitungswiderstand \$ \underline{Z}_L^* \$ entspricht.
 
 # Die Fragestellung lautet, wie die Widerstände angepasst werden wenn diese nicht gleich groß sind.
