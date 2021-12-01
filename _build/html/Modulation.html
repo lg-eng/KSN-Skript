@@ -283,6 +283,28 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fm-modulation">
+   3.5. FM Modulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bandbreitenabschatzug">
+     3.5.1. Bandbreitenabschätzug
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beispiel-ukw-horfunk">
+     3.5.2. Beispiel UKW-Hörfunk
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pm-modulation">
+   3.6. PM Modulation
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -297,7 +319,7 @@
   <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jBook_tools</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1">#Plotgröße anpassen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1">#Plotgröße anpassen</span>
 
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span><span class="p">,</span><span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
@@ -398,6 +420,9 @@
     <span class="k">if</span> <span class="s1">&#39;xlim&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlim&#39;</span><span class="p">])</span>
         <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlim&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;ylim&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ylim&#39;</span><span class="p">])</span>
+        <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ylim&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="s1">&#39;ytype&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="n">ytype</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ytype&#39;</span><span class="p">]</span>
         <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ytype&#39;</span><span class="p">]</span>
@@ -461,7 +486,7 @@
 <span class="k">def</span> <span class="nf">plt_mod_trap</span><span class="p">(</span><span class="n">signal_m</span><span class="p">,</span><span class="n">signal_AM</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal_m</span><span class="p">,</span><span class="n">signal_AM</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Modulator $u(t)_m$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Modulationssignal $u(t)_m$&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Modulated Signal $u(t)_</span><span class="si">{AM}</span><span class="s1">$&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -473,65 +498,113 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ut</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">ut</span><span class="p">,</span><span class="s1">&#39;Spannung in abhängigkeit der Zeit&#39;</span><span class="p">)</span>
 
-<span class="n">utc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)_c&#39;</span><span class="p">)</span>
+<span class="n">utc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u_</span><span class="si">{c}</span><span class="s1">(t)&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utc</span><span class="p">,</span><span class="s1">&#39;Spannungsverlauf des Trägers&#39;</span><span class="p">)</span>
 
-<span class="n">utm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)_m&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utm</span><span class="p">,</span><span class="s1">&#39;Spannungsverlauf des Modulators&#39;</span><span class="p">)</span>
+<span class="n">utm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u_</span><span class="si">{m}</span><span class="s1">(t)&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utm</span><span class="p">,</span><span class="s1">&#39;Spannungsverlauf des Modulationssignal&#39;</span><span class="p">)</span>
 
-<span class="n">utAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u(t)_AM&#39;</span><span class="p">)</span>
+<span class="n">utmt</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;u_m&#39;</span><span class="p">)</span>
+<span class="n">func_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">func_legend</span><span class="p">,</span><span class="n">utmt</span><span class="p">,</span><span class="s1">&#39;Spannungsverlauf des Modulationssignals in Abhängigkeit der Zeit&#39;</span><span class="p">)</span>
+
+<span class="n">utAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u_</span><span class="si">{AM}</span><span class="s1">(t)&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utAM</span><span class="p">,</span><span class="s1">&#39;AM Moduliertes Signal&#39;</span><span class="p">)</span>
 
-<span class="n">U</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="n">utFM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u_</span><span class="si">{FM}</span><span class="s1">(t)&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utFM</span><span class="p">,</span><span class="s1">&#39;FM Moduliertes Signal&#39;</span><span class="p">)</span>
+
+<span class="n">utFMt</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;u_FM&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utFMt</span><span class="p">,</span><span class="s1">&#39;FM Moduliertes Signal&#39;</span><span class="p">)</span>
+
+<span class="n">utPM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u_</span><span class="si">{PM}</span><span class="s1">(t)&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utPM</span><span class="p">,</span><span class="s1">&#39;PM Moduliertes Signal&#39;</span><span class="p">)</span>
+
+<span class="n">utFMPM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;u_{FM,PM}(t)&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">utFMPM</span><span class="p">,</span><span class="s1">&#39;FM und PM Moduliertes Signal&#39;</span><span class="p">)</span>
+
+<span class="n">utFMPMt</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;u_{FM,PM}&#39;</span><span class="p">)</span>
+<span class="n">func_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">func_legend</span><span class="p">,</span><span class="n">utFMPMt</span><span class="p">,</span><span class="s1">&#39;FM und PM Moduliertes Signal in Abhängigkeit der Zeit&#39;</span><span class="p">)</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{U}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="s1">&#39;Amplitude der Spannung&#39;</span><span class="p">)</span>
 
-<span class="n">Uc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_c&#39;</span><span class="p">)</span>
+<span class="n">Uc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{U}</span><span class="s1">_c&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Uc</span><span class="p">,</span><span class="s1">&#39;Amplitude des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
 
-<span class="n">Um</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_m&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Um</span><span class="p">,</span><span class="s1">&#39;Amplitude des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+<span class="n">Um</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{U}</span><span class="s1">_m&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Um</span><span class="p">,</span><span class="s1">&#39;Amplitude des Modulationssignals&#39;</span><span class="p">)</span>
 
-<span class="n">UAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_AM&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAM</span><span class="p">,</span><span class="s1">&#39;Amplitude des AM moduliertes Signals&#39;</span><span class="p">)</span>
+<span class="n">UAM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{U}</span><span class="s1">_</span><span class="si">{AM}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAM</span><span class="p">,</span><span class="s1">&#39;Amplitude des AM modulierten Signals&#39;</span><span class="p">)</span>
 
-<span class="n">Urms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_rms&#39;</span><span class="p">)</span>
+<span class="n">UFM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{U}</span><span class="s1">_</span><span class="si">{FM}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAM</span><span class="p">,</span><span class="s1">&#39;Amplitude des FM modulierten Signals&#39;</span><span class="p">)</span>
+
+<span class="n">UPM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{U}</span><span class="s1">_</span><span class="si">{PM}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAM</span><span class="p">,</span><span class="s1">&#39;Amplitude des PM modulierten Signals&#39;</span><span class="p">)</span>
+
+<span class="n">UFMPM</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{U}</span><span class="s1">_{FM,PM}&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAM</span><span class="p">,</span><span class="s1">&#39;Amplitude des FM und PM modulierten Signals&#39;</span><span class="p">)</span>
+
+<span class="n">Urms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_</span><span class="si">{rms}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Urms</span><span class="p">,</span><span class="s1">&#39;Effektivwert der Spannung&#39;</span><span class="p">)</span>
 
-<span class="n">Ucrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_crms&#39;</span><span class="p">)</span>
+<span class="n">Ucrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_{c,rms}&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Ucrms</span><span class="p">,</span><span class="s1">&#39;Effektivwert des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
 
-<span class="n">Umrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_mrms&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Umrms</span><span class="p">,</span><span class="s1">&#39;Effektivwert des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+<span class="n">Umrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_{m,rms}&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Umrms</span><span class="p">,</span><span class="s1">&#39;Effektivwert des Modulationssignals&#39;</span><span class="p">)</span>
 
-<span class="n">UAMrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_AMrms&#39;</span><span class="p">)</span>
+<span class="n">UAMrms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_{AM,rms}&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">UAMrms</span><span class="p">,</span><span class="s1">&#39;Effektivwert des AM moduliertes Signals&#39;</span><span class="p">)</span>
 
-<span class="n">w</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega&#39;</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Kreisfrequenz des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
 
-<span class="n">wc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega_c&#39;</span><span class="p">)</span>
+<span class="n">wt</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;omega&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">func_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">func_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Kreisfrequenz des Trägersignals (Carrier) in Abhängigkeit der Zeit&#39;</span><span class="p">)</span>
+
+<span class="n">wc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega_c&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Kreisfrequenz&#39;</span><span class="p">)</span>
 
-<span class="n">wm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega_m&#39;</span><span class="p">)</span>
+<span class="n">wm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;omega_m&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Kreisfrequenz&#39;</span><span class="p">)</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Frequenz&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;Frequenz&#39;</span><span class="p">)</span>
 
-<span class="n">fc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_c&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Frequenz des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
+<span class="n">deltaf</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;\Delta f&quot;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">deltaf</span><span class="p">,</span><span class="s1">&#39;Frequenzhub, maximale Abweichung von der Trägerfrequenz&#39;</span><span class="p">)</span>
 
-<span class="n">fm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_m&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;Frequenz des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+<span class="n">ft</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">func_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">func_legend</span><span class="p">,</span><span class="n">ft</span><span class="p">,</span><span class="s1">&#39;Frequenz in Abhängigkeit der Zeit&#39;</span><span class="p">)</span>
 
-<span class="n">fmmax</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_m_max&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;maximale Frequenz des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_c&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">fc</span><span class="p">,</span><span class="s1">&#39;Frequenz des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
+
+<span class="n">dfc</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;\Delta f_c&quot;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">dfc</span><span class="p">,</span><span class="s1">&#39;Frequenzhub, maximale Abweichung von der Trägerfrequenz&#39;</span><span class="p">)</span>
+
+<span class="n">fm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_m&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">fm</span><span class="p">,</span><span class="s1">&#39;Frequenz des Modulationssignals&#39;</span><span class="p">)</span>
+
+<span class="n">fmt</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;f_m&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">func_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">func_legend</span><span class="p">,</span><span class="n">fm</span><span class="p">,</span><span class="s1">&#39;Frequenz des Modulationssignals&#39;</span><span class="p">)</span>
+
+<span class="n">fmmax</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_m_max&#39;</span><span class="p">,</span><span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;maximale Frequenz des Modulationssignals&#39;</span><span class="p">)</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
 
+<span class="n">tau</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;tau&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">tau</span><span class="p">,</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+
 <span class="n">phi</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">varphi&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">phi</span><span class="p">,</span><span class="s1">&#39;Phasenlage&#39;</span><span class="p">)</span>
+
+<span class="n">phit</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">varphi&#39;</span><span class="p">)</span>
+<span class="n">func_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">func_legend</span><span class="p">,</span><span class="n">phi</span><span class="p">,</span><span class="s1">&#39;Phasenlage in Abhängigkeit der Zeit&#39;</span><span class="p">)</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="s1">&#39;Modulationsgrad&#39;</span><span class="p">)</span>
@@ -549,7 +622,7 @@
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Pc</span><span class="p">,</span><span class="s1">&#39;Leistung des Trägersignals (Carrier)&#39;</span><span class="p">)</span>
 
 <span class="n">Pm</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P_m&#39;</span><span class="p">)</span>
-<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Pm</span><span class="p">,</span><span class="s1">&#39;Leistung des Modulationssignals (Modulator)&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Pm</span><span class="p">,</span><span class="s1">&#39;Leistung des Modulationssignals&#39;</span><span class="p">)</span>
 
 <span class="n">PUSB</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P_USB&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">PUSB</span><span class="p">,</span><span class="s1">&#39;Leistung des oberen Seitenbandes&#39;</span><span class="p">)</span>
@@ -560,9 +633,21 @@
 <span class="n">R</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="s1">&#39;Widerstand&#39;</span><span class="p">)</span>
 
+<span class="n">B10</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;B_{10\%}&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">B10</span><span class="p">,</span><span class="s1">&#39;Bandbreite des frequenzmodulierten Signales&#39;</span><span class="p">)</span>
+
+<span class="n">B1</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;B_{1\%}&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">B1</span><span class="p">,</span><span class="s1">&#39;Bandbreite des frequenzmodulierten Signales&#39;</span><span class="p">)</span>
+
+<span class="n">eta</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;eta&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">eta</span><span class="p">,</span><span class="s1">&#39;Modulationsindex&#39;</span><span class="p">)</span>
+
 <span class="c1">#add to glue</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">sym_legend</span><span class="p">:</span>
-    <span class="n">glue</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">glue</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
@@ -584,31 +669,51 @@
 <div class="output text_latex math notranslate nohighlight">
 \[u(t)  ...  \textrm{Spannung in abhängigkeit der Zeit}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[u(t)_{c}  ...  \textrm{Spannungsverlauf des Trägers}\]</div>
+\[u_{c}(t)  ...  \textrm{Spannungsverlauf des Trägers}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[u(t)_{m}  ...  \textrm{Spannungsverlauf des Modulators}\]</div>
+\[u_{m}(t)  ...  \textrm{Spannungsverlauf des Modulationssignal}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[u(t)_{AM}  ...  \textrm{AM Moduliertes Signal}\]</div>
+\[u_{AM}(t)  ...  \textrm{AM Moduliertes Signal}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[U  ...  \textrm{Amplitude der Spannung}\]</div>
+\[u_{FM}(t)  ...  \textrm{FM Moduliertes Signal}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[U_{c}  ...  \textrm{Amplitude des Trägersignals (Carrier)}\]</div>
+\[\operatorname{u_{FM}}  ...  \textrm{FM Moduliertes Signal}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[U_{m}  ...  \textrm{Amplitude des Modulationssignals (Modulator)}\]</div>
+\[u_{PM}(t)  ...  \textrm{PM Moduliertes Signal}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[U_{AM}  ...  \textrm{Amplitude des AM moduliertes Signals}\]</div>
+\[\left( u_{FM, \  PM}(t)\right)  ...  \textrm{FM und PM Moduliertes Signal}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\hat{U}  ...  \textrm{Amplitude der Spannung}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\hat{U}_c  ...  \textrm{Amplitude des Trägersignals (Carrier)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\hat{U}_m  ...  \textrm{Amplitude des Modulationssignals}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\hat{U}_{AM}  ...  \textrm{Amplitude des FM und PM modulierten Signals}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[U_{rms}  ...  \textrm{Effektivwert der Spannung}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[U_{crms}  ...  \textrm{Effektivwert des Trägersignals (Carrier)}\]</div>
+\[\left( U_{c, \  rms}\right)  ...  \textrm{Effektivwert des Trägersignals (Carrier)}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[U_{mrms}  ...  \textrm{Effektivwert des Modulationssignals (Modulator)}\]</div>
+\[\left( U_{m, \  rms}\right)  ...  \textrm{Effektivwert des Modulationssignals}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[U_{AMrms}  ...  \textrm{Effektivwert des AM moduliertes Signals}\]</div>
+\[\left( U_{AM, \  rms}\right)  ...  \textrm{Effektivwert des AM moduliertes Signals}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\omega  ...  \textrm{maximale Frequenz des Modulationssignals (Modulator)}\]</div>
+\[\omega  ...  \textrm{maximale Frequenz des Modulationssignals}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[f  ...  \textrm{Frequenz}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\Delta f  ...  \textrm{Frequenzhub, maximale Abweichung von der Trägerfrequenz}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[f_{c}  ...  \textrm{Frequenz des Trägersignals (Carrier)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\Delta f_{c}  ...  \textrm{Frequenzhub, maximale Abweichung von der Trägerfrequenz}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[f_{m}  ...  \textrm{Frequenz des Modulationssignals}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[t  ...  \textrm{Zeit}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\tau  ...  \textrm{Zeit}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[\varphi  ...  \textrm{Phasenlage}\]</div>
 <div class="output text_latex math notranslate nohighlight">
@@ -622,13 +727,19 @@
 <div class="output text_latex math notranslate nohighlight">
 \[P_{c}  ...  \textrm{Leistung des Trägersignals (Carrier)}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[P_{m}  ...  \textrm{Leistung des Modulationssignals (Modulator)}\]</div>
+\[P_{m}  ...  \textrm{Leistung des Modulationssignals}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[P_{USB}  ...  \textrm{Leistung des oberen Seitenbandes}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[P_{LSB}  ...  \textrm{Leistung des unteren Seitenbandes}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[R  ...  \textrm{Widerstand}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[B_{10\%}  ...  \textrm{Bandbreite des frequenzmodulierten Signales}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[B_{1\%}  ...  \textrm{Bandbreite des frequenzmodulierten Signales}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\eta  ...  \textrm{Modulationsindex}\]</div>
 </div>
 </div>
 </div>
@@ -667,13 +778,13 @@ Wird die Frequenz verändert spricht man von der Frequenzmodulation.<br />
 Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">ut</span><span class="p">,</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Eq</span><span class="p">(</span><span class="n">ut</span><span class="p">,</span><span class="n">U</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle u(t) = \cos{\left(\varphi + \omega t \right)}\]</div>
+\[\displaystyle u(t) = \hat{U} \cos{\left(\varphi + \omega t \right)}\]</div>
 </div>
 </div>
 </div>
@@ -691,7 +802,7 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle u(t)_{AM} = \left(U_{c} + u(t)_{m}\right) \cos{\left(\omega_{c} t \right)}\]</div>
+\[\displaystyle u_{AM}(t) = \left(\hat{U}_c + u_{m}(t)\right) \cos{\left(\omega_{c} t \right)}\]</div>
 </div>
 </div>
 <p>Durch Umformen erhält man eine Gleichung aus der direkt der Modulationsgrad ablesbar ist.</p>
@@ -706,9 +817,9 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle u(t)_{AM} = U_{c} \left(1 + \frac{U_{m} \cos{\left(\varphi + \omega_{m} t \right)}}{U_{c}}\right) \cos{\left(\omega_{c} t \right)}\]</div>
+\[\displaystyle u_{AM}(t) = \hat{U}_c \left(1 + \frac{\hat{U}_m \cos{\left(\varphi + \omega_{m} t \right)}}{\hat{U}_c}\right) \cos{\left(\omega_{c} t \right)}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle m = \frac{U_{m}}{U_{c}}\]</div>
+\[\displaystyle m = \frac{\hat{U}_m}{\hat{U}_c}\]</div>
 </div>
 </div>
 <div class="section" id="modulationsgrad">
@@ -743,9 +854,9 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 <span class="c1">#Modulated Signal</span>
 <span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span> <span class="n">AMPLITUDE_C</span><span class="p">,</span> <span class="n">FREQUENCY_M</span><span class="p">,</span> <span class="n">AMPLITUDE_M</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
 
-<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">upperEnvelope</span><span class="o">=</span><span class="n">voltage_m</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="n">lowerEnvelope</span><span class="o">=-</span><span class="p">(</span><span class="n">voltage_m</span><span class="o">+</span><span class="mi">10</span><span class="p">),</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
-<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
-<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.2</span><span class="o">*</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="o">+</span><span class="n">FREQUENCY_M</span><span class="p">)],</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">upperEnvelope</span><span class="o">=</span><span class="n">voltage_m</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="n">lowerEnvelope</span><span class="o">=-</span><span class="p">(</span><span class="n">voltage_m</span><span class="o">+</span><span class="mi">10</span><span class="p">),</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.2</span><span class="o">*</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="o">+</span><span class="n">FREQUENCY_M</span><span class="p">)],</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -757,11 +868,11 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 <img alt="_images/Modulation_16_3.png" src="_images/Modulation_16_3.png" />
 </div>
 </div>
-<p>Die Trägerfrequenz und die Frequenz des Modulators ist gut zu erkenne. Das resultierende AM modulierte Signal besteht aus drei Frequenzen. Der Trägerfrequenz und die um die Frequenz des Modulators nach Links und Rechts der Trägerfrequenz verschobenen Teile. Diese werden als oberes und unteres Seitenband bezeichnet.</p>
+<p>Die Trägerfrequenz und die Frequenz des Modulationssignals ist gut zu erkenne. Das resultierende AM modulierte Signal besteht aus drei Frequenzen. Der Trägerfrequenz und die um die Frequenz des Modulationssignals nach Links und Rechts der Trägerfrequenz verschobenen Teile. Diese werden als oberes und unteres Seitenband bezeichnet.</p>
 </div>
 <div class="section" id="bandbreite">
 <h3><span class="section-number">3.4.2. </span>Bandbreite<a class="headerlink" href="#bandbreite" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Bei der Übertragung wird nicht nur eine Frequenz übertragen sondern ein Frequenzspecktrum. Zum Beipiel Sprache zwischen 20 Hz und 20 kHz. Daraus ergibt sich eine mindestens benötigte Bandbreite. Also ein Mindestabstand zwischen der Frequenz des Trägers und der frequenz des Modulators.</p>
+<p>Bei der Übertragung wird nicht nur eine Frequenz übertragen sondern ein Frequenzspecktrum. Zum Beipiel Sprache zwischen 20 Hz und 20 kHz. Daraus ergibt sich eine mindestens benötigte Bandbreite. Also ein Mindestabstand zwischen der Frequenz des Trägers und der frequenz des Modulationssignals.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BAMeq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">BAM</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fmmax</span><span class="p">)</span>
@@ -780,9 +891,14 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 <span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
 <span class="n">AMPLITUDE_C</span> <span class="o">=</span> <span class="mi">10</span>
 
+<span class="c1">#Modulator</span>
+<span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">FREQUENCY_M_min</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">FREQUENCY_M_max</span> <span class="o">=</span> <span class="mi">3000</span>
+
 <span class="c1">#General Settings</span>
-<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">50</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
-<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -793,13 +909,13 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 <span class="n">time</span><span class="p">,</span> <span class="n">voltage_c</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
 
 <span class="c1">#Random modulator signal</span>
-<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wavelet</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wavelet</span><span class="p">(</span><span class="n">FREQUENCY_M_min</span><span class="p">,</span><span class="n">FREQUENCY_M_max</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
 
 <span class="c1">#Modulated Signal</span>
 <span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave2</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">voltage_m</span><span class="p">)</span>
 
-<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">])</span>
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">show_time</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">],</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="o">**-</span><span class="mi">2</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -811,7 +927,7 @@ Wird die Phase verändert spricht man von der Phasenmodulation.</p>
 </div>
 <div class="section" id="leistungsbetrachtung">
 <h3><span class="section-number">3.4.3. </span>Leistungsbetrachtung<a class="headerlink" href="#leistungsbetrachtung" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulator. Die Gesamtleistung des modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. <span id="id2">[<a class="reference internal" href="Bibliography.html#id12">Tut</a>]</span></p>
+<p>Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulationssignal. Die Gesamtleistung des modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. <span id="id2">[<a class="reference internal" href="Bibliography.html#id12">Tut</a>]</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PAMeq1</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">PAM</span><span class="p">,</span><span class="n">Pc</span><span class="o">+</span><span class="n">PUSB</span><span class="o">+</span><span class="n">PLSB</span><span class="p">)</span>
@@ -855,13 +971,13 @@ Für die einzelnen Leistungen ergeben sich unter Berücksichtigung des Modulatio
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle m = \frac{U_{m}}{U_{c}}\]</div>
+\[\displaystyle m = \frac{\hat{U}_m}{\hat{U}_c}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle P_{c} = \frac{U_{c}^{2}}{2 R}\]</div>
+\[\displaystyle P_{c} = \frac{\hat{U}_c^{2}}{2 R}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle P_{USB} = \frac{U_{c}^{2} m^{2}}{8 R}\]</div>
+\[\displaystyle P_{USB} = \frac{\hat{U}_c^{2} m^{2}}{8 R}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle P_{LSB} = \frac{U_{c}^{2} m^{2}}{8 R}\]</div>
+\[\displaystyle P_{LSB} = \frac{\hat{U}_c^{2} m^{2}}{8 R}\]</div>
 </div>
 </div>
 <p>Werden diese Gleichungen nun Addiert ergibt sich die, von dem Modulationsgrad abhängige, Leistung des modulierten Signals.</p>
@@ -874,7 +990,7 @@ Für die einzelnen Leistungen ergeben sich unter Berücksichtigung des Modulatio
 </div>
 </div>
 <p>$ P_{AM}=\frac{U_c^2}{2R} (1+\frac{m^2}{2}) = P_c (1+\frac{m^2}{2}) $<br />
-Für einen Modulationsgrad von $ m=1 $ ergibt sich die Gesamtleistung zu $ P_{AM} = 1,5 P_c $. Wird nun noch das Verhältnis von Trägersignalleistung und Informationssignal (Modulator) gebildet ergibt sich ein Verhältniss von $ P_c/P_{SB}=4 $. Das bedeutet, dass das Trägersignal, welches keine Information beinhaltet, vier mal so Leistungsstark ist als das Informationssignal, welches die information beinhaltet. Bezogen auf das Modulierte Signal bedeutet dies, dass nur ein 1/6 der Leistung für die Informationsübermittlung verwendet wird. Ist der Modulationsgrad kleiner als 1 wird das verhältnis noch nachteiliger.<br />
+Für einen Modulationsgrad von $ m=1 $ ergibt sich die Gesamtleistung zu $ P_{AM} = 1,5 P_c $. Wird nun noch das Verhältnis von Trägersignalleistung und Informationssignal (Modulationssignal) gebildet ergibt sich ein Verhältniss von $ P_c/P_{SB}=4 $. Das bedeutet, dass das Trägersignal, welches keine Information beinhaltet, vier mal so Leistungsstark ist als das Informationssignal, welches die information beinhaltet. Bezogen auf das Modulierte Signal bedeutet dies, dass nur ein 1/6 der Leistung für die Informationsübermittlung verwendet wird. Ist der Modulationsgrad kleiner als 1 wird das verhältnis noch nachteiliger.<br />
 Durch eliminieren des Trägers wird versucht diesen Nachteil zu unterdrücken.</p>
 <ul class="simple">
 <li><p>Amplitudenmodulation mit Träger (DSBFC) - wird hier besprochen.</p></li>
@@ -911,7 +1027,7 @@ Durch eliminieren des Trägers wird versucht diesen Nachteil zu unterdrücken.</
 <span class="c1">#Modulated Signal</span>
 <span class="n">_</span><span class="p">,</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">generate_AM_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span> <span class="n">AMPLITUDE_C</span><span class="p">,</span> <span class="n">FREQUENCY_M</span><span class="p">,</span> <span class="n">AMPLITUDE_M</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">)</span>
 
-<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">carrier</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">modulator</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="o">+</span><span class="n">FREQUENCY_M</span><span class="p">)],</span><span class="n">ytype</span><span class="o">=</span><span class="s1">&#39;pow&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">AMsignal</span><span class="o">=</span><span class="n">voltage</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="o">*</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="o">+</span><span class="n">FREQUENCY_M</span><span class="p">)],</span><span class="n">ytype</span><span class="o">=</span><span class="s1">&#39;pow&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1007,6 +1123,189 @@ Durch eliminieren des Trägers wird versucht diesen Nachteil zu unterdrücken.</
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="fm-modulation">
+<h2><span class="section-number">3.5. </span>FM Modulation<a class="headerlink" href="#fm-modulation" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Frequenzmodulation lässt sich mathematisch wie folgt anschreiben.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utFMeq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">utFMt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">Uc</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">ft</span><span class="p">(</span><span class="n">tau</span><span class="p">),(</span><span class="n">tau</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">))))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">utFMeq1</span><span class="p">)</span>
+<span class="n">utFMeq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">utFMt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">Uc</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fc</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">deltaf</span><span class="o">*</span><span class="n">utmt</span><span class="p">(</span><span class="n">tau</span><span class="p">),(</span><span class="n">tau</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">))))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">utFMeq2</span><span class="p">)</span>
+<span class="n">utFMeq3</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">utFMt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">Uc</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fc</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">integrate</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">deltaf</span><span class="o">*</span><span class="n">utmt</span><span class="p">(</span><span class="n">tau</span><span class="p">),(</span><span class="n">tau</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">))))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">utFMeq3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{u_{FM}}{\left(t \right)} = \hat{U}_c \cos{\left(2 \pi \int\limits_{0}^{t} f{\left(\tau \right)}\, d\tau \right)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{u_{FM}}{\left(t \right)} = \hat{U}_c \cos{\left(\pi \left(2 \int\limits_{0}^{t} f_{c}\, d\tau + 2 \int\limits_{0}^{t} \Delta f \operatorname{u_{m}}{\left(\tau \right)}\, d\tau\right) \right)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{u_{FM}}{\left(t \right)} = \hat{U}_c \cos{\left(2 \pi \Delta f \int\limits_{0}^{t} \operatorname{u_{m}}{\left(\tau \right)}\, d\tau + 2 \pi f_{c} t \right)}\]</div>
+</div>
+</div>
+<p>Wird für das Modulationssignal eine Sinusschwingung eingesetzt vereinfacht sich die Gleichung.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">utmt</span><span class="p">(</span><span class="n">tau</span><span class="p">),</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fm</span><span class="o">*</span><span class="n">tau</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq2</span><span class="p">)</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="n">utmt</span><span class="p">(</span><span class="n">tau</span><span class="p">),(</span><span class="n">tau</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">)),</span><span class="n">integrate</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">,(</span><span class="n">tau</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">eq1</span><span class="p">)</span>
+<span class="n">utFMeq4</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">utFMt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">simplify</span><span class="p">(</span><span class="n">utFMeq3</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">eq2</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span><span class="n">eq2</span><span class="o">.</span><span class="n">rhs</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">utFMeq4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{u_{m}}{\left(\tau \right)} = \cos{\left(2 \pi f_{m} \tau \right)}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \int\limits_{0}^{t} \operatorname{u_{m}}{\left(\tau \right)}\, d\tau = \frac{\sin{\left(2 \pi f_{m} t \right)}}{2 \pi f_{m}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{u_{FM}}{\left(t \right)} = \hat{U}_c \cos{\left(\frac{\Delta f \sin{\left(2 \pi f_{m} t \right)}}{f_{m}} + 2 \pi f_{c} t \right)}\]</div>
+</div>
+</div>
+<p>Der Ausdruck $\eta = \frac{\Delta f}{f_m}$ wird dabei als Modulationsindex bezeichnet. Der Frequenzhub $\Delta f$ lässt sich aus der Amplitude des Modulationssignals $\hat{U}_m$  und der Empfindlichkeit $K_f$ zu $\Delta f = K_f \cdot \hat{U}_m $ berechnen. Der Frequenzhub $\Delta f$ ist proportional zur maximalen Modulationsspannung.
+Aus den obigen Gleichungen ergibt sich auch, dass die Abweichung der momentanen Trägerfrequenz $f(\tau)$ proportional zur Modulationsspannung  ist.</p>
+<div class="section" id="bandbreitenabschatzug">
+<h3><span class="section-number">3.5.1. </span>Bandbreitenabschätzug<a class="headerlink" href="#bandbreitenabschatzug" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Mit der Carson-Formel kann die Bandbreite abgeschätzt werden. Wird die Bandbreite $ B_{10%} $ angebene, bezieht sich das $10%$ auf den Anteil der berücksichtigen Spektrallinien. In diesem Fall werden $90%$ berücksichtigt und $10%ß$ nicht. Wird eine höhre Übertragungsgüte gewünscht, mehr Spektrallinien werden übertragen, so muss die Carson-Formel $B_1%$ angewandt werden. Bei der Carson-Formel handelt es sich um eine Abschätzung. Für eine genauere Betrachtung muss die Bessel Funktion herangezogen werden.<br />
+Eine FM moduliertes Signal hat unendlich viele Spektrallinien. Das bedeutet, dass die Bandbreite immer begrenzt werden muss. Daraus ergibt sich ein Amplitudenfehler.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B10eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">B10</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">deltaf</span><span class="o">+</span><span class="n">fm</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B10eq1</span><span class="p">)</span>
+<span class="n">etaeq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span><span class="n">deltaf</span><span class="o">/</span><span class="n">fm</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">etaeq1</span><span class="p">)</span>
+<span class="n">B10eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">B10</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">eta</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B10eq2</span><span class="p">)</span>
+
+<span class="n">B1eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">deltaf</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">fm</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B1eq1</span><span class="p">)</span>
+<span class="n">B1eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">eta</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B1eq2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle B_{10\%} = 2 \Delta f + 2 f_{m}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \eta = \frac{\Delta f}{f_{m}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle B_{10\%} = 2 f_{m} \left(\eta + 1\right)\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle B_{1\%} = 2 \Delta f + 4 f_{m}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle B_{1\%} = 2 f_{m} \left(\eta + 2\right)\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="beispiel-ukw-horfunk">
+<h3><span class="section-number">3.5.2. </span>Beispiel UKW-Hörfunk<a class="headerlink" href="#beispiel-ukw-horfunk" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Carrier</span>
+<span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">AMPLITUDE_C</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">#Modulator</span>
+<span class="n">FREQUENCY_M</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">#Frequenzhub Mono</span>
+<span class="n">DELTA_F</span><span class="o">=</span><span class="mi">75</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assign_meta_data</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">fc</span><span class="p">,</span><span class="n">FREQUENCY_C</span><span class="p">)</span>
+<span class="n">assign_meta_data</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">Uc</span><span class="p">,</span><span class="n">AMPLITUDE_C</span><span class="p">)</span>
+<span class="n">assign_meta_data</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">fm</span><span class="p">,</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
+<span class="n">assign_meta_data</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">Um</span><span class="p">,</span><span class="n">AMPLITUDE_M</span><span class="p">)</span>
+<span class="n">assign_meta_data</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">deltaf</span><span class="p">,</span><span class="n">DELTA_F</span><span class="p">)</span>
+
+<span class="n">assign_meta_data</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">eta</span><span class="p">,</span><span class="n">etaeq1</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span>
+<span class="n">assign_meta_data</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">B10</span><span class="p">,</span><span class="n">B10eq1</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span>
+
+<span class="n">show_numerical_value</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">eta</span><span class="p">)</span>
+<span class="n">show_numerical_value</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">B10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \eta = \frac{15}{2}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle B_{10\%} = 170000\]</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="o">*</span><span class="mi">1000</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_c</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_C</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="p">,</span> <span class="n">voltage_m</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY_M</span><span class="p">,</span><span class="n">SAMPLE_RATE</span><span class="p">,</span><span class="n">DURATION</span><span class="p">,</span><span class="n">amplitude</span><span class="o">=</span><span class="n">AMPLITUDE_M</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+
+<span class="c1">#Generate FM Signal</span>
+<span class="n">utFMeq4_N</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">utFMeq4</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">FMsignal</span><span class="o">=</span><span class="n">utFMeq4_N</span><span class="p">(</span><span class="n">time</span><span class="p">),</span><span class="n">show_time</span><span class="o">=</span><span class="mi">2</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">FMsignal</span><span class="o">=</span><span class="n">utFMeq4_N</span><span class="p">(</span><span class="n">time</span><span class="p">),</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">],</span><span class="n">ytype</span><span class="o">=</span><span class="s1">&#39;pow&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plot_rfft_amp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Träger</span><span class="o">=</span><span class="n">voltage_c</span><span class="p">,</span><span class="n">Modulationssignal</span><span class="o">=</span><span class="n">voltage_m</span><span class="p">,</span><span class="n">FMsignal</span><span class="o">=</span><span class="n">utFMeq4_N</span><span class="p">(</span><span class="n">time</span><span class="p">),</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">FREQUENCY_C</span><span class="p">],</span><span class="n">ytype</span><span class="o">=</span><span class="s1">&#39;pow&#39;</span><span class="p">,</span><span class="n">yscale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_50_0.png" src="_images/Modulation_50_0.png" />
+<img alt="_images/Modulation_50_1.png" src="_images/Modulation_50_1.png" />
+<img alt="_images/Modulation_50_2.png" src="_images/Modulation_50_2.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pm-modulation">
+<h2><span class="section-number">3.6. </span>PM Modulation<a class="headerlink" href="#pm-modulation" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Phasenmodulation lässt sich mathematisch wie folgt anschreiben.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utFMPMeq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">utFMPMt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">Uc</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">ft</span><span class="p">(</span><span class="n">tau</span><span class="p">),(</span><span class="n">tau</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">))</span><span class="o">+</span><span class="n">phit</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">utFMPMeq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \operatorname{u_{FM,PM}}{\left(t \right)} = \hat{U}_c \cos{\left(\varphi{\left(t \right)} + 2 \pi \int\limits_{0}^{t} f{\left(\tau \right)}\, d\tau \right)}\]</div>
+</div>
+</div>
+<p>Da bei der Phasenmodulation die Frequenz nicht mit der Zeit verändert wird, ergibt sich für die Phasenmodulation folgende Gleichung.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uPMeq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">utPM</span><span class="p">,</span><span class="n">Uc</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fc</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">eta</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fm</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">uPMeq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle u_{PM}(t) = \hat{U}_c \cos{\left(\eta \cos{\left(2 \pi f_{m} t \right)} + 2 \pi f_{c} t \right)}\]</div>
+</div>
+</div>
+<p>Für ein Sinusförmiges Signal unterscheidet sich die PM nicht von der FM. Mit einem FM Modulator kann auch PM erzeugt werden, wenn man das Modulationssignal vor dem Modulator differenziert. Auch der umgekehrte Weg ist möglich. Wird das Modulationssignal vor dem Modulator integriert kann mit einem Phasenmodulator FM erzeugt werden.</p>
 </div>
 </div>
 

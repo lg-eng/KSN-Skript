@@ -5,7 +5,7 @@
 
 
 from jBook_tools import *
-plt.rcParams['figure.figsize'] = [10, 5] #Plotgröße anpassen
+plt.rcParams['figure.figsize'] = [15, 5] #Plotgröße anpassen
 
 from myst_nb import glue
 from scipy.fft import fft, fftfreq,rfft, rfftfreq
@@ -106,6 +106,9 @@ def plot_rfft_amp(time,**kwargs):
     if 'xlim' in kwargs:
         plt.xlim(kwargs['xlim'])
         del kwargs['xlim']
+    if 'ylim' in kwargs:
+        plt.ylim(kwargs['ylim'])
+        del kwargs['ylim']
     if 'ytype' in kwargs:
         ytype = kwargs['ytype']
         del kwargs['ytype']
@@ -169,7 +172,7 @@ def generate_wavelet(fmin,fmax,amp,sample_rate, duration):
 def plt_mod_trap(signal_m,signal_AM):
     plt.plot(signal_m,signal_AM)
     plt.grid()
-    plt.xlabel('Modulator $u(t)_m$')
+    plt.xlabel('Modulationssignal $u(t)_m$')
     plt.ylabel('Modulated Signal $u(t)_{AM}$')
     plt.show()
 
@@ -180,65 +183,113 @@ def plt_mod_trap(signal_m,signal_AM):
 ut = symbols('u(t)')
 sym_legend = assign_meta_data(sym_legend,ut,'Spannung in abhängigkeit der Zeit')
 
-utc = symbols('u(t)_c')
+utc = symbols('u_{c}(t)')
 sym_legend = assign_meta_data(sym_legend,utc,'Spannungsverlauf des Trägers')
 
-utm = symbols('u(t)_m')
-sym_legend = assign_meta_data(sym_legend,utm,'Spannungsverlauf des Modulators')
+utm = symbols('u_{m}(t)')
+sym_legend = assign_meta_data(sym_legend,utm,'Spannungsverlauf des Modulationssignal')
 
-utAM = symbols('u(t)_AM')
+utmt = Function('u_m')
+func_legend = assign_meta_data(func_legend,utmt,'Spannungsverlauf des Modulationssignals in Abhängigkeit der Zeit')
+
+utAM = symbols('u_{AM}(t)')
 sym_legend = assign_meta_data(sym_legend,utAM,'AM Moduliertes Signal')
 
-U = symbols('U')
+utFM = symbols('u_{FM}(t)')
+sym_legend = assign_meta_data(sym_legend,utFM,'FM Moduliertes Signal')
+
+utFMt = Function('u_FM')
+sym_legend = assign_meta_data(sym_legend,utFMt,'FM Moduliertes Signal')
+
+utPM = symbols('u_{PM}(t)')
+sym_legend = assign_meta_data(sym_legend,utPM,'PM Moduliertes Signal')
+
+utFMPM = symbols('u_{FM,PM}(t)')
+sym_legend = assign_meta_data(sym_legend,utFMPM,'FM und PM Moduliertes Signal')
+
+utFMPMt = Function('u_{FM,PM}')
+func_legend = assign_meta_data(func_legend,utFMPMt,'FM und PM Moduliertes Signal in Abhängigkeit der Zeit')
+
+U = symbols('\\hat{U}')
 sym_legend = assign_meta_data(sym_legend,U,'Amplitude der Spannung')
 
-Uc = symbols('U_c')
+Uc = symbols('\\hat{U}_c')
 sym_legend = assign_meta_data(sym_legend,Uc,'Amplitude des Trägersignals (Carrier)')
 
-Um = symbols('U_m')
-sym_legend = assign_meta_data(sym_legend,Um,'Amplitude des Modulationssignals (Modulator)')
+Um = symbols('\\hat{U}_m')
+sym_legend = assign_meta_data(sym_legend,Um,'Amplitude des Modulationssignals')
 
-UAM = symbols('U_AM')
-sym_legend = assign_meta_data(sym_legend,UAM,'Amplitude des AM moduliertes Signals')
+UAM = symbols('\\hat{U}_{AM}')
+sym_legend = assign_meta_data(sym_legend,UAM,'Amplitude des AM modulierten Signals')
 
-Urms = symbols('U_rms')
+UFM = symbols('\\hat{U}_{FM}')
+sym_legend = assign_meta_data(sym_legend,UAM,'Amplitude des FM modulierten Signals')
+
+UPM = symbols('\\hat{U}_{PM}')
+sym_legend = assign_meta_data(sym_legend,UAM,'Amplitude des PM modulierten Signals')
+
+UFMPM = symbols('\\hat{U}_{FM,PM}')
+sym_legend = assign_meta_data(sym_legend,UAM,'Amplitude des FM und PM modulierten Signals')
+
+Urms = symbols('U_{rms}')
 sym_legend = assign_meta_data(sym_legend,Urms,'Effektivwert der Spannung')
 
-Ucrms = symbols('U_crms')
+Ucrms = symbols('U_{c,rms}')
 sym_legend = assign_meta_data(sym_legend,Ucrms,'Effektivwert des Trägersignals (Carrier)')
 
-Umrms = symbols('U_mrms')
-sym_legend = assign_meta_data(sym_legend,Umrms,'Effektivwert des Modulationssignals (Modulator)')
+Umrms = symbols('U_{m,rms}')
+sym_legend = assign_meta_data(sym_legend,Umrms,'Effektivwert des Modulationssignals')
 
-UAMrms = symbols('U_AMrms')
+UAMrms = symbols('U_{AM,rms}')
 sym_legend = assign_meta_data(sym_legend,UAMrms,'Effektivwert des AM moduliertes Signals')
 
-w = symbols('omega')
+w = symbols('omega',positive=True)
 sym_legend = assign_meta_data(sym_legend,w,'Kreisfrequenz des Trägersignals (Carrier)')
 
-wc = symbols('omega_c')
+wt = Function('omega',positive=True)
+func_legend = assign_meta_data(func_legend,w,'Kreisfrequenz des Trägersignals (Carrier) in Abhängigkeit der Zeit')
+
+wc = symbols('omega_c',positive=True)
 sym_legend = assign_meta_data(sym_legend,w,'Kreisfrequenz')
 
-wm = symbols('omega_m')
+wm = symbols('omega_m',positive=True)
 sym_legend = assign_meta_data(sym_legend,w,'Kreisfrequenz')
 
-f = symbols('f')
-sym_legend = assign_meta_data(sym_legend,w,'Frequenz')
+f = symbols('f',positive=True)
+sym_legend = assign_meta_data(sym_legend,f,'Frequenz')
 
-fc = symbols('f_c')
-sym_legend = assign_meta_data(sym_legend,w,'Frequenz des Trägersignals (Carrier)')
+deltaf = Symbol("\Delta f",positive=True)
+sym_legend = assign_meta_data(sym_legend,deltaf,'Frequenzhub, maximale Abweichung von der Trägerfrequenz')
 
-fm = symbols('f_m')
-sym_legend = assign_meta_data(sym_legend,w,'Frequenz des Modulationssignals (Modulator)')
+ft = Function('f',positive=True)
+func_legend = assign_meta_data(func_legend,ft,'Frequenz in Abhängigkeit der Zeit')
 
-fmmax = symbols('f_m_max')
-sym_legend = assign_meta_data(sym_legend,w,'maximale Frequenz des Modulationssignals (Modulator)')
+fc = symbols('f_c',positive=True)
+sym_legend = assign_meta_data(sym_legend,fc,'Frequenz des Trägersignals (Carrier)')
+
+dfc = Symbol("\Delta f_c")
+sym_legend = assign_meta_data(sym_legend,dfc,'Frequenzhub, maximale Abweichung von der Trägerfrequenz')
+
+fm = symbols('f_m',positive=True)
+sym_legend = assign_meta_data(sym_legend,fm,'Frequenz des Modulationssignals')
+
+fmt = Function('f_m',positive=True)
+func_legend = assign_meta_data(func_legend,fm,'Frequenz des Modulationssignals')
+
+fmmax = symbols('f_m_max',positive=True)
+sym_legend = assign_meta_data(sym_legend,w,'maximale Frequenz des Modulationssignals')
 
 t = symbols('t')
 sym_legend = assign_meta_data(sym_legend,t,'Zeit')
 
+tau = symbols('tau')
+sym_legend = assign_meta_data(sym_legend,tau,'Zeit')
+
 phi = symbols('\\varphi')
 sym_legend = assign_meta_data(sym_legend,phi,'Phasenlage')
+
+phit = Function('\\varphi')
+func_legend = assign_meta_data(func_legend,phi,'Phasenlage in Abhängigkeit der Zeit')
 
 m = symbols('m')
 sym_legend = assign_meta_data(sym_legend,m,'Modulationsgrad')
@@ -256,7 +307,7 @@ Pc = symbols('P_c')
 sym_legend = assign_meta_data(sym_legend,Pc,'Leistung des Trägersignals (Carrier)')
 
 Pm = symbols('P_m')
-sym_legend = assign_meta_data(sym_legend,Pm,'Leistung des Modulationssignals (Modulator)')
+sym_legend = assign_meta_data(sym_legend,Pm,'Leistung des Modulationssignals')
 
 PUSB = symbols('P_USB')
 sym_legend = assign_meta_data(sym_legend,PUSB,'Leistung des oberen Seitenbandes')
@@ -267,9 +318,21 @@ sym_legend = assign_meta_data(sym_legend,PLSB,'Leistung des unteren Seitenbandes
 R = symbols('R')
 sym_legend = assign_meta_data(sym_legend,R,'Widerstand')
 
+B10 = symbols('B_{10\%}')
+sym_legend = assign_meta_data(sym_legend,B10,'Bandbreite des frequenzmodulierten Signales')
+
+B1 = symbols('B_{1\%}')
+sym_legend = assign_meta_data(sym_legend,B1,'Bandbreite des frequenzmodulierten Signales')
+
+eta = symbols('eta')
+sym_legend = assign_meta_data(sym_legend,eta,'Modulationsindex')
+
 #add to glue
 for key in sym_legend:
-    glue(key.name, key, display=False)
+    try:
+        glue(key.name, key, display=False)
+    except:
+        pass
 
 
 # # Modulation
@@ -312,7 +375,7 @@ plot_rfft_amp(time,wave1=signal1,xlim=[0,1.2*FREQUENCY])
 # In[6]:
 
 
-Eq(ut,cos(w*t+phi))
+Eq(ut,U*cos(w*t+phi))
 
 
 # ## AM Modulation
@@ -370,15 +433,15 @@ display(Eq(m,AMPLITUDE_M/AMPLITUDE_C))
 #Modulated Signal
 _,voltage = generate_AM_wave(FREQUENCY_C, AMPLITUDE_C, FREQUENCY_M, AMPLITUDE_M, SAMPLE_RATE, DURATION)
 
-plot_vs_time(time,carrier=voltage_c,modulator=voltage_m,AMsignal=voltage,upperEnvelope=voltage_m+10,lowerEnvelope=-(voltage_m+10),show_time=1/FREQUENCY_M)
-plot_vs_time(time,carrier=voltage_c,modulator=voltage_m,AMsignal=voltage,show_time=1/FREQUENCY_M)
-plot_rfft_amp(time,carrier=voltage_c,modulator=voltage_m,AMsignal=voltage,xlim=[0,1.2*(FREQUENCY_C+FREQUENCY_M)],yscale='linear')
+plot_vs_time(time,Träger=voltage_c,Modulationssignal=voltage_m,AMsignal=voltage,upperEnvelope=voltage_m+10,lowerEnvelope=-(voltage_m+10),show_time=1/FREQUENCY_M)
+plot_vs_time(time,Träger=voltage_c,Modulationssignal=voltage_m,AMsignal=voltage,show_time=1/FREQUENCY_M)
+plot_rfft_amp(time,Träger=voltage_c,Modulationssignal=voltage_m,AMsignal=voltage,xlim=[0,1.2*(FREQUENCY_C+FREQUENCY_M)],yscale='linear')
 
 
-# Die Trägerfrequenz und die Frequenz des Modulators ist gut zu erkenne. Das resultierende AM modulierte Signal besteht aus drei Frequenzen. Der Trägerfrequenz und die um die Frequenz des Modulators nach Links und Rechts der Trägerfrequenz verschobenen Teile. Diese werden als oberes und unteres Seitenband bezeichnet.
+# Die Trägerfrequenz und die Frequenz des Modulationssignals ist gut zu erkenne. Das resultierende AM modulierte Signal besteht aus drei Frequenzen. Der Trägerfrequenz und die um die Frequenz des Modulationssignals nach Links und Rechts der Trägerfrequenz verschobenen Teile. Diese werden als oberes und unteres Seitenband bezeichnet.
 # 
 # ### Bandbreite
-# Bei der Übertragung wird nicht nur eine Frequenz übertragen sondern ein Frequenzspecktrum. Zum Beipiel Sprache zwischen 20 Hz und 20 kHz. Daraus ergibt sich eine mindestens benötigte Bandbreite. Also ein Mindestabstand zwischen der Frequenz des Trägers und der frequenz des Modulators.
+# Bei der Übertragung wird nicht nur eine Frequenz übertragen sondern ein Frequenzspecktrum. Zum Beipiel Sprache zwischen 20 Hz und 20 kHz. Daraus ergibt sich eine mindestens benötigte Bandbreite. Also ein Mindestabstand zwischen der Frequenz des Trägers und der frequenz des Modulationssignals.
 
 # In[11]:
 
@@ -394,9 +457,14 @@ display(BAMeq1)
 FREQUENCY_C = 1*10**4
 AMPLITUDE_C = 10
 
+#Modulator
+AMPLITUDE_M = 8
+FREQUENCY_M_min = 2000
+FREQUENCY_M_max = 3000
+
 #General Settings
-SAMPLE_RATE = 50*FREQUENCY_C
-DURATION = 1/FREQUENCY_M*10**5
+SAMPLE_RATE = 100*FREQUENCY_C
+DURATION = 100*1/FREQUENCY_M*10**3
 
 
 # In[13]:
@@ -406,17 +474,17 @@ DURATION = 1/FREQUENCY_M*10**5
 time, voltage_c = generate_wave(FREQUENCY_C,SAMPLE_RATE,DURATION,amplitude=AMPLITUDE_C,form='cos')
 
 #Random modulator signal
-time, voltage_m = generate_wavelet(2000,3000,AMPLITUDE_M,SAMPLE_RATE, DURATION)
+time, voltage_m = generate_wavelet(FREQUENCY_M_min,FREQUENCY_M_max,AMPLITUDE_M,SAMPLE_RATE, DURATION)
 
 #Modulated Signal
 _,voltage = generate_AM_wave2(time,FREQUENCY_C,AMPLITUDE_C,voltage_m)
 
-plot_vs_time(time,carrier=voltage_c,modulator=voltage_m,AMsignal=voltage,show_time=1/300)
-plot_rfft_amp(time,carrier=voltage_c,modulator=voltage_m,AMsignal=voltage,xlim=[0*FREQUENCY_C,1.5*FREQUENCY_C])
+plot_vs_time(time,Träger=voltage_c,Modulationssignal=voltage_m,AMsignal=voltage,show_time=1/300)
+plot_rfft_amp(time,Träger=voltage_c,Modulationssignal=voltage_m,AMsignal=voltage,xlim=[0*FREQUENCY_C,1.5*FREQUENCY_C],ylim=[10**-2,None])
 
 
 # ### Leistungsbetrachtung
-# Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulator. Die Gesamtleistung des modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. {cite}`TPAM`
+# Ein Nachteil der AM Modulation ist die Leistungsaufteilung zwischen Träger und dem Nutzsignal, dem Modulationssignal. Die Gesamtleistung des modulierten Signales ergibt sich aus der Summe der Leistungen des Trägers, des oberen und des unteren Seitenbandes. {cite}`TPAM`
 
 # In[14]:
 
@@ -461,7 +529,7 @@ PAMeq2=Eq(PAM,Pceq1.rhs+PUSBeq1.rhs+PLSBeq1.rhs)
 
 
 # \$ P_{AM}=\frac{U_c^2}{2R} (1+\frac{m^2}{2}) = P_c (1+\frac{m^2}{2}) \$  
-# Für einen Modulationsgrad von \$ m=1 \$ ergibt sich die Gesamtleistung zu \$ P_{AM} = 1,5 P_c \$. Wird nun noch das Verhältnis von Trägersignalleistung und Informationssignal (Modulator) gebildet ergibt sich ein Verhältniss von \$ P_c/P_{SB}=4 \$. Das bedeutet, dass das Trägersignal, welches keine Information beinhaltet, vier mal so Leistungsstark ist als das Informationssignal, welches die information beinhaltet. Bezogen auf das Modulierte Signal bedeutet dies, dass nur ein 1/6 der Leistung für die Informationsübermittlung verwendet wird. Ist der Modulationsgrad kleiner als 1 wird das verhältnis noch nachteiliger.  
+# Für einen Modulationsgrad von \$ m=1 \$ ergibt sich die Gesamtleistung zu \$ P_{AM} = 1,5 P_c \$. Wird nun noch das Verhältnis von Trägersignalleistung und Informationssignal (Modulationssignal) gebildet ergibt sich ein Verhältniss von \$ P_c/P_{SB}=4 \$. Das bedeutet, dass das Trägersignal, welches keine Information beinhaltet, vier mal so Leistungsstark ist als das Informationssignal, welches die information beinhaltet. Bezogen auf das Modulierte Signal bedeutet dies, dass nur ein 1/6 der Leistung für die Informationsübermittlung verwendet wird. Ist der Modulationsgrad kleiner als 1 wird das verhältnis noch nachteiliger.  
 # Durch eliminieren des Trägers wird versucht diesen Nachteil zu unterdrücken. 
 # * Amplitudenmodulation mit Träger (DSBFC) - wird hier besprochen.
 # * Amplitudenmodulation mit unterdrücktem Träger (Double side band suppressed carrier) DSBSC 
@@ -498,7 +566,7 @@ display(Eq(m,AMPLITUDE_M/AMPLITUDE_C))
 #Modulated Signal
 _,voltage = generate_AM_wave(FREQUENCY_C, AMPLITUDE_C, FREQUENCY_M, AMPLITUDE_M, SAMPLE_RATE, DURATION)
 
-plot_rfft_amp(time,AMsignal=voltage,carrier=voltage_c,modulator=voltage_m,xlim=[0,1.5*(FREQUENCY_C+FREQUENCY_M)],ytype='pow',yscale='linear')
+plot_rfft_amp(time,AMsignal=voltage,Träger=voltage_c,Modulationssignal=voltage_m,xlim=[0,1.5*(FREQUENCY_C+FREQUENCY_M)],ytype='pow',yscale='linear')
 
 
 # ### Modulationstrapez
@@ -569,3 +637,131 @@ _,voltage = generate_AM_wave2(time,FREQUENCY_C,AMPLITUDE_C,voltage_m)
 display(Eq(m,AMPLITUDE_M/AMPLITUDE_C))
 plt_mod_trap(voltage_m,voltage)
 
+
+# ## FM Modulation
+# Die Frequenzmodulation lässt sich mathematisch wie folgt anschreiben.
+# 
+
+# In[24]:
+
+
+utFMeq1 = Eq(utFMt(t),Uc*cos(integrate(2*pi*ft(tau),(tau,0,t))))
+display(utFMeq1)
+utFMeq2 = Eq(utFMt(t),Uc*cos(integrate(2*pi*fc + 2*pi*deltaf*utmt(tau),(tau,0,t))))
+display(utFMeq2)
+utFMeq3 = Eq(utFMt(t),Uc*cos(2*pi*fc*t + integrate(2*pi*deltaf*utmt(tau),(tau,0,t))))
+display(utFMeq3)
+
+
+# Wird für das Modulationssignal eine Sinusschwingung eingesetzt vereinfacht sich die Gleichung.
+
+# In[25]:
+
+
+eq2 = Eq(utmt(tau),cos(2*pi*fm*tau))
+display(eq2)
+eq1 = Eq(integrate(utmt(tau),(tau,0,t)),integrate(eq2.rhs,(tau,0,t)))
+display(eq1)
+utFMeq4 = Eq(utFMt(t),simplify(utFMeq3.rhs.subs(eq2.lhs,eq2.rhs)))
+display(utFMeq4)
+
+
+# Der Ausdruck \$\eta = \frac{\Delta f}{f_m}\$ wird dabei als Modulationsindex bezeichnet. Der Frequenzhub \$\Delta f\$ lässt sich aus der Amplitude des Modulationssignals \$\hat{U}_m\$  und der Empfindlichkeit \$K_f\$ zu \$\Delta f = K_f \cdot \hat{U}_m \$ berechnen. Der Frequenzhub \$\Delta f\$ ist proportional zur maximalen Modulationsspannung.
+# Aus den obigen Gleichungen ergibt sich auch, dass die Abweichung der momentanen Trägerfrequenz \$f(\tau)\$ proportional zur Modulationsspannung  ist.   
+# ### Bandbreitenabschätzug
+# Mit der Carson-Formel kann die Bandbreite abgeschätzt werden. Wird die Bandbreite \$ B_{10\%} \$ angebene, bezieht sich das \$10\%\$ auf den Anteil der berücksichtigen Spektrallinien. In diesem Fall werden \$90\%\$ berücksichtigt und \$10\%ß$ nicht. Wird eine höhre Übertragungsgüte gewünscht, mehr Spektrallinien werden übertragen, so muss die Carson-Formel \$B_1\%\$ angewandt werden. Bei der Carson-Formel handelt es sich um eine Abschätzung. Für eine genauere Betrachtung muss die Bessel Funktion herangezogen werden.  
+# Eine FM moduliertes Signal hat unendlich viele Spektrallinien. Das bedeutet, dass die Bandbreite immer begrenzt werden muss. Daraus ergibt sich ein Amplitudenfehler.
+
+# In[26]:
+
+
+B10eq1 = Eq(B10,2*(deltaf+fm))
+display(B10eq1)
+etaeq1 = Eq(eta,deltaf/fm)
+display(etaeq1)
+B10eq2 = Eq(B10,2*fm*(eta+1))
+display(B10eq2)
+
+B1eq1 = Eq(B1,2*(deltaf+2*fm))
+display(B1eq1)
+B1eq2 = Eq(B1,2*fm*(eta+2))
+display(B1eq2)
+
+
+# ### Beispiel UKW-Hörfunk
+
+# In[27]:
+
+
+#Carrier
+FREQUENCY_C = 10*10**4
+AMPLITUDE_C = 1
+
+#Modulator
+FREQUENCY_M = 10*10**3
+AMPLITUDE_M = 1
+
+#Frequenzhub Mono
+DELTA_F=75*10**3
+
+
+# In[28]:
+
+
+assign_meta_data(vals,fc,FREQUENCY_C)
+assign_meta_data(vals,Uc,AMPLITUDE_C)
+assign_meta_data(vals,fm,FREQUENCY_M)
+assign_meta_data(vals,Um,AMPLITUDE_M)
+assign_meta_data(vals,deltaf,DELTA_F)
+
+assign_meta_data(vals,eta,etaeq1.rhs.subs(vals))
+assign_meta_data(vals,B10,B10eq1.rhs.subs(vals))
+
+show_numerical_value(vals,eta)
+show_numerical_value(vals,B10)
+
+
+# In[29]:
+
+
+#General Settings
+SAMPLE_RATE = 10*FREQUENCY_C
+DURATION = 1/FREQUENCY_M*1000
+
+#Generate Signals
+time, voltage_c = generate_wave(FREQUENCY_C,SAMPLE_RATE,DURATION,amplitude=AMPLITUDE_C,form='cos')
+time, voltage_m = generate_wave(FREQUENCY_M,SAMPLE_RATE,DURATION,amplitude=AMPLITUDE_M,form='cos')
+
+#Generate FM Signal
+utFMeq4_N = lambdify(t, utFMeq4.rhs.subs(vals))
+
+
+# In[30]:
+
+
+plot_vs_time(time,Träger=voltage_c,Modulationssignal=voltage_m,FMsignal=utFMeq4_N(time),show_time=2/FREQUENCY_M)
+plot_rfft_amp(time,Träger=voltage_c,Modulationssignal=voltage_m,FMsignal=utFMeq4_N(time),xlim=[0*FREQUENCY_C,3*FREQUENCY_C],ytype='pow',yscale='log')
+plot_rfft_amp(time,Träger=voltage_c,Modulationssignal=voltage_m,FMsignal=utFMeq4_N(time),xlim=[0*FREQUENCY_C,3*FREQUENCY_C],ytype='pow',yscale='linear')
+
+
+# ## PM Modulation
+# Die Phasenmodulation lässt sich mathematisch wie folgt anschreiben.
+# 
+
+# In[31]:
+
+
+utFMPMeq1 = Eq(utFMPMt(t),Uc*cos(integrate(2*pi*ft(tau),(tau,0,t))+phit(t)))
+display(utFMPMeq1)
+
+
+# Da bei der Phasenmodulation die Frequenz nicht mit der Zeit verändert wird, ergibt sich für die Phasenmodulation folgende Gleichung.
+
+# In[32]:
+
+
+uPMeq1 = Eq(utPM,Uc*cos(2*pi*fc*t+eta*cos(2*pi*fm*t)))
+display(uPMeq1)
+
+
+# Für ein Sinusförmiges Signal unterscheidet sich die PM nicht von der FM. Mit einem FM Modulator kann auch PM erzeugt werden, wenn man das Modulationssignal vor dem Modulator differenziert. Auch der umgekehrte Weg ist möglich. Wird das Modulationssignal vor dem Modulator integriert kann mit einem Phasenmodulator FM erzeugt werden.
