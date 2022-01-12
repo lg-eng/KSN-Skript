@@ -327,6 +327,12 @@ sym_legend = assign_meta_data(sym_legend,B1,'Bandbreite des frequenzmodulierten 
 eta = symbols('eta')
 sym_legend = assign_meta_data(sym_legend,eta,'Modulationsindex')
 
+fbit = symbols('f_{Bit}')
+sym_legend = assign_meta_data(sym_legend,fbit,'Bittaktfrequenz')
+
+Tbit = symbols('T_{Bit}')
+sym_legend = assign_meta_data(sym_legend,Tbit,'Bitdauer')
+
 #add to glue
 for key in sym_legend:
     try:
@@ -366,6 +372,7 @@ plot_vs_time(time,wave1=signal1,show_time=2/FREQUENCY)
 plot_rfft_amp(time,wave1=signal1,xlim=[0,1.2*FREQUENCY])
 
 
+# (arten-modulation)=
 # ## Arten von Modulation
 # Wird ein periodisches Signal betrachtet können primär drei Parameter variert werden.  
 # Wird die Amplitude verändert spricht man von der Amplitudenmodulation.  
@@ -669,7 +676,7 @@ display(utFMeq4)
 # Der Ausdruck \$\eta = \frac{\Delta f}{f_m}\$ wird dabei als Modulationsindex bezeichnet. Der Frequenzhub \$\Delta f\$ lässt sich aus der Amplitude des Modulationssignals \$\hat{U}_m\$  und der Empfindlichkeit \$K_f\$ zu \$\Delta f = K_f \cdot \hat{U}_m \$ berechnen. Der Frequenzhub \$\Delta f\$ ist proportional zur maximalen Modulationsspannung.
 # Aus den obigen Gleichungen ergibt sich auch, dass die Abweichung der momentanen Trägerfrequenz \$f(\tau)\$ proportional zur Modulationsspannung  ist.   
 # ### Bandbreitenabschätzug
-# Mit der Carson-Formel kann die Bandbreite abgeschätzt werden. Wird die Bandbreite \$ B_{10\%} \$ angebene, bezieht sich das \$10\%\$ auf den Anteil der berücksichtigen Spektrallinien. In diesem Fall werden \$90\%\$ berücksichtigt und \$10\%ß$ nicht. Wird eine höhre Übertragungsgüte gewünscht, mehr Spektrallinien werden übertragen, so muss die Carson-Formel \$B_1\%\$ angewandt werden. Bei der Carson-Formel handelt es sich um eine Abschätzung. Für eine genauere Betrachtung muss die Bessel Funktion herangezogen werden.  
+# Mit der Carson-Formel kann die Bandbreite abgeschätzt werden. Wird die Bandbreite \$B_{10 \\%} \$ angebene, bezieht sich das \$10 \ \\% \$ auf den Anteil der berücksichtigen Spektrallinien. In diesem Fall werden \$90 \ \\%\$ berücksichtigt und \$10\ \\%$ nicht. Wird eine höhre Übertragungsgüte gewünscht, mehr Spektrallinien werden übertragen, so muss die Carson-Formel \$B_1\%\$ angewandt werden. Bei der Carson-Formel handelt es sich um eine Abschätzung. Für eine genauere Betrachtung muss die Bessel Funktion herangezogen werden.  
 # Eine FM moduliertes Signal hat unendlich viele Spektrallinien. Das bedeutet, dass die Bandbreite immer begrenzt werden muss. Daraus ergibt sich ein Amplitudenfehler.
 
 # In[26]:
@@ -689,16 +696,18 @@ display(B1eq2)
 
 
 # ### Beispiel UKW-Hörfunk
+# Als Beispiel für reale Daten kann der FM Hörfunk herangezogen werden. Der Frequenzhub beträgt \$\Delta f_T = \pm 75 \ \mathrm{kHz}\$ die Trägerfrequenz ist die Frequenz die am Radio angezeigt wird. Der Radiosender OE1 wird von der Sendeanlage Patscherkofel auf der Trägerfrequenz \$f_T = 82,5 \ \mathrm{MHz}\$ übertragen. {cite}`ORS1`  
+# Für die Darstellung der unten gelisteten Diagramme wurden andere Frequenzen gewählt um eine anschaliche Darstellung zu erhalten.
 
 # In[27]:
 
 
 #Carrier
-FREQUENCY_C = 10*10**4
+FREQUENCY_C = 10*10**4 #UKW: 100*10**6
 AMPLITUDE_C = 1
 
 #Modulator
-FREQUENCY_M = 10*10**3
+FREQUENCY_M = 10*10**3 # 75 kHZ changed for explaination
 AMPLITUDE_M = 1
 
 #Frequenzhub Mono
@@ -725,7 +734,7 @@ show_numerical_value(vals,B10)
 
 
 #General Settings
-SAMPLE_RATE = 10*FREQUENCY_C
+SAMPLE_RATE = 100*FREQUENCY_C
 DURATION = 1/FREQUENCY_M*1000
 
 #Generate Signals
@@ -765,3 +774,66 @@ display(uPMeq1)
 
 
 # Für ein Sinusförmiges Signal unterscheidet sich die PM nicht von der FM. Mit einem FM Modulator kann auch PM erzeugt werden, wenn man das Modulationssignal vor dem Modulator differenziert. Auch der umgekehrte Weg ist möglich. Wird das Modulationssignal vor dem Modulator integriert kann mit einem Phasenmodulator FM erzeugt werden.
+
+# ## Digitale Modulation
+# Bei digitalen Modulationsverfahren treten nur diskrete Modulationswerte in euinem konstanten Zeotraster auf. Der Wechsel zwischen den diskreten Werten wird als Umtastung (shift keying) bezeichnet.  
+# Die Unterscheidung nach den umgetasteten Parametern des Trägersignals erfolgt identisch zur analogen Modulation. {ref}`arten-modulation`  
+# Wird die Amplitude umgetastet spricht man von ASK ... Amplitude shift keying.  
+# Wird die Frequenz umgetastet spricht man von FSK ... Frequency shift keying.  
+# Wird die Phase umgetastet spricht man von PSK ... Phase shift keying.
+# 
+# ### Takt
+# Für die steuerung der internen Vorgänge wird ein internes Taktsignal verwendet. Während einer Taktperiode wird genau ein Bit übertragen.  
+# Die Frequenz des Taktsignales wird Bittaktfrequenz genannt.
+
+# In[33]:
+
+
+fbitEq1 = Eq(fbit,1/Tbit)
+display(fbitEq1)
+
+
+# Im Empfänger muss das Taktsignal aus dem digitalen Modulationssignal zurückgewonnen werden. Dies wird als Taktrückgewinnung bzw. auf Englisch clock recovery.
+
+# ### Grafische Darstellung
+# ```{figure} ./images/digitale_modulation1.png
+# :name: Digitale Modulation
+# :width: 400px
+# 
+# Binäres rechteckförmiges Quellensignal (a) sowie die resultierenden Sendesignale bei ASK (b), FSK (c) und PSK (d). {cite}`DMV1`  
+# ```
+# 
+# ### Bandbreiteneffizienz
+# Die Bandbreiteneffizienz gibt die pro Hz Bandbreite übertragene Bitrate an.  
+# \$ Bandbreiteneffizienz = \frac{Biterate}{Bandbreite} \$  
+# \$ [Bandbreiteneffizienz] = \frac{\frac{Bit}{s}}{Hz}\$  
+# Die höchste Bandbreiteffizienz wird mit der PSK erreicht. Die einfachste Form der PSK ist die binäre PSK, BPSK oder auch 2PSK. Dabei wird zwischen Phasenzusänden umgetastet.  
+# \$ Bandbreiteneffizienz_{2PSK} = 1 \ \frac{\frac{Bit}{s}}{Hz}\$
+# Durch erhöhung der Anzahl der Phasenzustände können mehrere Bit pro Takt übertragen werden.  
+# 
+# ```{figure} ./images/2PSK.png
+# :name: Digitale Modulation
+# :width: 400px
+# 
+# 2PSK \$ Bandbreiteneffizienz_{2PSK} = 1 \ \frac{\frac{Bit}{s}}{Hz}\$
+# ```
+# 
+# 
+# ```{figure} ./images/4PSK.png
+# :name: Digitale Modulation
+# :width: 400px
+# 
+# 4PSK \$ Bandbreiteneffizienz_{4PSK} = 2 \ \frac{\frac{Bit}{s}}{Hz}\$
+# ```
+# 
+# 
+# ```{figure} ./images/8PSK.png
+# :name: Digitale Modulation
+# :width: 400px
+# 
+# 8PSK \$ Bandbreiteneffizienz_{8PSK} = 3 \ \frac{\frac{Bit}{s}}{Hz}\$
+# ```
+# 
+# ### Bandbreite
+# Das Umtastsignal, bei der analogtechnik das Modulationssignal genannt, ist ein Rechtecksignal und hat damit eine sehr große Bandbreite. Siehe Fourierzerlegung eines Rechtecksignales.  
+# Daraus resultiert eine sehr große Bandbreite des modulierten Signals. Um die benötigte Bandbreite zu reduzieren wird die Bandbreite des Umtastsignals reduziert. 
