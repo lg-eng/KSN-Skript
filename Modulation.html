@@ -137,6 +137,11 @@
    4. Bibliography
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Legal.html">
+   5. Impressum, Copyright und Lizenz
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -304,6 +309,33 @@
   <a class="reference internal nav-link" href="#pm-modulation">
    3.6. PM Modulation
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#digitale-modulation">
+   3.7. Digitale Modulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#takt">
+     3.7.1. Takt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafische-darstellung">
+     3.7.2. Grafische Darstellung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bandbreiteneffizienz">
+     3.7.3. Bandbreiteneffizienz
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     3.7.4. Bandbreite
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -642,6 +674,12 @@
 <span class="n">eta</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;eta&#39;</span><span class="p">)</span>
 <span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">eta</span><span class="p">,</span><span class="s1">&#39;Modulationsindex&#39;</span><span class="p">)</span>
 
+<span class="n">fbit</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f_</span><span class="si">{Bit}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">fbit</span><span class="p">,</span><span class="s1">&#39;Bittaktfrequenz&#39;</span><span class="p">)</span>
+
+<span class="n">Tbit</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;T_</span><span class="si">{Bit}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">sym_legend</span> <span class="o">=</span> <span class="n">assign_meta_data</span><span class="p">(</span><span class="n">sym_legend</span><span class="p">,</span><span class="n">Tbit</span><span class="p">,</span><span class="s1">&#39;Bitdauer&#39;</span><span class="p">)</span>
+
 <span class="c1">#add to glue</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">sym_legend</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
@@ -740,6 +778,10 @@
 \[B_{1\%}  ...  \textrm{Bandbreite des frequenzmodulierten Signales}\]</div>
 <div class="output text_latex math notranslate nohighlight">
 \[\eta  ...  \textrm{Modulationsindex}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[f_{Bit}  ...  \textrm{Bittaktfrequenz}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[T_{Bit}  ...  \textrm{Bitdauer}\]</div>
 </div>
 </div>
 </div>
@@ -771,7 +813,7 @@
 </div>
 </div>
 <div class="section" id="arten-von-modulation">
-<h2><span class="section-number">3.3. </span>Arten von Modulation<a class="headerlink" href="#arten-von-modulation" title="Link zu dieser Überschrift">¶</a></h2>
+<span id="arten-modulation"></span><h2><span class="section-number">3.3. </span>Arten von Modulation<a class="headerlink" href="#arten-von-modulation" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wird ein periodisches Signal betrachtet können primär drei Parameter variert werden.<br />
 Wird die Amplitude verändert spricht man von der Amplitudenmodulation.<br />
 Wird die Frequenz verändert spricht man von der Frequenzmodulation.<br />
@@ -1172,7 +1214,7 @@ Durch eliminieren des Trägers wird versucht diesen Nachteil zu unterdrücken.</
 Aus den obigen Gleichungen ergibt sich auch, dass die Abweichung der momentanen Trägerfrequenz $f(\tau)$ proportional zur Modulationsspannung  ist.</p>
 <div class="section" id="bandbreitenabschatzug">
 <h3><span class="section-number">3.5.1. </span>Bandbreitenabschätzug<a class="headerlink" href="#bandbreitenabschatzug" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Mit der Carson-Formel kann die Bandbreite abgeschätzt werden. Wird die Bandbreite $ B_{10%} $ angebene, bezieht sich das $10%$ auf den Anteil der berücksichtigen Spektrallinien. In diesem Fall werden $90%$ berücksichtigt und $10%ß$ nicht. Wird eine höhre Übertragungsgüte gewünscht, mehr Spektrallinien werden übertragen, so muss die Carson-Formel $B_1%$ angewandt werden. Bei der Carson-Formel handelt es sich um eine Abschätzung. Für eine genauere Betrachtung muss die Bessel Funktion herangezogen werden.<br />
+<p>Mit der Carson-Formel kann die Bandbreite abgeschätzt werden. Wird die Bandbreite $B_{10 \%} $ angebene, bezieht sich das $10 \ \% $ auf den Anteil der berücksichtigen Spektrallinien. In diesem Fall werden $90 \ \%$ berücksichtigt und $10\ \%$ nicht. Wird eine höhre Übertragungsgüte gewünscht, mehr Spektrallinien werden übertragen, so muss die Carson-Formel $B_1%$ angewandt werden. Bei der Carson-Formel handelt es sich um eine Abschätzung. Für eine genauere Betrachtung muss die Bessel Funktion herangezogen werden.<br />
 Eine FM moduliertes Signal hat unendlich viele Spektrallinien. Das bedeutet, dass die Bandbreite immer begrenzt werden muss. Daraus ergibt sich ein Amplitudenfehler.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1206,14 +1248,16 @@ Eine FM moduliertes Signal hat unendlich viele Spektrallinien. Das bedeutet, das
 </div>
 <div class="section" id="beispiel-ukw-horfunk">
 <h3><span class="section-number">3.5.2. </span>Beispiel UKW-Hörfunk<a class="headerlink" href="#beispiel-ukw-horfunk" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Als Beispiel für reale Daten kann der FM Hörfunk herangezogen werden. Der Frequenzhub beträgt $\Delta f_T = \pm 75 \ \mathrm{kHz}$ die Trägerfrequenz ist die Frequenz die am Radio angezeigt wird. Der Radiosender OE1 wird von der Sendeanlage Patscherkofel auf der Trägerfrequenz $f_T = 82,5 \ \mathrm{MHz}$ übertragen. <span id="id3">[<a class="reference internal" href="Bibliography.html#id14">KG</a>]</span><br />
+Für die Darstellung der unten gelisteten Diagramme wurden andere Frequenzen gewählt um eine anschaliche Darstellung zu erhalten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Carrier</span>
-<span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">FREQUENCY_C</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">4</span> <span class="c1">#UKW: 100*10**6</span>
 <span class="n">AMPLITUDE_C</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1">#Modulator</span>
-<span class="n">FREQUENCY_M</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">FREQUENCY_M</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span> <span class="c1"># 75 kHZ changed for explaination</span>
 <span class="n">AMPLITUDE_M</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1">#Frequenzhub Mono</span>
@@ -1248,7 +1292,7 @@ Eine FM moduliertes Signal hat unendlich viele Spektrallinien. Das bedeutet, das
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
-<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY_C</span>
 <span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY_M</span><span class="o">*</span><span class="mi">1000</span>
 
 <span class="c1">#Generate Signals</span>
@@ -1306,6 +1350,137 @@ Eine FM moduliertes Signal hat unendlich viele Spektrallinien. Das bedeutet, das
 </div>
 </div>
 <p>Für ein Sinusförmiges Signal unterscheidet sich die PM nicht von der FM. Mit einem FM Modulator kann auch PM erzeugt werden, wenn man das Modulationssignal vor dem Modulator differenziert. Auch der umgekehrte Weg ist möglich. Wird das Modulationssignal vor dem Modulator integriert kann mit einem Phasenmodulator FM erzeugt werden.</p>
+</div>
+<div class="section" id="digitale-modulation">
+<h2><span class="section-number">3.7. </span>Digitale Modulation<a class="headerlink" href="#digitale-modulation" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Bei digitalen Modulationsverfahren treten nur diskrete Modulationswerte in euinem konstanten Zeotraster auf. Der Wechsel zwischen den diskreten Werten wird als Umtastung (shift keying) bezeichnet.<br />
+Die Unterscheidung nach den umgetasteten Parametern des Trägersignals erfolgt identisch zur analogen Modulation. <a class="reference internal" href="#arten-modulation"><span class="std std-ref">Arten von Modulation</span></a><br />
+Wird die Amplitude umgetastet spricht man von ASK … Amplitude shift keying.<br />
+Wird die Frequenz umgetastet spricht man von FSK … Frequency shift keying.<br />
+Wird die Phase umgetastet spricht man von PSK … Phase shift keying.</p>
+<div class="section" id="takt">
+<h3><span class="section-number">3.7.1. </span>Takt<a class="headerlink" href="#takt" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Für die steuerung der internen Vorgänge wird ein internes Taktsignal verwendet. Während einer Taktperiode wird genau ein Bit übertragen.<br />
+Die Frequenz des Taktsignales wird Bittaktfrequenz genannt.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fbitEq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">fbit</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="n">Tbit</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">fbitEq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle f_{Bit} = \frac{1}{T_{Bit}}\]</div>
+</div>
+</div>
+<p>Im Empfänger muss das Taktsignal aus dem digitalen Modulationssignal zurückgewonnen werden. Dies wird als Taktrückgewinnung bzw. auf Englisch clock recovery.</p>
+</div>
+<div class="section" id="grafische-darstellung">
+<h3><span class="section-number">3.7.2. </span>Grafische Darstellung<a class="headerlink" href="#grafische-darstellung" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="_images/digitale_modulation1.png"><img alt="_images/digitale_modulation1.png" src="_images/digitale_modulation1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 3.1 </span><span class="caption-text">Binäres rechteckförmiges Quellensignal (a) sowie die resultierenden Sendesignale bei ASK (b), FSK (c) und PSK (d). <span id="id4">[<a class="reference internal" href="Bibliography.html#id15">Sod</a>]</span></span><a class="headerlink" href="#id5" title="Link zu diesem Bild">¶</a></p>
+</div>
+</div>
+<div class="section" id="bandbreiteneffizienz">
+<h3><span class="section-number">3.7.3. </span>Bandbreiteneffizienz<a class="headerlink" href="#bandbreiteneffizienz" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Die Bandbreiteneffizienz gibt die pro Hz Bandbreite übertragene Bitrate an.<br />
+$ Bandbreiteneffizienz = \frac{Biterate}{Bandbreite} $<br />
+$ [Bandbreiteneffizienz] = \frac{\frac{Bit}{s}}{Hz}$<br />
+Die höchste Bandbreiteffizienz wird mit der PSK erreicht. Die einfachste Form der PSK ist die binäre PSK, BPSK oder auch 2PSK. Dabei wird zwischen Phasenzusänden umgetastet.<br />
+$ Bandbreiteneffizienz_{2PSK} = 1 \ \frac{\frac{Bit}{s}}{Hz}$
+Durch erhöhung der Anzahl der Phasenzustände können mehrere Bit pro Takt übertragen werden.</p>
+<div class="figure align-default" id="id6">
+<a class="reference internal image-reference" href="_images/2PSK.png"><img alt="_images/2PSK.png" src="_images/2PSK.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 3.2 </span><span class="caption-text">2PSK $ Bandbreiteneffizienz_{2PSK} = 1 \ \frac{\frac{Bit}{s}}{Hz}$</span><a class="headerlink" href="#id6" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">4</span><span class="o">/</span><span class="n">FREQUENCY</span>
+<span class="n">PHASES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span><span class="mi">270</span><span class="p">])</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">PSKsignal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">PHASES</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span><span class="n">phaseshift</span><span class="o">=</span><span class="n">phase</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">PSKsignal</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">PSK2</span><span class="o">=</span><span class="n">PSKsignal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_60_0.png" src="_images/Modulation_60_0.png" />
+</div>
+</div>
+<div class="figure align-default" id="id7">
+<a class="reference internal image-reference" href="_images/4PSK.png"><img alt="_images/4PSK.png" src="_images/4PSK.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 3.3 </span><span class="caption-text">4PSK $ Bandbreiteneffizienz_{4PSK} = 2 \ \frac{\frac{Bit}{s}}{Hz}$</span><a class="headerlink" href="#id7" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">FREQUENCY</span>
+<span class="n">PHASES</span> <span class="o">=</span> <span class="mi">45</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">*</span><span class="mi">90</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">PSKsignal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">PHASES</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span><span class="n">phaseshift</span><span class="o">=</span><span class="n">phase</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">PSKsignal</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">PSK4</span><span class="o">=</span><span class="n">PSKsignal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_62_0.png" src="_images/Modulation_62_0.png" />
+</div>
+</div>
+<div class="figure align-default" id="id8">
+<a class="reference internal image-reference" href="_images/8PSK.png"><img alt="_images/8PSK.png" src="_images/8PSK.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 3.4 </span><span class="caption-text">8PSK $ Bandbreiteneffizienz_{8PSK} = 3 \ \frac{\frac{Bit}{s}}{Hz}$</span><a class="headerlink" href="#id8" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY</span>
+<span class="n">PHASES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="mi">360</span><span class="o">/</span><span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">PSKsignal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">PHASES</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span><span class="n">phaseshift</span><span class="o">=</span><span class="n">phase</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">PSKsignal</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">PSK8</span><span class="o">=</span><span class="n">PSKsignal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_64_0.png" src="_images/Modulation_64_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3><span class="section-number">3.7.4. </span>Bandbreite<a class="headerlink" href="#id9" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Das Umtastsignal, bei der analogtechnik das Modulationssignal genannt, ist ein Rechtecksignal und hat damit eine sehr große Bandbreite. Siehe Fourierzerlegung eines Rechtecksignales.<br />
+Daraus resultiert eine sehr große Bandbreite des modulierten Signals. Um die benötigte Bandbreite zu reduzieren wird die Bandbreite des Umtastsignals reduziert.</p>
+</div>
 </div>
 </div>
 
