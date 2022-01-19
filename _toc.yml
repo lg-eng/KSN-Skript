@@ -13,6 +13,7 @@ parts:
     - file: Leitungstheorie
     - file: Modulation
     - file: Bibliography
+    - file: Legal
 #  - caption: Netzwerktechnik
     #numbered: True
 #    chapters:

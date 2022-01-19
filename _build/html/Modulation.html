@@ -137,6 +137,11 @@
    4. Bibliography
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Legal.html">
+   5. Impressum, Copyright und Lizenz
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -1390,13 +1395,85 @@ Durch erhöhung der Anzahl der Phasenzustände können mehrere Bit pro Takt übe
 <a class="reference internal image-reference" href="_images/2PSK.png"><img alt="_images/2PSK.png" src="_images/2PSK.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 3.2 </span><span class="caption-text">2PSK $ Bandbreiteneffizienz_{2PSK} = 1 \ \frac{\frac{Bit}{s}}{Hz}$</span><a class="headerlink" href="#id6" title="Link zu diesem Bild">¶</a></p>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">4</span><span class="o">/</span><span class="n">FREQUENCY</span>
+<span class="n">PHASES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span><span class="mi">270</span><span class="p">])</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">PSKsignal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">PHASES</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span><span class="n">phaseshift</span><span class="o">=</span><span class="n">phase</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">PSKsignal</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">PSK2</span><span class="o">=</span><span class="n">PSKsignal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_60_0.png" src="_images/Modulation_60_0.png" />
+</div>
+</div>
 <div class="figure align-default" id="id7">
 <a class="reference internal image-reference" href="_images/4PSK.png"><img alt="_images/4PSK.png" src="_images/4PSK.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 3.3 </span><span class="caption-text">4PSK $ Bandbreiteneffizienz_{4PSK} = 2 \ \frac{\frac{Bit}{s}}{Hz}$</span><a class="headerlink" href="#id7" title="Link zu diesem Bild">¶</a></p>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">FREQUENCY</span>
+<span class="n">PHASES</span> <span class="o">=</span> <span class="mi">45</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">*</span><span class="mi">90</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">PSKsignal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">PHASES</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span><span class="n">phaseshift</span><span class="o">=</span><span class="n">phase</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">PSKsignal</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">PSK4</span><span class="o">=</span><span class="n">PSKsignal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_62_0.png" src="_images/Modulation_62_0.png" />
+</div>
+</div>
 <div class="figure align-default" id="id8">
 <a class="reference internal image-reference" href="_images/8PSK.png"><img alt="_images/8PSK.png" src="_images/8PSK.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 3.4 </span><span class="caption-text">8PSK $ Bandbreiteneffizienz_{8PSK} = 3 \ \frac{\frac{Bit}{s}}{Hz}$</span><a class="headerlink" href="#id8" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#General Settings</span>
+<span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">FREQUENCY</span>
+<span class="n">DURATION</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">FREQUENCY</span>
+<span class="n">PHASES</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="mi">360</span><span class="o">/</span><span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+
+<span class="c1">#Generate Signals</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">PSKsignal</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">PHASES</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">generate_wave</span><span class="p">(</span><span class="n">FREQUENCY</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">DURATION</span><span class="p">,</span><span class="n">phaseshift</span><span class="o">=</span><span class="n">phase</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">PSKsignal</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="n">plot_vs_time</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">PSK8</span><span class="o">=</span><span class="n">PSKsignal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Modulation_64_0.png" src="_images/Modulation_64_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="id9">

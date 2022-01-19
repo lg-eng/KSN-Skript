@@ -817,23 +817,81 @@ display(fbitEq1)
 # 
 # 2PSK \$ Bandbreiteneffizienz_{2PSK} = 1 \ \frac{\frac{Bit}{s}}{Hz}\$
 # ```
-# 
-# 
+
+# In[34]:
+
+
+#General Settings
+FREQUENCY = 10**6
+SAMPLE_RATE = 100*FREQUENCY
+DURATION = 4/FREQUENCY
+PHASES = np.array([90,270])*np.pi/180
+
+#Generate Signals
+time = [0]
+PSKsignal = [0]
+for phase in PHASES:
+    x,y = generate_wave(FREQUENCY, SAMPLE_RATE, DURATION,phaseshift=phase)
+    time.extend(x+time[-1])
+    PSKsignal.extend(y)
+    
+plot_vs_time(time,PSK2=PSKsignal)
+
+
 # ```{figure} ./images/4PSK.png
 # :name: Digitale Modulation
 # :width: 400px
 # 
 # 4PSK \$ Bandbreiteneffizienz_{4PSK} = 2 \ \frac{\frac{Bit}{s}}{Hz}\$
 # ```
-# 
-# 
+
+# In[35]:
+
+
+#General Settings
+FREQUENCY = 10**6
+SAMPLE_RATE = 100*FREQUENCY
+DURATION = 2/FREQUENCY
+PHASES = 45+np.array([2,1,0,3])*90*np.pi/180
+
+#Generate Signals
+time = [0]
+PSKsignal = [0]
+for phase in PHASES:
+    x,y = generate_wave(FREQUENCY, SAMPLE_RATE, DURATION,phaseshift=phase)
+    time.extend(x+time[-1])
+    PSKsignal.extend(y)
+    
+plot_vs_time(time,PSK4=PSKsignal)
+
+
 # ```{figure} ./images/8PSK.png
 # :name: Digitale Modulation
 # :width: 400px
 # 
 # 8PSK \$ Bandbreiteneffizienz_{8PSK} = 3 \ \frac{\frac{Bit}{s}}{Hz}\$
 # ```
-# 
+
+# In[36]:
+
+
+#General Settings
+FREQUENCY = 10**6
+SAMPLE_RATE = 100*FREQUENCY
+DURATION = 1/FREQUENCY
+PHASES = np.array([5,4,3,2,1,0,-1,-2])*360/8*np.pi/180
+
+#Generate Signals
+time = [0]
+PSKsignal = [0]
+for phase in PHASES:
+    x,y = generate_wave(FREQUENCY, SAMPLE_RATE, DURATION,phaseshift=phase)
+    time.extend(x+time[-1])
+    PSKsignal.extend(y)
+    
+plot_vs_time(time,PSK8=PSKsignal)
+
+
 # ### Bandbreite
 # Das Umtastsignal, bei der analogtechnik das Modulationssignal genannt, ist ein Rechtecksignal und hat damit eine sehr große Bandbreite. Siehe Fourierzerlegung eines Rechtecksignales.  
 # Daraus resultiert eine sehr große Bandbreite des modulierten Signals. Um die benötigte Bandbreite zu reduzieren wird die Bandbreite des Umtastsignals reduziert. 

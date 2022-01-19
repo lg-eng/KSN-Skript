@@ -15,162 +15,6 @@
     }
   },
   "Modulation": {
-    "m": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "m",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "m",
-        "application/papermill.record/text/latex": "$\\displaystyle m$"
-      }
-    },
-    "R": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "R",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "R",
-        "application/papermill.record/text/latex": "$\\displaystyle R$"
-      }
-    },
-    "\\hat{U}_c": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "\\hat{U}_c",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "\\hat{U}_c",
-        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}_c$"
-      }
-    },
-    "P_USB": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "P_USB",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "P_USB",
-        "application/papermill.record/text/latex": "$\\displaystyle P_{USB}$"
-      }
-    },
-    "t": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "t",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "t",
-        "application/papermill.record/text/latex": "$\\displaystyle t$"
-      }
-    },
-    "omega": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "omega",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "\u03c9",
-        "application/papermill.record/text/latex": "$\\displaystyle \\omega$"
-      }
-    },
-    "f_c": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "f_c",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "f_c",
-        "application/papermill.record/text/latex": "$\\displaystyle f_{c}$"
-      }
-    },
-    "P_LSB": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "P_LSB",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "P_LSB",
-        "application/papermill.record/text/latex": "$\\displaystyle P_{LSB}$"
-      }
-    },
-    "B_{1\\%}": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "B_{1\\%}",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "B_{1\\%}",
-        "application/papermill.record/text/latex": "$\\displaystyle B_{1\\%}$"
-      }
-    },
-    "f": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "f",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "f",
-        "application/papermill.record/text/latex": "$\\displaystyle f$"
-      }
-    },
-    "P_c": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "P_c",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "P_c",
-        "application/papermill.record/text/latex": "$\\displaystyle P_{c}$"
-      }
-    },
-    "\\Delta f": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "\\Delta f",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "\\Delta f",
-        "application/papermill.record/text/latex": "$\\displaystyle \\Delta f$"
-      }
-    },
     "f_{Bit}": {
       "output_type": "display_data",
       "metadata": {
@@ -182,32 +26,6 @@
       "data": {
         "application/papermill.record/text/plain": "f_{Bit}",
         "application/papermill.record/text/latex": "$\\displaystyle f_{Bit}$"
-      }
-    },
-    "eta": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "eta",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "\u03b7",
-        "application/papermill.record/text/latex": "$\\displaystyle \\eta$"
-      }
-    },
-    "P": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "P",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "P",
-        "application/papermill.record/text/latex": "$\\displaystyle P$"
       }
     },
     "u(t)": {
@@ -223,133 +41,30 @@
         "application/papermill.record/text/latex": "$\\displaystyle u(t)$"
       }
     },
-    "P_m": {
+    "u_{c}(t)": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "P_m",
+          "name": "u_{c}(t)",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "P\u2098",
-        "application/papermill.record/text/latex": "$\\displaystyle P_{m}$"
+        "application/papermill.record/text/plain": "u_{c}(t)",
+        "application/papermill.record/text/latex": "$\\displaystyle u_{c}(t)$"
       }
     },
-    "\\hat{U}_{AM}": {
+    "eta": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "\\hat{U}_{AM}",
+          "name": "eta",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "\\hat{U}_{AM}",
-        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}_{AM}$"
-      }
-    },
-    "f_m": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "f_m",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "f\u2098",
-        "application/papermill.record/text/latex": "$\\displaystyle f_{m}$"
-      }
-    },
-    "tau": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "tau",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "\u03c4",
-        "application/papermill.record/text/latex": "$\\displaystyle \\tau$"
-      }
-    },
-    "u_{m}(t)": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "u_{m}(t)",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "u_{m}(t)",
-        "application/papermill.record/text/latex": "$\\displaystyle u_{m}(t)$"
-      }
-    },
-    "u_{FM}(t)": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "u_{FM}(t)",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "u_{FM}(t)",
-        "application/papermill.record/text/latex": "$\\displaystyle u_{FM}(t)$"
-      }
-    },
-    "\\hat{U}": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "\\hat{U}",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "\\hat{U}",
-        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}$"
-      }
-    },
-    "\\hat{U}_m": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "\\hat{U}_m",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "\\hat{U}\u2098",
-        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}_m$"
-      }
-    },
-    "P_AM": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "P_AM",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "P_AM",
-        "application/papermill.record/text/latex": "$\\displaystyle P_{AM}$"
-      }
-    },
-    "u_FM": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "u_FM",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "u_FM"
+        "application/papermill.record/text/plain": "\u03b7",
+        "application/papermill.record/text/latex": "$\\displaystyle \\eta$"
       }
     },
     "\\Delta f_c": {
@@ -365,30 +80,30 @@
         "application/papermill.record/text/latex": "$\\displaystyle \\Delta f_{c}$"
       }
     },
-    "u_{c}(t)": {
+    "B_{1\\%}": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "u_{c}(t)",
+          "name": "B_{1\\%}",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "u_{c}(t)",
-        "application/papermill.record/text/latex": "$\\displaystyle u_{c}(t)$"
+        "application/papermill.record/text/plain": "B_{1\\%}",
+        "application/papermill.record/text/latex": "$\\displaystyle B_{1\\%}$"
       }
     },
-    "B_AM": {
+    "m": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "B_AM",
+          "name": "m",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "B_AM",
-        "application/papermill.record/text/latex": "$\\displaystyle B_{AM}$"
+        "application/papermill.record/text/plain": "m",
+        "application/papermill.record/text/latex": "$\\displaystyle m$"
       }
     },
     "u_{PM}(t)": {
@@ -404,43 +119,29 @@
         "application/papermill.record/text/latex": "$\\displaystyle u_{PM}(t)$"
       }
     },
-    "T_{Bit}": {
+    "f": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "T_{Bit}",
+          "name": "f",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "T_{Bit}",
-        "application/papermill.record/text/latex": "$\\displaystyle T_{Bit}$"
+        "application/papermill.record/text/plain": "f",
+        "application/papermill.record/text/latex": "$\\displaystyle f$"
       }
     },
-    "B_{10\\%}": {
+    "u_FM": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "B_{10\\%}",
+          "name": "u_FM",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "B_{10\\%}",
-        "application/papermill.record/text/latex": "$\\displaystyle B_{10\\%}$"
-      }
-    },
-    "U_{rms}": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "U_{rms}",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "U_{rms}",
-        "application/papermill.record/text/latex": "$\\displaystyle U_{rms}$"
+        "application/papermill.record/text/plain": "u_FM"
       }
     },
     "\\varphi": {
@@ -456,6 +157,214 @@
         "application/papermill.record/text/latex": "$\\displaystyle \\varphi$"
       }
     },
+    "\\hat{U}": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "\\hat{U}",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "\\hat{U}",
+        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}$"
+      }
+    },
+    "omega": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "omega",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "\u03c9",
+        "application/papermill.record/text/latex": "$\\displaystyle \\omega$"
+      }
+    },
+    "\\hat{U}_m": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "\\hat{U}_m",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "\\hat{U}\u2098",
+        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}_m$"
+      }
+    },
+    "P_LSB": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "P_LSB",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "P_LSB",
+        "application/papermill.record/text/latex": "$\\displaystyle P_{LSB}$"
+      }
+    },
+    "tau": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "tau",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "\u03c4",
+        "application/papermill.record/text/latex": "$\\displaystyle \\tau$"
+      }
+    },
+    "t": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "t",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "t",
+        "application/papermill.record/text/latex": "$\\displaystyle t$"
+      }
+    },
+    "u_{m}(t)": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "u_{m}(t)",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "u_{m}(t)",
+        "application/papermill.record/text/latex": "$\\displaystyle u_{m}(t)$"
+      }
+    },
+    "P_m": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "P_m",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "P\u2098",
+        "application/papermill.record/text/latex": "$\\displaystyle P_{m}$"
+      }
+    },
+    "B_{10\\%}": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "B_{10\\%}",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "B_{10\\%}",
+        "application/papermill.record/text/latex": "$\\displaystyle B_{10\\%}$"
+      }
+    },
+    "P_c": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "P_c",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "P_c",
+        "application/papermill.record/text/latex": "$\\displaystyle P_{c}$"
+      }
+    },
+    "P_AM": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "P_AM",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "P_AM",
+        "application/papermill.record/text/latex": "$\\displaystyle P_{AM}$"
+      }
+    },
+    "\\hat{U}_c": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "\\hat{U}_c",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "\\hat{U}_c",
+        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}_c$"
+      }
+    },
+    "u_{FM}(t)": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "u_{FM}(t)",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "u_{FM}(t)",
+        "application/papermill.record/text/latex": "$\\displaystyle u_{FM}(t)$"
+      }
+    },
+    "f_m": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "f_m",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "f\u2098",
+        "application/papermill.record/text/latex": "$\\displaystyle f_{m}$"
+      }
+    },
+    "P": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "P",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "P",
+        "application/papermill.record/text/latex": "$\\displaystyle P$"
+      }
+    },
+    "R": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "R",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "R",
+        "application/papermill.record/text/latex": "$\\displaystyle R$"
+      }
+    },
     "u_{AM}(t)": {
       "output_type": "display_data",
       "metadata": {
@@ -467,6 +376,97 @@
       "data": {
         "application/papermill.record/text/plain": "u_{AM}(t)",
         "application/papermill.record/text/latex": "$\\displaystyle u_{AM}(t)$"
+      }
+    },
+    "\\Delta f": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "\\Delta f",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "\\Delta f",
+        "application/papermill.record/text/latex": "$\\displaystyle \\Delta f$"
+      }
+    },
+    "T_{Bit}": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "T_{Bit}",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "T_{Bit}",
+        "application/papermill.record/text/latex": "$\\displaystyle T_{Bit}$"
+      }
+    },
+    "\\hat{U}_{AM}": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "\\hat{U}_{AM}",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "\\hat{U}_{AM}",
+        "application/papermill.record/text/latex": "$\\displaystyle \\hat{U}_{AM}$"
+      }
+    },
+    "B_AM": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "B_AM",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "B_AM",
+        "application/papermill.record/text/latex": "$\\displaystyle B_{AM}$"
+      }
+    },
+    "f_c": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "f_c",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "f_c",
+        "application/papermill.record/text/latex": "$\\displaystyle f_{c}$"
+      }
+    },
+    "P_USB": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "P_USB",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "P_USB",
+        "application/papermill.record/text/latex": "$\\displaystyle P_{USB}$"
+      }
+    },
+    "U_{rms}": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "U_{rms}",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "U_{rms}",
+        "application/papermill.record/text/latex": "$\\displaystyle U_{rms}$"
       }
     }
   }
