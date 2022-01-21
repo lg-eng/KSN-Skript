@@ -10,6 +10,7 @@ parts:
     - file: Signaldarstellung
       sections:
       - file: Bodeplot
+    - file: Fourier
     - file: Leitungstheorie
     - file: Modulation
     - file: Bibliography

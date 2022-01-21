@@ -12,7 +12,7 @@ Schulungsunterlagen zu Themen aus der Elektronik
 
 Copyright für Text-Passagen:  
 So nicht anders angegeben, stehen alle von mir verfassten Texte und erstellten Bilder unter der 
-[Creative Commons-Lizenz CC-BY-SA-4.0.](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+[Creative Commons-Lizenz CC-BY-SA-4.0.](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
 
 Lizenz für den Code:  
 [GNU General Public License, version 3](http://www.gnu.org/licenses/gpl.html)
